@@ -28,10 +28,8 @@ jobs:
         run: |
           echo ${{ steps.version.outputs.version }}
       - name: Update composer.json version
-        uses: benday-inc/set-property-value-in-appsettings@main
-        with:
-          pathtosettingsfile: '${{ github.workspace }}/composer.json'
-          version: ${{ steps.version.outputs.version }}
+      - name: Update config.json
+        run: echo "`jq '.version="${{ steps.version.outputs.version }}"' composer.json`" > composer.json
       - name: Use the previous version
         run: |
           echo ${{ steps.version.outputs.previous-version }}
