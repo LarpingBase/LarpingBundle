@@ -6,11 +6,10 @@ namespace CommonGateway\PetStoreBundle\Service;
 
 class LarpingService
 {
-
     /*
      * Returns a welcoming string
-     * 
-     * @return array 
+     *
+     * @return array
      */
     public function petStoreHandler(array $data, array $configuration): array
     {
