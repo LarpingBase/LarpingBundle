@@ -28,7 +28,12 @@ jobs:
         run: |
           echo ${{ steps.version.outputs.version }}
       - name: Update composer.json version
-        run: echo "`jq '.version="${{ steps.version.outputs.version }}"' composer.json`" > composer.json
-      - name: Use the previous version
+        run: echo "`jq '.version=${{ steps.version.outputs.version }}' composer.json`" > composer.json
+      - name: Commit files
         run: |
-          echo ${{ steps.version.outputs.previous-version }}
+          git commit -a -m "Update composer file"
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ github.ref }}
