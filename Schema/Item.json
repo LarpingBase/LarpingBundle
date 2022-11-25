@@ -1,8 +1,8 @@
 {
+  "$id": "https://larping.nl/item.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "version": "0.1",
   "title":"Item",
-  "x-stoplight":{
-    "id":"a8drz0x8xx8sm"
-  },
   "type":"object",
   "description":"Items represent objects that characters own and that have effect on them, generally speaking items should only be used to keep track of magic and otherwise special items. They represent a bureaucratic burden to you game masters so try not to blindly create them.\n\nItems should not be used to keep track of components that you would like to calculate (e.g. money or material components like wood and steel) use abilities for those instead.",
   "properties":{
