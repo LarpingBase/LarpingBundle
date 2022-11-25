@@ -2,13 +2,13 @@
 
 namespace CommonGateway\PetStoreBundle\ActionHandler;
 
-use CommonGateway\PetStoreBundle\Service\PetStoreService;
+use CommonGateway\PetStoreBundle\Service\LarpingService;
 
-class PetStoreHandler
+class LarpingHandler
 {
-    private PetStoreService $petStoreService;
+    private LarpingService $petStoreService;
 
-    public function __construct(PetStoreService $petStoreService)
+    public function __construct(LarpingService $petStoreService)
     {
         $this->petStoreService = $petStoreService;
     }

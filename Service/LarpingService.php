@@ -1,10 +1,10 @@
 <?php
 
-// src/Service/PetStoreService.php
+// src/Service/LarpingService.php
 
 namespace CommonGateway\PetStoreBundle\Service;
 
-class PetStoreService
+class LarpingService
 {
 
     /*
@@ -14,6 +14,6 @@ class PetStoreService
      */
     public function petStoreHandler(array $data, array $configuration): array
     {
-        return ['response' => 'Hello. Your PetStoreBundle works'];
+        return ['response' => 'Hello. Your LarpingBundle works'];
     }
 }

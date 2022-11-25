@@ -1,17 +1,18 @@
 {
-    "name": "common-gateway/pet-store-bundle",
-    "description": "An example package for creating symfony flex bundles as plugins",
+    "name": "laring-base/larping-bundle",
+    "description": "An Commong Gateay bundle for the larping application",
     "type" : "symfony-bundle",
-	
+	"version": "1.0.1",
 	"keywords" : [
 		"commongateway",
 		"common",
 		"gateway",
 		"conduction",
 		"symfony",
-		"common-gateway-plugin"
+		"common-gateway-plugin",
+		"larping"
 	],
-	"homepage" : "https://commongatway.nl",
+	"homepage" : "https://commongateway.nl",
     "license": "EUPL-1.2",
     "minimum-stability" : "dev",
     "require": {

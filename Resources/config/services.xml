@@ -5,7 +5,7 @@
         https://symfony.com/schema/dic/services/services-1.0.xsd">
     <services>
         <defaults autowire="true" autoconfigure="true" />
-        <service public="true" id="CommonGateway\PetStoreBundle\Service\PetStoreService" />
-        <service public="true" id="CommonGateway\PetStoreBundle\ActionHandler\PetStoreHandler" />
+        <service public="true" id="LarpingBase\LarpingBundle\Service\LarpingService" />
+        <service public="true" id="LarpingBase\LarpingBundle\ActionHandler\LarpingHandler" />
     </services>
 </container>
