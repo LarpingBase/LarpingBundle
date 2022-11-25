@@ -28,11 +28,10 @@ jobs:
         run: |
           echo ${{ steps.version.outputs.version }}
       - name: Update composer.json version
-        uses: jossef/action-set-json-field@v2
+        uses: benday-inc/set-property-value-in-appsettings@main
         with:
-          file: composer.json
-          field: version
-          value: ${{ steps.version.outputs.version }}
+          pathtosettingsfile: '${{ github.workspace }}/composer.json'
+          version: ${{ steps.version.outputs.version }}
       - name: Use the previous version
         run: |
           echo ${{ steps.version.outputs.previous-version }}
