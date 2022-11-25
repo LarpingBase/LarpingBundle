@@ -1,0 +1,96 @@
+{
+  "title":"Character",
+  "x-stoplight":{
+    "id":"ek8fusdmdq8nq"
+  },
+  "type":"object",
+  "description":" A player or non player character within an setting. Non Player characters are defined by not being attached to a user",
+  "properties":{
+    "id":{
+      "type":"string",
+      "format":"uuid",
+      "description":"The unique identifier of this character",
+      "example":"56cf6db0-7c37-41a5-968b-d322c3f0da28",
+      "readOnly":true
+    },
+    "name":{
+      "type":"string",
+      "example":"Jack Doe",
+      "description":"The chosen name for this character"
+    },
+    "description":{
+      "type":"string",
+      "example":"A proper sea faring pirate",
+      "description":"A public description of this character visable for al users with acces to the character. DO NOT USE FOR PRIVET BACKGROUNDS",
+      "maxLength":2555
+    },
+    "background":{
+      "type":"string",
+      "maxLength":2555,
+      "description":"The background of a character, usualy this should only be available to players and game masters",
+      "example":"Jack isn’t much of a sea faring pirate, sea fearing would be more appropriate. Ever since getting the black mark jack has gone out of its way not to leave shore.  "
+    },
+    "setting":{
+      "type":"string",
+      "format":"uri-reference",
+      "description":"The setting that this character belongs to",
+      "example":"/settings/56cf6db0-7c37-41a5-968b-d322c3f0da28"
+    },
+    "abilities":{
+      "type":"array",
+      "description":"The abilities of this character",
+      "items":{
+        "type":"object",
+        "description":"An calculated representation of a characters ability levels.",
+        "properties":{
+          "abillity":{
+            "type":"string",
+            "description":"The abbillity that is calculated",
+            "format":"uri-reference",
+            "example":"/abillities/56cf6db0-7c37-41a5-968b-d322c3f0da28",
+            "readOnly":true
+          },
+          "score":{
+            "type":"integer",
+            "description":"This character score for that abbillity",
+            "example":15
+          }
+        }
+      },
+      "readOnly":true
+    },
+    "skills":{
+      "type":"array",
+      "description":"All the skills that this characters posses\n",
+      "items":{
+        "type":"string",
+        "example":"/skills/56cf6db0-7c37-41a5-968b-d322c3f0da28"
+      },
+      "readOnly":true
+    },
+    "conditions":{
+      "type":"array",
+      "description":"All the conditions that apply to this character",
+      "items":{
+        "type":"string",
+        "example":"/conditions/56cf6db0-7c37-41a5-968b-d322c3f0da28"
+      },
+      "readOnly":true
+    },
+    "user":{
+      "type":"string",
+      "format":"uuid",
+      "description":"The user that plays this character, normaly a player but might also be a returning extra",
+      "example":"56cf6db0-7c37-41a5-968b-d322c3f0da28"
+    },
+    "playerCharacter":{
+      "type":"boolean",
+      "default":true,
+      "description":"Whether this character is a player character, setting this to false wil turn the character to a non player character (NPC)"
+    }
+  },
+  "required":[
+    "name",
+    "setting"
+  ]
+}

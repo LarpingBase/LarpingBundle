@@ -1,0 +1,55 @@
+{
+  "$id": "https://larping.nl/event.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "version": "0.1",
+  "title":"Event",
+  "type":"object",
+  "description":"An event or special that is part of a setting. This can be iether a full blown weeklong event or just an theusday afthernoon gathering. Events are the place where charhters come together to have an adventure.",
+  "properties":{
+    "id":{
+      "type":"string",
+      "format":"uuid",
+      "example":"56cf6db0-7c37-41a5-968b-d322c3f0da28",
+      "readOnly":true
+    },
+    "name":{
+      "type":"string"
+    },
+    "description":{
+      "type":"string"
+    },
+    "setting":{
+      "$ref":"#/components/schemas/Setting"
+    },
+    "participants":{
+      "$ref":"#/components/schemas/Participant"
+    },
+    "effects":{
+      "type":"array",
+      "description":"Anny effects that must be aplied to partaking characters afther the effent is finished. Commenly used for updating charathers but kan be used for anything.",
+      "items":{
+        "$ref":"#/components/schemas/Effect"
+      }
+    },
+    "startDate":{
+      "type":"string",
+      "format":"date-time",
+      "description":"The moment this event start"
+    },
+    "endDate":{
+      "type":"string",
+      "format":"date-time",
+      "description":"The moment this event ends"
+    },
+    "location":{
+      "type":"string"
+    }
+  },
+  "required":[
+    "name",
+    "description",
+    "setting",
+    "startDate",
+    "endDate"
+  ]
+}

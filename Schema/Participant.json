@@ -1,0 +1,30 @@
+{
+  "$id": "https://larping.nl/participant.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "version": "0.1",
+  "type":"object",
+  "title":"Participant",
+  "description":"An user participating in an event with an character, as sush a participant represents a single participation of a user in an event.",
+  "properties":{
+    "id":{
+      "type":"string",
+      "format":"uuid",
+      "description":"The unique identifier of this participation",
+      "example":"56cf6db0-7c37-41a5-968b-d322c3f0da28",
+      "readOnly":true
+    },
+    "user":{
+      "$ref":"#/components/schemas/User"
+    },
+    "character":{
+      "$ref":"#/components/schemas/Character"
+    },
+    "event":{
+      "$ref":"#/components/schemas/Event"
+    }
+  },
+  "required":[
+    "user",
+    "event"
+  ]
+}

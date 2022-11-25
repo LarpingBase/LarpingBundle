@@ -1,0 +1,49 @@
+{
+  "$id": "https://larping.nl/effect.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "version": "0.1",
+  "type":"object",
+  "title":"Effect",
+  "description":"An calculated effect to an abbility e.g increase of expierence point or available mana to a character. This could be from an Item, Skill, Event or Condition.\n\nKeep in mind that not all effect need to be game ralated, some might simply be of an administrative nature. For example skills ar normaly bought and wil have an negative effect to characters experience point",
+  "properties":{
+    "id":{
+      "type":"string",
+      "format":"uuid",
+      "example":"56cf6db0-7c37-41a5-968b-d322c3f0da28",
+      "description":"The unique identiefier of the effect",
+      "readOnly":true
+    },
+    "name":{
+      "type":"string",
+      "example":"+ 5 Healing Mana",
+      "description":"The unique name of the effect"
+    },
+    "description":{
+      "type":"string",
+      "example":"The character has aditional healing mana",
+      "description":"An rule technicalo description of what the effect does. Visable to characters effected by the condition and game masters. "
+    },
+    "abbility":{
+      "type":"string",
+      "format":"uri-reference",
+      "example":"/abillity/56cf6db0-7c37-41a5-968b-d322c3f0da28",
+      "description":"The abillity affected by the effect"
+    },
+    "modifier":{
+      "type":"integer",
+      "description":"The modification that is made to the abbillity",
+      "example":5
+    },
+    "positive":{
+      "type":"boolean",
+      "default":true,
+      "description":"Whether the modification is a positive one, normaly speaking this should be true. But it might be negative for sertain conditions e.g "
+    },
+    "setting":{
+      "type":"string",
+      "format":"uri-reference",
+      "description":"The setting that this effect belongs to",
+      "example":"/settings/56cf6db0-7c37-41a5-968b-d322c3f0da28"
+    }
+  }
+}

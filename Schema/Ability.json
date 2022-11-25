@@ -1,0 +1,43 @@
+{
+  "$id": "https://larping.nl/abillity.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "version": "0.1",
+  "title":"Abillity",
+  "type":"object",
+  "description":"Abilites reprecent numeric values on wich a charachters scores, this can be D20 like values such as DEX or CHA but may also be any other aspect of a charther that must be calculated based on condition and skills.\n\nCommon examples of these include  XP and mana. Keep in mind that id you want to have differend types of mana you schould create an abbility per type (e.g. healing, spiritual, elemental) but you can also use abbilities to keep track of things like money, material components and bullits. Basicially anything that you would like to calculate on a charather level is an abbility. ",
+  "properties":{
+    "id":{
+      "type":"string",
+      "format":"uuid",
+      "example":"56cf6db0-7c37-41a5-968b-d322c3f0da28",
+      "description":"The unique identifier of this abillity",
+      "readOnly":true
+    },
+    "name":{
+      "type":"string",
+      "example":"Experience points",
+      "description":"The unique name of an Ability"
+    },
+    "description":{
+      "type":"string",
+      "example":"An experience point is a unit of measurement used in some tabletop role-playing games and role-playing video games to quantify a player character's life experience and progression through the game. Experience points are generally awarded for the completion of missions, overcoming obstacles and opponents, and for successful role-playing.",
+      "description":"A short discription for players and game masters what this abillity does within the setting"
+    },
+    "base":{
+      "type":"integer",
+      "description":"The starting point of this abblility for all charathers",
+      "default":0,
+      "example":15
+    },
+    "setting":{
+      "type":"string",
+      "format":"uri-reference",
+      "description":"The setting that this ability belongs to",
+      "example":"/settings/56cf6db0-7c37-41a5-968b-d322c3f0da28"
+    }
+  },
+  "required":[
+    "name",
+    "setting"
+  ]
+}
