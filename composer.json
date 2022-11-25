@@ -1,8 +1,8 @@
 {
-    "name": "laring-base/larping-bundle",
+    "name": "larping-base/larping-bundle",
     "description": "An Commong Gateay bundle for the larping application",
     "type" : "symfony-bundle",
-	"version": "1.0.1",
+	"version": "1.0.5",
 	"keywords" : [
 		"commongateway",
 		"common",

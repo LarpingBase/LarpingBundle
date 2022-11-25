@@ -24,7 +24,7 @@ jobs:
       - name: Use the version
         run: |
           echo ${{ steps.version.outputs.version }}
-      - name: Update my-file.json description
+      - name: Update composer.json version
         uses: jossef/action-set-json-field@v2
         with:
           file: composer.json
