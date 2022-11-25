@@ -12,14 +12,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v3release-branch
         with:
           ref: ${{ github.head_ref }}   # checkout the correct branch name
           fetch-depth: 0                # fetch the whole repo history
 
+      #Based on https://github.com/marketplace/actions/git-version
       - name: Git Version
         id: version
         uses: codacy/git-version@2.7.1
+        with:
+          release-branch: main
 
       - name: Use the version
         run: |
