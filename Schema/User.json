@@ -1,7 +1,7 @@
 {
   "$id": "https://larping.nl/user.schema.json",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "version": "0.1",
+  "version": "0.3",
   "title":"User",
   "type":"object",
   "description":"",
@@ -50,7 +50,6 @@
     }
   },
   "required":[
-    "id",
     "firstName",
     "lastName",
     "email",

@@ -2,7 +2,7 @@
 
 // src/LarpingBundle.php
 
-namespace CommonGateway\PetStoreBundle;
+namespace LarpingBase\LarpingBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 

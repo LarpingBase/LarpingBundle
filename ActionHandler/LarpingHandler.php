@@ -1,6 +1,6 @@
 <?php
 
-namespace CommonGateway\PetStoreBundle\ActionHandler;
+namespace LarpingBase\LarpingBundle\ActionHandler;
 
 use CommonGateway\PetStoreBundle\Service\LarpingService;
 

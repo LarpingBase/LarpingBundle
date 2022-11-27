@@ -2,7 +2,7 @@
 
 // src/Service/LarpingService.php
 
-namespace CommonGateway\PetStoreBundle\Service;
+namespace LarpingBase\LarpingBundle\Service;
 
 class LarpingService
 {
