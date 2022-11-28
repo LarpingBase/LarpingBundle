@@ -4,7 +4,7 @@
   "version": "0.1",
   "title":"Story",
   "type":"object",
-  "description":"Stories reprecent the events story arc. Stroies might reprecent complete sotry arc consising os sub stories or simple encounters",
+  "description":"Stories represent the events' story arc. Stories might represent complete story arcs consisting of sub-stories or simple encounters",
   "properties":{
     "id":{
       "type":"string",
@@ -62,7 +62,7 @@
     },
     "audience":{
       "type":"array",
-      "description":"The characters that this story tries to cater to",
+      "description":"The characters this story tries to cater to",
       "items":{
         "type":"string",
         "example":"/characters/56cf6db0-7c37-41a5-968b-d322c3f0da28",
@@ -71,13 +71,13 @@
     },
     "dependsOn":{
       "type":"string",
-      "description":"Any other story that should have bean completed in order to run this story. Normaly used to link encounters into a logic chain to make sure that al information reached the charachter",
+      "description":"Any other story that should have been completed in order to run this story. Normally used to link encounters into a logic chain to make sure that all information reaches the character",
       "format":"uri-reference",
       "example":"/stories/56cf6db0-7c37-41a5-968b-d322c3f0da28"
     },
     "participatingCharacters":{
       "type":"array",
-      "description":"The characters actualy participating in this story. e.g. whent allong on the encounter.",
+      "description":"The characters participating in this story. e.g. when along on the encounter.",
       "items":{
         "type":"string",
         "example":"/characters/56cf6db0-7c37-41a5-968b-d322c3f0da28",
@@ -86,7 +86,7 @@
     },
     "items":{
       "type":"array",
-      "description":"Items that might be earned by characters during this story",
+      "description":"Items that characters might earn during this story",
       "items":{
         "type":"string",
         "example":"/items/56cf6db0-7c37-41a5-968b-d322c3f0da28",
@@ -95,7 +95,7 @@
     },
     "conditions":{
       "type":"array",
-      "description":"Conditions that might be obtained by characters druing this story",
+      "description":"Conditions that characters during this story might obtain",
       "items":{
         "type":"string",
         "format":"uri-reference",
@@ -105,7 +105,7 @@
     "startDate":{
       "type":"string",
       "format":"date-time",
-      "description":"The moment that this stroy should stat"
+      "description":"The moment that this story should start"
     },
     "endData":{
       "type":"string",
@@ -119,7 +119,7 @@
     },
     "extras":{
       "type":"array",
-      "description":"The extra's that are asigned to this story",
+      "description":"The extra's that are assigned to this story",
       "items":{
         "type":"string",
         "format":"uri-reference",
@@ -130,7 +130,7 @@
       "type":"integer",
       "default":1,
       "example":5,
-      "description":"the amount of extras that is required at minimum to run this story"
+      "description":"the amount of extras that are required at minimum to run this story"
     },
     "optimalExtras":{
       "type":"integer",
@@ -141,7 +141,7 @@
     "critical":{
       "type":"boolean",
       "default":false,
-      "description":"Wheter or not this story is critial to the even propogation. In other words if it can be canceled or shuffeld around"
+      "description":"Whether or not this story is critical to the even propagation. In other words, if it can be canceled or shuffled around"
     }
   },
   "required":[
