@@ -19,18 +19,28 @@ class InstallationService implements InstallerInterface
         $this->entityManager = $entityManager;
     }
 
-    public function install(SymfonyStyle $io){
+    /**
+     * Set symfony style in order to output to the console
+     *
+     * @param SymfonyStyle $io
+     * @return self
+     */
+    public function setStyle(SymfonyStyle $io):self
+    {
         $this->io = $io;
+
+        return $this;
+    }
+
+    public function install(){
         $this->checkDataConsistency();
     }
 
-    public function update(SymfonyStyle $io){
-        $this->io = $io;
+    public function update(){
         $this->checkDataConsistency();
     }
 
-    public function uninstall(SymfonyStyle $io){
-        $this->io = $io;
+    public function uninstall(){
         // Do some cleanup
     }
 
