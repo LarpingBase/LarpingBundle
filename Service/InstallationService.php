@@ -50,7 +50,7 @@ class InstallationService implements InstallerInterface
         $objectsThatShouldHaveCards = ['https://larping.nl/character.schema.json','https://larping.nl/skill.schema.json'];
 
         foreach($objectsThatShouldHaveCards as $object){
-            $this->io->writeln('Looking for a dashboard card for: '.$object);
+            (isset($this->io)?$this->io->writeln('Looking for a dashboard card for: '.$object):'');
             $entity = $this->entityManager->getRepository('App:Entity')->findOneBy(['reference'=>$object]);
             if(
                !$dashboardCard = $this->entityManager->getRepository('App:DashboardCard')->findOneBy(['entityId'=>$entity->getId()])
@@ -64,17 +64,17 @@ class InstallationService implements InstallerInterface
                 $dashboardCard->setEntityId($entity->getId());
                 $dashboardCard->setOrdering(1);
                 $this->entityManager->persist($dashboardCard);
-                $this->io->writeln('Dashboard card created');
+                (isset($this->io) ?$this->io->writeln('Dashboard card created'):'');
                 continue;
             }
-            $this->io->writeln('Dashboard card found');
+            (isset($this->io)?$this->io->writeln('Dashboard card found'):'');
         }
 
         // Let create some endpoints
         $objectsThatShouldHaveEndpoints = ['https://larping.nl/character.schema.json','https://larping.nl/skill.schema.json','https://larping.nl/story.schema.json'];
 
         foreach($objectsThatShouldHaveEndpoints as $object){
-            $this->io->writeln('Looking for a endpoint card for: '.$object);
+            (isset($this->io)?$this->io->writeln('Looking for a endpoint for: '.$object):'');
             $entity = $this->entityManager->getRepository('App:Entity')->findOneBy(['reference'=>$object]);
 
             if(
@@ -82,10 +82,10 @@ class InstallationService implements InstallerInterface
             ){
                 $endpoint = New Endpoint($entity);
                 $this->entityManager->persist($endpoint);
-                $this->io->writeln('Endpoint created');
+                (isset($this->io)?$this->io->writeln('Endpoint created'):'');
                 continue;
             }
-            $this->io->writeln('Endpoint found');
+            (isset($this->io)?$this->io->writeln('Endpoint found'):'');
         }
 
         $this->entityManager->flush();
