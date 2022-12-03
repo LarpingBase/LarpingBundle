@@ -27,8 +27,8 @@
 		}
 	},
 	"scripts": {
-		"post-package-install": "bin/console commongateway:install larping-base/larping-bundle",
-		"post-package-update": "bin/console commongateway:update larping-base/larping-bundle",
+		"post-install-cmd": "bin/console commongateway:install larping-base/larping-bundle",
+		"post-update-cmd": "bin/console commongateway:update larping-base/larping-bundle",
 		"post-package-uninstall": "bin/console commongateway:uninstall larping-base/larping-bundle"
 	}
 }
