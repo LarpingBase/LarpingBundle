@@ -8,7 +8,7 @@ on:
       - main
 
 jobs:
-  lint:
+  release-managment:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
@@ -28,9 +28,18 @@ jobs:
         run: |
           echo ${{ steps.version.outputs.version }}
       #https://github.com/elgohr/Github-Release-Action
-      - name: Create a Release
-        uses: elgohr/Github-Release-Action@v4
-        env:
-          GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
+      - name: Archive Release
+        uses: thedoctor0/zip-release@main
         with:
-          title: ${{ steps.version.outputs.version }}
+          type: 'zip'
+          filename: 'release.zip'
+          exclusions: '*.git* /*node_modules/* .editorconfig'
+      - uses: "marvinpinto/action-automatic-releases@latest"
+        with:
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          automatic_release_tag: "latest"
+          prerelease: false
+          title: "Development Build"
+          files: |
+            LICENSE.md
+            release.zip

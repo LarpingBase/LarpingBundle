@@ -2,7 +2,6 @@
     "name": "larping-base/larping-bundle",
     "description": "An Commong Gateay bundle for the larping application",
     "type" : "symfony-bundle",
-	"version": "0.1.0",
 	"keywords" : [
 		"commongateway",
 		"common",
