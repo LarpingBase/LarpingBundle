@@ -27,13 +27,10 @@ jobs:
       - name: Use the version
         run: |
           echo ${{ steps.version.outputs.version }}
-      - name: Update composer.json version
-        run: echo "`jq '.version=${{ steps.version.outputs.version }}' composer.json`" > composer.json
-      - name: Commit files
-        run: |
-          git commit -a -m "Update composer file"
-      - name: Push changes
-        uses: ad-m/github-push-action@master
+      #https://github.com/elgohr/Github-Release-Action
+      - name: Create a Release
+        uses: elgohr/Github-Release-Action@v4
+        env:
+          GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: ${{ github.ref }}
+          title: ${{ steps.version.outputs.version }}
