@@ -40,7 +40,7 @@ jobs:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
           automatic_release_tag: ${{ steps.version.outputs.version }}
           prerelease: false
-          title: "Development Build"
+          title: "Release ${{ steps.version.outputs.version }}"
           files: |
             LICENSE.md
             release.zip
