@@ -15,6 +15,12 @@ git clone https://github.com/ConductionNL/commonground-gateway
 
 then
 
+```
+cd commonground-gateway
+```
+
+then
+
 ```cli
 git checkout feature/larping
 ```
