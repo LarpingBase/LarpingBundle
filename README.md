@@ -31,6 +31,13 @@ Then
 docker compose build
 ```
 
+
+Then
+
+```cli
+docker compose up
+```
+
 Then 
 
 ```cli
