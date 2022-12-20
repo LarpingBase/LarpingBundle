@@ -25,6 +25,12 @@ then
 git checkout feature/larping
 ```
 
+Then
+
+```cli
+docker compose build
+```
+
 Then 
 
 ```cli
