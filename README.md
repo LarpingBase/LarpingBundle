@@ -7,6 +7,10 @@ Used to test versioning
 
 Install the commengateway conform it installation manual
 
+Make a folder on you computer, go to that folder trough CLI
+
+git clone ConductionNL/commonground-gateway
+
 then
 
 git checkout feature/larping
