@@ -7,6 +7,10 @@ Used to test versioning
 
 Install the commengateway conform it installation manual
 
+then
+
+git checkout feature/larping
+
 Then 
 
 docker compose exec php composer require larping-base/larping-bundle
