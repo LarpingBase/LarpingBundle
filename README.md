@@ -47,5 +47,5 @@ docker compose exec php composer require larping-base/larping-bundle
 And then
 
 ```cli
-docker compose exec php commongateway:composer:upgrade
+docker compose exec php bin/console commongateway:composer:upgrade
 ```
