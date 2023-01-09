@@ -22,9 +22,6 @@
     "description":{
       "type":"string",
       "description":"A genric description of the setting for out of character purposes"
-    },
-    "":{
-      "type":"string"
     }
   },
   "required":[
