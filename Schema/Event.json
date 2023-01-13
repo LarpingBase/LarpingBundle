@@ -1,7 +1,7 @@
 {
   "$id": "https://larping.nl/event.schema.json",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "version": "0.1",
+  "version": "0.2",
   "title":"Event",
   "type":"object",
   "description":"An event or special that is part of a setting. This can be iether a full blown weeklong event or just an theusday afthernoon gathering. Events are the place where charhters come together to have an adventure.",
@@ -19,16 +19,24 @@
       "type":"string"
     },
     "setting":{
-      "$ref":"#/components/schemas/Setting"
+      "type": "object",
+      "description":"The setting that this event belongs to",
+      "$ref": "https://larping.nl/setting.schema.json"
     },
     "participants":{
-      "$ref":"#/components/schemas/Participant"
+      "type":"array",
+      "description":"People participating in this event with a character.",
+      "items": {
+        "type:":"object",
+        "$ref": "https://larping.nl/participant.schema.json"
+      }
     },
     "effects":{
       "type":"array",
-      "description":"Anny effects that must be aplied to partaking characters afther the effent is finished. Commenly used for updating charathers but kan be used for anything.",
+      "description":"Anny effects that must be aplied to partaking characters afther the event is finished. Commenly used for updating charathers but kan be used for anything.",
       "items":{
-        "$ref":"#/components/schemas/Effect"
+        "type:":"object",
+        "$ref": "https://larping.nl/effect.schema.json"
       }
     },
     "startDate":{

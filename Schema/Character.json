@@ -1,7 +1,7 @@
 {
   "$id": "https://larping.nl/character.schema.json",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "version": "0.1",
+  "version": "0.2",
   "title":"Character",
   "type":"object",
   "description":" A player or non player character within an setting. Non Player characters are defined by not being attached to a user",
@@ -31,10 +31,9 @@
       "example":"Jack isn’t much of a sea faring pirate, sea fearing would be more appropriate. Ever since getting the black mark jack has gone out of its way not to leave shore.  "
     },
     "setting":{
-      "type":"string",
-      "format":"uri-reference",
+      "type":"object",
       "description":"The setting that this character belongs to",
-      "example":"/settings/56cf6db0-7c37-41a5-968b-d322c3f0da28"
+      "$ref": "https://larping.nl/setting.schema.json"
     },
     "abilities":{
       "type":"array",
@@ -44,10 +43,9 @@
         "description":"An calculated representation of a characters ability levels.",
         "properties":{
           "abillity":{
-            "type":"string",
+            "type":"object",
             "description":"The abbillity that is calculated",
-            "format":"uri-reference",
-            "example":"/abillities/56cf6db0-7c37-41a5-968b-d322c3f0da28",
+            "$ref": "https://larping.nl/abillity.schema.json",
             "readOnly":true
           },
           "score":{
@@ -63,8 +61,8 @@
       "type":"array",
       "description":"All the skills that this characters posses\n",
       "items":{
-        "type":"string",
-        "example":"/skills/56cf6db0-7c37-41a5-968b-d322c3f0da28"
+        "type":"object",
+        "$ref": "https://larping.nl/skill.schema.json"
       },
       "readOnly":true
     },
@@ -72,16 +70,15 @@
       "type":"array",
       "description":"All the conditions that apply to this character",
       "items":{
-        "type":"string",
-        "example":"/conditions/56cf6db0-7c37-41a5-968b-d322c3f0da28"
+        "type":"object",
+        "$ref": "https://larping.nl/condition.schema.json"
       },
       "readOnly":true
     },
     "user":{
-      "type":"string",
-      "format":"uuid",
+      "type":"object",
       "description":"The user that plays this character, normaly a player but might also be a returning extra",
-      "example":"56cf6db0-7c37-41a5-968b-d322c3f0da28"
+      "$ref": "https://larping.nl/user.schema.json"
     },
     "playerCharacter":{
       "type":"boolean",

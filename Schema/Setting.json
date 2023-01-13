@@ -17,11 +17,11 @@
       "type":"string",
       "description":"The unique name for the setting",
       "maxLength":255,
-      "example":"Vamperic pirates that heal people"
+      "example":"Vampar"
     },
     "description":{
       "type":"string",
-      "description":"A genric description of the setting for out of character purposes"
+      "description":"Vamperic pirates that heal people by replacing thier blood with rum"
     }
   },
   "required":[

@@ -14,13 +14,13 @@
       "readOnly":true
     },
     "user":{
-      "$ref":"#/components/schemas/User"
+      "$ref": "https://larping.nl/user.schema.json"
     },
     "character":{
-      "$ref":"#/components/schemas/Character"
+      "$ref": "https://larping.nl/character.schema.json"
     },
     "event":{
-      "$ref":"#/components/schemas/Event"
+      "$ref": "https://larping.nl/event.schema.json"
     }
   },
   "required":[

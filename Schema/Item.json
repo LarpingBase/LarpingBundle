@@ -1,7 +1,7 @@
 {
   "$id": "https://larping.nl/item.schema.json",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "version": "0.1",
+  "version": "0.2",
   "title":"Item",
   "type":"object",
   "description":"Items represent objects that characters own and that have effect on them, generally speaking items should only be used to keep track of magic and otherwise special items. They represent a bureaucratic burden to you game masters so try not to blindly create them.\n\nItems should not be used to keep track of components that you would like to calculate (e.g. money or material components like wood and steel) use abilities for those instead.",
@@ -37,7 +37,8 @@
       "type":"array",
       "description":"A list of (predefined) effect",
       "items":{
-        "$ref":"#/components/schemas/Effect"
+        "type":"object",
+        "$ref": "https://larping.nl/effect.schema.json"
       }
     },
     "unique":{
@@ -49,14 +50,14 @@
       "type":"array",
       "description":"The character or characters holding this item, in the case this item is unique this can be only one character",
       "items":{
-        "$ref":"#/components/schemas/Character"
+        "type":"object",
+        "$ref": "https://larping.nl/character.schema.json"
       }
     },
     "setting":{
-      "type":"string",
-      "format":"uri-reference",
+      "type": "object",
       "description":"The setting that this item belongs to",
-      "example":"/settings/56cf6db0-7c37-41a5-968b-d322c3f0da28"
+      "$ref": "https://larping.nl/setting.schema.json"
     }
   },
   "required":[

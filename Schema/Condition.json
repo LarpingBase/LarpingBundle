@@ -1,7 +1,7 @@
 {
   "$id": "https://larping.nl/condition.schema.json",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "version": "0.1",
+  "version": "0.2",
   "title":"Condition",
   "type":"object",
   "description":"Conditions can be iether positive or negative effects that target a character. They are generaly conseqeness of characters actions and chioces during game play and part of play. Conditions difer from abbilities in that they are nought \"bought\" by a character trough skill points.\n\nConditions may contain pre configured effects (handy for character calculations) but are not required to. Some in game effects are simply notautomatable. In that case use the effect text property",
@@ -32,9 +32,8 @@
       "type":"array",
       "description":"The automated effects coused by this condition",
       "items":{
-        "type":"string",
-        "format":"uri-reference",
-        "example":"/effects/56cf6db0-7c37-41a5-968b-d322c3f0da28"
+        "type":"object",
+        "$ref": "https://larping.nl/effect.schema.json"
       }
     },
     "unique":{
@@ -45,16 +44,15 @@
       "type":"array",
       "description":"The characters effected by this condition",
       "items":{
-        "type":"string",
-        "example":"/characters/56cf6db0-7c37-41a5-968b-d322c3f0da28"
+        "type":"object",
+        "$ref": "https://larping.nl/character.schema.json"
       },
       "readOnly":true
     },
     "setting":{
-      "type":"string",
-      "format":"uri-reference",
+      "type": "object",
       "description":"The setting that this condition belongs to",
-      "example":"/settings/56cf6db0-7c37-41a5-968b-d322c3f0da28"
+      "$ref": "https://larping.nl/setting.schema.json"
     }
   },
   "required":[
