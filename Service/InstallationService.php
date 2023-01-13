@@ -69,25 +69,7 @@ class InstallationService implements InstallerInterface
             }
             (isset($this->io)?$this->io->writeln('Dashboard card found'):'');
         }
-
-        // Let create some endpoints
-        $objectsThatShouldHaveEndpoints = ['https://larping.nl/character.schema.json','https://larping.nl/skill.schema.json','https://larping.nl/story.schema.json'];
-
-        foreach($objectsThatShouldHaveEndpoints as $object){
-            (isset($this->io)?$this->io->writeln('Looking for a endpoint for: '.$object):'');
-            $entity = $this->entityManager->getRepository('App:Entity')->findOneBy(['reference'=>$object]);
-
-            if(
-                count($entity->getEndpoints()) == 0
-            ){
-                $endpoint = New Endpoint($entity);
-                $this->entityManager->persist($endpoint);
-                (isset($this->io)?$this->io->writeln('Endpoint created'):'');
-                continue;
-            }
-            (isset($this->io)?$this->io->writeln('Endpoint found'):'');
-        }
-
+        
         $this->entityManager->flush();
 
         // Lets see if there is a generic search endpoint
