@@ -69,7 +69,7 @@ class InstallationService implements InstallerInterface
             }
             (isset($this->io)?$this->io->writeln('Dashboard card found'):'');
         }
-        
+
         $this->entityManager->flush();
 
         // Lets see if there is a generic search endpoint

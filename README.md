@@ -29,3 +29,7 @@ Go to `localhost:8000` in you favorite browser and log in
 You can restart the application at any time by running the ```$docker compose up ``` command, building the application (trough –build) is only required when updating the application.
 
 ## Upgrading  the application
+You can also upgrade the application from the command line, this requires the following commands to be carried out trough the CLI in your installation folder.
+1. git pull
+2. docker compose pull ui
+3. docker compose up -- build
