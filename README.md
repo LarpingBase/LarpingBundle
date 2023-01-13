@@ -1,13 +1,13 @@
 # LarpingBundle
-An example repository for creating php symfony flex bundles
+An example repository for creating PHP Symfony Flex bundles
 
 Used to test versioning
 
 ## Installation
 
-Install the commengateway conform it installation manual
+Install the Common Gateway conform its installation manual
 
-Make a folder on you computer, go to that folder trough CLI
+Make a folder on your computer, go to that folder through CLI
 
 ```cli
 git clone https://github.com/ConductionNL/commonground-gateway
