@@ -1,7 +1,7 @@
 {
   "$id": "https://larping.nl/character.schema.json",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "version": "0.2",
+  "version": "0.3",
   "title":"Character",
   "type":"object",
   "description":" A player or non player character within an setting. Non Player characters are defined by not being attached to a user",
@@ -54,8 +54,7 @@
             "example":15
           }
         }
-      },
-      "readOnly":true
+      }
     },
     "skills":{
       "type":"array",
@@ -63,8 +62,7 @@
       "items":{
         "type":"object",
         "$ref": "https://larping.nl/skill.schema.json"
-      },
-      "readOnly":true
+      }
     },
     "conditions":{
       "type":"array",
@@ -72,8 +70,7 @@
       "items":{
         "type":"object",
         "$ref": "https://larping.nl/condition.schema.json"
-      },
-      "readOnly":true
+      }
     },
     "user":{
       "type":"object",
