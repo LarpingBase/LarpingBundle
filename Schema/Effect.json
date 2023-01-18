@@ -35,6 +35,7 @@
     },
     "positive":{
       "type":"boolean",
+      "enum": [true,false],
       "default":true,
       "description":"Whether the modification is a positive one, normaly speaking this should be true. But it might be negative for sertain conditions e.g "
     },
