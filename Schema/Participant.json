@@ -4,7 +4,7 @@
   "version": "0.1",
   "type":"object",
   "title":"Participant",
-  "description":"An user participating in an event with an character, as sush a participant represents a single participation of a user in an event.",
+  "description":"A user participating in an event with a character, as such a participant represents a single participation of a user in an event.",
   "properties":{
     "id":{
       "type":"string",

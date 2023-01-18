@@ -4,7 +4,7 @@
   "version": "0.1",
   "title":"Story",
   "type":"object",
-  "description":"Stories reprecent the events story arc. Stroies might reprecent complete sotry arc consising os sub stories or simple encounters",
+  "description":"Stories reprecent the events story arc. Stories might represent complete a story arc consisting of sub stories or simple encounters",
   "properties":{
     "id":{
       "type":"string",
