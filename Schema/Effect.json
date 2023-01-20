@@ -23,10 +23,10 @@
       "example":"The character has aditional healing mana",
       "description":"An rule technicalo description of what the effect does. Visable to characters effected by the condition and game masters. "
     },
-    "abbility":{
+    "stat":{
       "type":"object",
-      "description":"The abillity affected by the effect",
-      "$ref": "https://larping.nl/abillity.schema.json"
+      "description":"The stat affected by the effect",
+      "$ref": "https://larping.nl/stat.schema.json"
     },
     "modifier":{
       "type":"integer",
@@ -43,6 +43,11 @@
       "type": "object",
       "description":"The setting that this effect belongs to",
       "$ref": "https://larping.nl/setting.schema.json"
+    },
+    "cumulative":{
+      "type":"boolean",
+      "default":false,
+      "description":"Determines if a character can take this effect more then once"
     }
   }
 }

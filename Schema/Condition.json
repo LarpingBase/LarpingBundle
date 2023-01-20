@@ -38,6 +38,7 @@
     },
     "unique":{
       "type":"boolean",
+      "default": false,
       "description":"Whether this condition can apply to only ONE player"
     },
     "characters":{

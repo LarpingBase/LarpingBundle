@@ -51,12 +51,12 @@
         "$ref": "https://larping.nl/skill.schema.json"
       }
     },
-    "requiredAbillities":{
+    "requiredStats":{
       "type":"array",
-      "description":"Any required abbilities that a character should have before it can take this skill",
+      "description":"Any required stats that a character should have before it can take this skill",
       "items": {
         "type": "object",
-        "$ref": "https://larping.nl/abillity.schema.json"
+        "$ref": "https://larping.nl/stat.schema.json"
       }
     },
     "requiredConditions":{
@@ -79,11 +79,6 @@
       "type":"integer",
       "example":15,
       "description":"Only applies when the requirement object is one ore more abillitties. Indicates the minimum score a character should have before this skill can be selected."
-    },
-    "cumulative":{
-      "type":"boolean",
-      "default":false,
-      "description":"Determines if a character can take this skill more then once"
     }
   },
   "required":[

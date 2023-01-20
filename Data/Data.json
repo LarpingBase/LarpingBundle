@@ -62,7 +62,8 @@
       "description":"This character is an practied spell caster and has the power to casts spells equal to its mana points per day",
       "setting":"0b450396-3c9a-49af-bc80-ca2cad706165",
       "stat": "0b450396-3c9a-49af-bc80-ca2cad706165",
-      "modifier": 5
+      "modifier": 5,
+      "cumulative": true
     }
   ],
   "https://larping.nl/event.schema.json": [
@@ -112,20 +113,35 @@
     {
       "id":"5ca59d6d-0462-456f-9bd5-6bccd1b6bbe7",
       "name":"Level 1 Mage",
-      "description":"This character is a mage",
+      "description":"This character is a novice mage",
       "setting":"0b450396-3c9a-49af-bc80-ca2cad706165",
       "effects":["45052863-05db-4a89-8759-3c0c6c29c3bb"]
+    },
+    {
+      "id":"3b047cf7-8e99-4a9e-b391-51e854c8f868",
+      "name":"Level 2 Mage",
+      "description":"This character is a mediocer mage",
+      "setting":"0b450396-3c9a-49af-bc80-ca2cad706165",
+      "effects":["45052863-05db-4a89-8759-3c0c6c29c3bb"],
+      "requiredSkills": ["5ca59d6d-0462-456f-9bd5-6bccd1b6bbe7"]
+    },
+    {
+      "id":"4a900559-e29e-424f-aef7-ca83f64f5389",
+      "name":"Body builder",
+      "description":"This character spents to musch time working out instead of eating in",
+      "setting":"0b450396-3c9a-49af-bc80-ca2cad706165",
+      "effects":["83f4df63-c093-42cb-bf88-9e87e93c9d26"]
     }
   ],
   "https://larping.nl/character.schema.json": [
     {
       "name":"Nebur Ednil",
       "description":"The best Mage ever",
-      "background":"Sad, sad very sad. Needed a new profession. Decided to become a pirate vampire",
+      "background":"Sad, sad very sad. Needed a new profession. Decided to become a pirate vampire. Bad decision",
       "setting":"0b450396-3c9a-49af-bc80-ca2cad706165",
       "events": ["f06fb67b-ebc7-4c2b-89b3-297b69c2c92c","25eee4b6-7d5b-4a46-9274-9e264adbf596","132e961a-43cf-49aa-8a77-c8c996f16a85"],
       "conditions": ["ba3d8bf9-a111-4c5d-b3af-8c522a7c45dc","1b853b38-6300-4493-be8d-2d8221282f57"],
-      "skills": ["5ca59d6d-0462-456f-9bd5-6bccd1b6bbe7"],
+      "skills": ["5ca59d6d-0462-456f-9bd5-6bccd1b6bbe7","3b047cf7-8e99-4a9e-b391-51e854c8f868","4a900559-e29e-424f-aef7-ca83f64f5389"],
       "type": "player"
     }
   ]

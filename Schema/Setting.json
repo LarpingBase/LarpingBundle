@@ -21,7 +21,7 @@
     },
     "description":{
       "type":"string",
-      "description":"Vamperic pirates that heal people by replacing thier blood with rum"
+      "description":"Vampiric pirates that heal people by replacing their blood with rum"
     }
   },
   "required":[

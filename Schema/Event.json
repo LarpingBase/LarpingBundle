@@ -23,12 +23,12 @@
       "description":"The setting that this event belongs to",
       "$ref": "https://larping.nl/setting.schema.json"
     },
-    "participants":{
+    "characters":{
       "type":"array",
-      "description":"People participating in this event with a character.",
+      "description":"Charaters participating in this event with a character.",
       "items": {
         "type:":"object",
-        "$ref": "https://larping.nl/participant.schema.json"
+        "$ref": "https://larping.nl/characters.schema.json"
       }
     },
     "effects":{
