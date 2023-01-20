@@ -1,9 +1,132 @@
 {
+  "https://larping.nl/setting.schema.json": [
+    {
+      "id": "0b450396-3c9a-49af-bc80-ca2cad706165",
+      "name":"Vampar",
+      "description":"Vampiric pirates that heal people by replacing their blood with rum"
+    }
+  ],
+  "https://larping.nl/abillity.schema.json": [
+    {
+      "id": "0511a61f-e2da-40ae-9448-7898c7ed89c6",
+      "name":"Experience points",
+      "description":"An experience point is a unit of measurement used in some tabletop role-playing games and role-playing video games to quantify a player character's life experience and progression through the game. Experience points are generally awarded for the completion of missions, overcoming obstacles and opponents, and for successful role-playing.",
+      "base": 15,
+      "setting":"0b450396-3c9a-49af-bc80-ca2cad706165"
+    },
+    {
+      "id": "b04f7a36-c0fc-4ac5-a325-4b1cf787bac4",
+      "name":"Hit points",
+      "description":"An Hit point is a unit of measurement used in some tabletop role-playing games and role-playing video games to quantify a player character's life experience and progression through the game. Experience points are generally awarded for the completion of missions, overcoming obstacles and opponents, and for successful role-playing.",
+      "base": 2,
+      "setting":"0b450396-3c9a-49af-bc80-ca2cad706165"
+    },
+    {
+      "id": "509eab0d-7ff1-48d9-a5d4-a1ddd6898cc7",
+      "name":"Mana points",
+      "description":"Power! ultimate power! ha ha ha ha",
+      "base": 0,
+      "setting":"0b450396-3c9a-49af-bc80-ca2cad706165"
+    }
+  ],
+  "https://larping.nl/effect.schema.json": [
+    {
+      "id": "d9197914-b3b7-4da8-8ecc-a020876c75b6",
+      "name":"Survivor",
+      "description":"Gain 2 XP when finiching an event",
+      "setting":"0b450396-3c9a-49af-bc80-ca2cad706165",
+      "stat": "0511a61f-e2da-40ae-9448-7898c7ed89c6",
+      "modifier": 2
+
+    },
+    {
+      "id": "83f4df63-c093-42cb-bf88-9e87e93c9d26",
+      "name":"Tough motherfucker",
+      "description":"This character is extremly tough",
+      "setting":"0b450396-3c9a-49af-bc80-ca2cad706165",
+      "stat": "0511a61f-e2da-40ae-9448-7898c7ed89c6",
+      "modifier": 2
+    },
+    {
+      "id": "0a9e4110-2013-4edd-9e21-2a679c8a21d0",
+      "name":"Corrupted",
+      "description":"This character is extremly tough",
+      "setting":"0b450396-3c9a-49af-bc80-ca2cad706165",
+      "stat": "0511a61f-e2da-40ae-9448-7898c7ed89c6",
+      "modifier": 2,
+      "positive": false
+    },
+    {
+      "id": "45052863-05db-4a89-8759-3c0c6c29c3bb",
+      "name":"Mage",
+      "description":"This character is an practied spell caster and has the power to casts spells equal to its mana points per day",
+      "setting":"0b450396-3c9a-49af-bc80-ca2cad706165",
+      "stat": "0b450396-3c9a-49af-bc80-ca2cad706165",
+      "modifier": 5
+    }
+  ],
+  "https://larping.nl/event.schema.json": [
+    {
+      "id": "f06fb67b-ebc7-4c2b-89b3-297b69c2c92c",
+      "name":"Sail away",
+      "description":"Our last event",
+      "setting":"0b450396-3c9a-49af-bc80-ca2cad706165",
+      "effects":["d9197914-b3b7-4da8-8ecc-a020876c75b6"],
+      "startDate":"2022-12-24",
+      "startDate":"2022-12-25"
+    },
+    {
+      "id": "25eee4b6-7d5b-4a46-9274-9e264adbf596",
+      "name":"Ship ahoy",
+      "description":"Out current event",
+      "setting":"0b450396-3c9a-49af-bc80-ca2cad706165",
+      "effects":["d9197914-b3b7-4da8-8ecc-a020876c75b6"],
+      "startDate":"2023-10-01"
+    },
+    {
+      "id": "132e961a-43cf-49aa-8a77-c8c996f16a85",
+      "name":"Back to port",
+      "description":"Our next event",
+      "setting":"0b450396-3c9a-49af-bc80-ca2cad706165",
+      "effects":["d9197914-b3b7-4da8-8ecc-a020876c75b6"],
+      "startDate":"2023-12-01"
+    }
+  ],
+  "https://larping.nl/condition.schema.json": [
+    {
+      "id":"ba3d8bf9-a111-4c5d-b3af-8c522a7c45dc",
+      "name":"Touched by blackwater",
+      "description":"This character has endulged himself in the black art\'s and now faces the conseqenses",
+      "setting":"0b450396-3c9a-49af-bc80-ca2cad706165",
+      "effects":["0a9e4110-2013-4edd-9e21-2a679c8a21d0"]
+    },
+    {
+      "id":"1b853b38-6300-4493-be8d-2d8221282f57",
+      "name":"Vamperic demener",
+      "description":"You crave the blood of other humanoid beings and feel powerfull when drinking it",
+      "effect":"Charater may drink the blood of other humanoid beings, dealing 1 HP damage per 10 seconds a drinking. Character gains 1 Spiritual Mana per damage dealth.  Character sustains 1 HP damage comulative for each 24 hours in wich charater has not used this ablillity. Eg 1 HP for on day one, 2 hp on day 3",
+      "setting":"0b450396-3c9a-49af-bc80-ca2cad706165"
+    }
+  ],
+  "https://larping.nl/skill.schema.json": [
+    {
+      "id":"5ca59d6d-0462-456f-9bd5-6bccd1b6bbe7",
+      "name":"Level 1 Mage",
+      "description":"This character is a mage",
+      "setting":"0b450396-3c9a-49af-bc80-ca2cad706165",
+      "effects":["45052863-05db-4a89-8759-3c0c6c29c3bb"]
+    }
+  ],
   "https://larping.nl/character.schema.json": [
     {
       "name":"Nebur Ednil",
       "description":"The best Mage ever",
-      "background":"Sad, sad very sad"
+      "background":"Sad, sad very sad. Needed a new profession. Decided to become a pirate vampire",
+      "setting":"0b450396-3c9a-49af-bc80-ca2cad706165",
+      "events": ["f06fb67b-ebc7-4c2b-89b3-297b69c2c92c","25eee4b6-7d5b-4a46-9274-9e264adbf596","132e961a-43cf-49aa-8a77-c8c996f16a85"],
+      "conditions": ["ba3d8bf9-a111-4c5d-b3af-8c522a7c45dc","1b853b38-6300-4493-be8d-2d8221282f57"],
+      "skills": ["5ca59d6d-0462-456f-9bd5-6bccd1b6bbe7"],
+      "type": "player"
     }
   ]
 }
