@@ -4,7 +4,7 @@
   "version": "0.2",
   "type":"object",
   "title":"Effect",
-  "description":"An calculated effect to an abbility e.g increase of expierence point or available mana to a character. This could be from an Item, Skill, Event or Condition.\n\nKeep in mind that not all effect need to be game ralated, some might simply be of an administrative nature. For example skills ar normaly bought and wil have an negative effect to characters experience point",
+  "description":"A calculated effect to an ability e.g increase of experience point or availible mana to a character. This could be from an Item, Skill, Event or Condition.\n\nKeep in mind that not all effects need to be game related, some might simply be of an administrative nature. For example skills are normally bought and will have a negative effect on characters experience points",
   "properties":{
     "id":{
       "type":"string",

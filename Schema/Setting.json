@@ -4,7 +4,7 @@
   "version": "0.1",
   "title":"Setting",
   "type":"object",
-  "description":"The setting is the highest form of abstraction within larping base, it ties together stories, characters and al ther quirks into sory arcs ussaly spanning several events.",
+  "description":"The setting is the highest form of abstraction within larping base, it ties together stories, characters and all their quirks into storyarcs usually spanning several events.",
   "properties":{
     "id":{
       "type":"string",

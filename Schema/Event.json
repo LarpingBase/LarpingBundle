@@ -4,7 +4,7 @@
   "version": "0.3",
   "title":"Event",
   "type":"object",
-  "description":"An event or special that is part of a setting. This can be iether a full blown weeklong event or just an theusday afthernoon gathering. Events are the place where charhters come together to have an adventure.",
+  "description":"An event or special that is part of a setting. This can be iether a full blown week long event or just an Tuesday afternoon gathering. Events are the place where characters come together to have adventures.",
   "properties":{
     "id":{
       "type":"string",

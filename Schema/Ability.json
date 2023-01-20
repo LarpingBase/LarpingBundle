@@ -4,7 +4,7 @@
   "version": "0.2",
   "title":"Abillity",
   "type":"object",
-  "description":"Abilites reprecent numeric values on wich a charachters scores, this can be D20 like values such as DEX or CHA but may also be any other aspect of a charther that must be calculated based on condition and skills.\n\nCommon examples of these include  XP and mana. Keep in mind that id you want to have differend types of mana you schould create an abbility per type (e.g. healing, spiritual, elemental) but you can also use abbilities to keep track of things like money, material components and bullits. Basicially anything that you would like to calculate on a charather level is an abbility. ",
+  "description":"Abilites represent numeric values on wich a charachters scores, this can be D20 like values such as DEX or CHA but may also be any other aspect of a character that must be calculated based on condition and skills.\n\nCommon examples of these include XP and mana. Keep in mind that if you want to have different types of mana you should create an ability per type (e.g. healing, spiritual, elemental). You can also use abilities to keep track of things like money, material components and bullets. Basically anything that you would like to calculate on a charather level is an ability. ",
   "properties":{
     "id":{
       "type":"string",

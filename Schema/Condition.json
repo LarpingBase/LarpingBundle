@@ -4,7 +4,7 @@
   "version": "0.2",
   "title":"Condition",
   "type":"object",
-  "description":"Conditions can be iether positive or negative effects that target a character. They are generaly conseqeness of characters actions and chioces during game play and part of play. Conditions difer from abbilities in that they are nought \"bought\" by a character trough skill points.\n\nConditions may contain pre configured effects (handy for character calculations) but are not required to. Some in game effects are simply notautomatable. In that case use the effect text property",
+  "description":"Conditions can be either positive or negative effects that target a character. They are generaly consequences of characters actions and choices during gameplay and part of play. Conditions differ from abilities in that they are bought \"bought\" by a character trough skill points.\n\nConditions may contain pre configured effects (handy for character calculations) but are not required to. Some ingame effects are simply not automatable, in that case use the effect text property",
   "properties":{
     "id":{
       "type":"string",
