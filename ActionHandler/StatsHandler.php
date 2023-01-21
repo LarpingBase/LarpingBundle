@@ -4,13 +4,27 @@ namespace LarpingBase\LarpingBundle\ActionHandler;
 
 use CommonGateway\PetStoreBundle\Service\LarpingService;
 
-class LarpingHandler
+class StatsHandler
 {
-    private LarpingService $petStoreService;
+    private LarpingService $larpingService;
 
-    public function __construct(LarpingService $petStoreService)
+    /*
+     * Set default conditions
+     */
+    public const DEFAULT_CONDITIONS = [
+        '==' => ["\$ref","https://larping.nl/character.schema.json"]
+    ];
+
+    /*
+     * Set default listens
+     */
+    public const DEFAULT_LISTENS = [
+        ''
+    ];
+
+    public function __construct(LarpingService $larpingService)
     {
-        $this->petStoreService = $petStoreService;
+        $this->larpingService = $larpingService;
     }
 
     /**
@@ -23,8 +37,8 @@ class LarpingHandler
         return [
             '$id'         => 'https://example.com/person.schema.json',
             '$schema'     => 'https://json-schema.org/draft/2020-12/schema',
-            'title'       => 'PetStore Action',
-            'description' => 'This handler returns a welcoming string',
+            'title'       => 'Stats Action',
+            'description' => 'This handler calculates the stats for characters',
             'required'    => [],
             'properties'  => [],
         ];
@@ -45,6 +59,6 @@ class LarpingHandler
      */
     public function run(array $data, array $configuration): array
     {
-        return $this->petStoreService->petStoreHandler($data, $configuration);
+        return $this->larpingService->statsHandler($data, $configuration);
     }
 }

@@ -13,8 +13,10 @@ class LarpingService
      *
      * @return array
      */
-    public function AtributeHandler(array $data, array $configuration): array
+    public function statsHandler(array $data, array $configuration): array
     {
+
+
 
         $attributes = [];
 
