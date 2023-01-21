@@ -38,23 +38,8 @@
     "stats":{
       "type":"array",
       "description":"The stats of this character",
-      "items":{
-        "type":"object",
-        "description":"An calculated representation of a characters stat levels.",
-        "properties":{
-          "abillity":{
-            "type":"object",
-            "description":"The abbillity that is calculated",
-            "$ref": "https://larping.nl/stat.schema.json",
-            "readOnly":true
-          },
-          "score":{
-            "type":"integer",
-            "description":"This character score for that abbillity",
-            "example":15
-          }
-        }
-      }
+      "readOnly": true
+    }
     },
     "events":{
       "type":"array",
