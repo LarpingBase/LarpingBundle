@@ -6,13 +6,6 @@
   "type":"object",
   "description":" A player or non player character within an setting. Non Player characters are defined by not being attached to a user",
   "properties":{
-    "id":{
-      "type":"string",
-      "format":"uuid",
-      "description":"The unique identifier of this character",
-      "example":"56cf6db0-7c37-41a5-968b-d322c3f0da28",
-      "readOnly":true
-    },
     "name":{
       "type":"string",
       "example":"Jack Doe",
