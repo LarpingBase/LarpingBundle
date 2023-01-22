@@ -22,6 +22,10 @@ class InstallationService implements InstallerInterface
         'LarpingBase\LarpingBundle\ActionHandler\StatsHandler'
     ];
 
+    public const SCHEMAS_THAT_SHOULD_HAVE_ENDPOINTS = [
+        ['reference' => 'https://larping.nl/test.schema.json','path' => '/ref/test','methods' => []],
+    ];
+
     public function __construct(
         EntityManagerInterface $entityManager,
         ContainerInterface $container
@@ -55,11 +59,6 @@ class InstallationService implements InstallerInterface
     public function uninstall(){
         // Do some cleanup
     }
-
-
-    public const SCHEMAS_THAT_SHOULD_HAVE_ENDPOINTS = [
-        ['reference' => 'https://larping.nl/test.schema.json','path' => '/ref/test','methods' => []],
-    ];
 
     public function addActionConfiguration($actionHandler): array
     {
@@ -136,7 +135,7 @@ class InstallationService implements InstallerInterface
         foreach($objectsThatShouldHaveEndpoints as $objectThatShouldHaveEndpoint) {
             $entity = $this->entityManager->getRepository('App:Entity')->findOneBy(['reference' => $objectThatShouldHaveEndpoint['reference']]);
             if ($entity instanceof Entity && !$endpointRepository->findOneBy(['name' => $entity->getName()])) {
-                $endpoint = new Endpoint($entity, $objectThatShouldHaveEndpoint['path'], $objectThatShouldHaveEndpoint['methods']);
+                $endpoint = new Endpoint($entity, null, [$objectThatShouldHaveEndpoint['path'], $objectThatShouldHaveEndpoint['methods']]);
 
                 $this->entityManager->persist($endpoint);
                 $this->entityManager->flush();
