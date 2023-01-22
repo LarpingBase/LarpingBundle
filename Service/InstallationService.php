@@ -6,6 +6,7 @@ namespace LarpingBase\LarpingBundle\Service;
 use App\Entity\Action;
 use App\Entity\DashboardCard;
 use App\Entity\Endpoint;
+use App\Entity\Entity;
 use CommonGateway\CoreBundle\Installer\InstallerInterface;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
@@ -54,6 +55,11 @@ class InstallationService implements InstallerInterface
     public function uninstall(){
         // Do some cleanup
     }
+
+
+    public const SCHEMAS_THAT_SHOULD_HAVE_ENDPOINTS = [
+        ['reference' => 'https://larping.nl/test.schema.json','path' => '/ref/test','methods' => []],
+    ];
 
     public function addActionConfiguration($actionHandler): array
     {
@@ -123,6 +129,25 @@ class InstallationService implements InstallerInterface
         }
     }
 
+    private function createEndpoints($objectsThatShouldHaveEndpoints): array
+    {
+        $endpointRepository = $this->entityManager->getRepository('App:Endpoint');
+        $endpoints = [];
+        foreach($objectsThatShouldHaveEndpoints as $objectThatShouldHaveEndpoint) {
+            $entity = $this->entityManager->getRepository('App:Entity')->findOneBy(['reference' => $objectThatShouldHaveEndpoint['reference']]);
+            if ($entity instanceof Entity && !$endpointRepository->findOneBy(['name' => $entity->getName()])) {
+                $endpoint = new Endpoint($entity, $objectThatShouldHaveEndpoint['path'], $objectThatShouldHaveEndpoint['methods']);
+
+                $this->entityManager->persist($endpoint);
+                $this->entityManager->flush();
+                $endpoints[] = $endpoint;
+            }
+        }
+        (isset($this->io) ? $this->io->writeln(count($endpoints).' Endpoints Created'): '');
+
+        return $endpoints;
+    }
+
     public function checkDataConsistency(){
 
         // Lets create some genneric dashboard cards
@@ -149,13 +174,14 @@ class InstallationService implements InstallerInterface
             (isset($this->io)?$this->io->writeln('Dashboard card found'):'');
         }
 
-        $this->entityManager->flush();
-
-        // Lets see if there is a generic search endpoint
+        // Let create some endpoints
+        $this->createEndpoints($this::SCHEMAS_THAT_SHOULD_HAVE_ENDPOINTS);
 
         // aanmaken van Actions
         $this->addActions();
 
+
+        $this->entityManager->flush();
 
 
     }

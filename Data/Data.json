@@ -144,5 +144,11 @@
       "skills": ["5ca59d6d-0462-456f-9bd5-6bccd1b6bbe7","3b047cf7-8e99-4a9e-b391-51e854c8f868","4a900559-e29e-424f-aef7-ca83f64f5389"],
       "type": "player"
     }
+  ],
+  "https://larping.nl/test.schema.json": [
+    {
+      "description":"Vampiric pirates that heal people by replacing their blood with rum"
+    }
+
   ]
 }
