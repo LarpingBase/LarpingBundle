@@ -2,9 +2,10 @@
 
 namespace LarpingBase\LarpingBundle\ActionHandler;
 
-use CommonGateway\PetStoreBundle\Service\LarpingService;
+use CommonGateway\CoreBundle\ActionHandler\ActionHandlerInterface;
+use LarpingBase\LarpingBundle\Service\LarpingService;
 
-class StatsHandler
+class StatsHandler implements ActionHandlerInterface
 {
     private LarpingService $larpingService;
 
@@ -12,14 +13,15 @@ class StatsHandler
      * Set default conditions
      */
     public const DEFAULT_CONDITIONS = [
-        '==' => ["\$ref","https://larping.nl/character.schema.json"]
+        '==' => ["_self.schema.ref","https://larping.nl/character.schema.json"]
     ];
 
     /*
      * Set default listens
      */
     public const DEFAULT_LISTENS = [
-        ''
+        'commongateway.object.pre.create',
+        'commongateway.object.pre.update'
     ];
 
     public function __construct(LarpingService $larpingService)

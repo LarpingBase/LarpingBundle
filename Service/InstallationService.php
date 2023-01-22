@@ -9,19 +9,25 @@ use App\Entity\Endpoint;
 use CommonGateway\CoreBundle\Installer\InstallerInterface;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 
 class InstallationService implements InstallerInterface
 {
     private EntityManagerInterface $entityManager;
     private SymfonyStyle $io;
+    private ContainerInterface $container;
 
     public const ACTION_HANDLERS = [
         'LarpingBase\LarpingBundle\ActionHandler\StatsHandler'
     ];
 
-    public function __construct(EntityManagerInterface $entityManager)
+    public function __construct(
+        EntityManagerInterface $entityManager,
+        ContainerInterface $container
+    )
     {
         $this->entityManager = $entityManager;
+        $this->container = $container;
     }
 
     /**
