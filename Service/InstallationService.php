@@ -119,7 +119,7 @@ class InstallationService implements InstallerInterface
 
 
             $action = new Action($actionHandler);
-            $action->setListens(['opencatalogi.default.listens']);
+            $action->setListens(['commongateway.object.pre.create','commongateway.object.pre.update']);
             $action->setConfiguration($defaultConfig);
 
             $this->entityManager->persist($action);

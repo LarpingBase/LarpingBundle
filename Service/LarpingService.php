@@ -16,18 +16,58 @@ class LarpingService
     public function statsHandler(array $data, array $configuration): array
     {
 
+        var_dump($data['object']);
+        die;
 
 
-        $attributes = [];
-
-        foreach($character->getValue("skills") as $skill){
-
+        // Lets doe some savetie;s
+        if(
+            isset($data['object'])  // only trigger id we have an object
+            || $data['object']->getEntity()->getReference() != 'https://larping.nl/character.schema.json' // Make sure we have a larping character
+            || $data['object']->getId() // make sure the character has an id
+        ){
+            return $data;
         }
 
+        // It;s oke! so elts continue
+        $character = $data['object'];
+        $effect = [];
+
+        $stats =[];
+
+        // Skills
+        foreach($character->getValue('skills') as $skill){
+            foreach($skill->getValue('effects') as $effect){
+                $stats = $this->addEffectToStats($stats, $effect, $effects);
+                $effects[] = $effect;
+            }
+        }
+
+        // Events
+        foreach($character->getValue('skills') as $skill){
+            foreach($skill->getValue('effects') as $effect){
+                $stats = $this->addEffectToStats($stats, $effect, $effects);
+                $effects[] = $effect;
+            }
+        }
+
+
+        // Conditions
+        foreach($character->getValue('skills') as $skill){
+            foreach($skill->getValue('effects') as $effect){
+                $stats = $this->addEffectToStats($stats, $effect, $effects);
+                $effects[] = $effect;
+            }
+        }
+
+
+        // Prepare the return
+        $data['object'] = $character;
         return ['response' => 'Hello. Your LarpingBundle works'];
     }
 
-    private function calculateAbillities(array $abillities, ObjectEntity $effect): array{
+
+    private function addEffectToStats(array $abillities, ObjectEntity $effect, $effects): array{
 
         // What if the abbility has not been added yet
         if(!in_array($effect->getValue('abillity'), $abillities)){
@@ -55,7 +95,7 @@ class LarpingService
         $abillities[$effect->getValue('abillity')->getId()]["value"] = $value;
         $abillities[$effect->getValue('abillity')->getId()]["effects"] = $effectDescription;
 
-        return $abillities;
+        return $stats;
     }
 
 }
