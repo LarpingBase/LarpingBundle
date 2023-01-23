@@ -52,7 +52,7 @@
       "name":"Sail away",
       "description":"Our last event",
       "startDate":"2022-12-24",
-      "startDate":"2022-12-25"
+      "endDate":"2022-12-25"
     },
     {
       "name":"Ship ahoy",
@@ -68,7 +68,7 @@
   "https://larping.nl/condition.schema.json": [
     {
       "name":"Touched by blackwater",
-      "description":"This character has endulged himself in the black art's and now faces the conseqenses",
+      "description":"This character has endulged himself in the black art's and now faces the conseqenses"
     },
     {
       "name":"Vamperic demener",
