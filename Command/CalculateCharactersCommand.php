@@ -18,7 +18,7 @@ class CalculateCharactersCommand extends Command
     public function __construct(LarpingService $larpingService, EntityManager $entityManager)
     {
         $this->larpingService = $larpingService;
-        $this->$entityManager = $entityManager;
+        $this->entityManager = $entityManager;
         parent::__construct();
     }
 

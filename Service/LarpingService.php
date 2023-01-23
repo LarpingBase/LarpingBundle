@@ -30,7 +30,14 @@ class LarpingService
         return ['response' => 'Hello. Your LarpingBundle works'];
     }
 
-    private function calculateCharacter(ObjectEntity $character):ObjectEntity{
+    /**
+     * Calculates the stat values for a character
+     *
+     * @param ObjectEntity $character
+     * @return ObjectEntity
+     * @throws \Exception
+     */
+    public function calculateCharacter(ObjectEntity $character):ObjectEntity{
 
         // Savety
         if($character->getEntity()->getReference() != 'https://larping.nl/character.schema.json' ){
