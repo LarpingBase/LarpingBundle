@@ -26,7 +26,8 @@
     {
       "name":"Survivor",
       "description":"Gain 2 XP when finiching an event",
-      "modifier": 2
+      "modifier": 2,
+      "cumulative": "cumulative"
 
     },
     {
@@ -38,13 +39,43 @@
       "name":"Corrupted",
       "description":"This character is extremly tough",
       "modifier": 2,
-      "positive": false
+      "modification": "positive"
     },
     {
       "name":"Mage",
       "description":"This character is an practied spell caster and has the power to casts spells equal to its mana points per day",
       "modifier": 5,
-      "cumulative": true
+      "cumulative": "cumulative"
+    },
+    {
+      "name":"XP Cost 1",
+      "description":"Buying this skill cost 1 XP",
+      "modifier": 1,
+      "cumulative": "cumulative"
+    },
+    {
+      "name":"XP Cost 2",
+      "description":"Buying this skill cost 1 XP",
+      "modifier": 2,
+      "cumulative": "cumulative"
+    },
+    {
+      "name":"XP Cost 3",
+      "description":"Buying this skill cost 1 XP",
+      "modifier": 3,
+      "cumulative": "cumulative"
+    },
+    {
+      "name":"XP Cost 4",
+      "description":"Buying this skill cost 1 XP",
+      "modifier": 4,
+      "cumulative": "cumulative"
+    },
+    {
+      "name":"XP Cost 5",
+      "description":"Buying this skill cost 1 XP",
+      "modifier": 5,
+      "cumulative": "cumulative"
     }
   ],
   "https://larping.nl/event.schema.json": [

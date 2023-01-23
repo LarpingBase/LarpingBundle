@@ -33,10 +33,10 @@
       "description":"The modification that is made to the abbillity",
       "example":5
     },
-    "positive":{
-      "type":"boolean",
-      "enum": [true,false],
-      "default":true,
+    "modification":{
+      "type":"string",
+      "enum": ["positive","negative"],
+      "default":"positive",
       "description":"Whether the modification is a positive one, normaly speaking this should be true. But it might be negative for sertain conditions e.g "
     },
     "setting":{
@@ -45,8 +45,9 @@
       "$ref": "https://larping.nl/setting.schema.json"
     },
     "cumulative":{
-      "type":"boolean",
-      "default":false,
+      "type":"string",
+      "enum": ["cumulative","non-cumulative"],
+      "default":"non-cumulative",
       "description":"Determines if a character can take this effect more then once"
     }
   }
