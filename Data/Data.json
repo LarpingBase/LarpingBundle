@@ -73,21 +73,21 @@
     {
       "name":"Vamperic demener",
       "description":"You crave the blood of other humanoid beings and feel powerfull when drinking it",
-      "effect":"Charater may drink the blood of other humanoid beings, dealing 1 HP damage per 10 seconds a drinking. Character gains 1 Spiritual Mana per damage dealth.  Character sustains 1 HP damage comulative for each 24 hours in wich charater has not used this ablillity. Eg 1 HP for on day one, 2 hp on day 3",
+      "effect":"Charater may drink the blood of other humanoid beings, dealing 1 HP damage per 10 seconds a drinking. Character gains 1 Spiritual Mana per damage dealth.  Character sustains 1 HP damage comulative for each 24 hours in wich charater has not used this ablillity. Eg 1 HP for on day one, 2 hp on day 3"
     }
   ],
   "https://larping.nl/skill.schema.json": [
     {
       "name":"Level 1 Mage",
-      "description":"This character is a novice mage",
+      "description":"This character is a novice mage"
     },
     {
       "name":"Level 2 Mage",
-      "description":"This character is a mediocer mage",
+      "description":"This character is a mediocer mage"
     },
     {
       "name":"Body builder",
-      "description":"This character spents to musch time working out instead of eating in",
+      "description":"This character spents to musch time working out instead of eating in"
     }
   ],
   "https://larping.nl/character.schema.json": [
