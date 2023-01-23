@@ -15,11 +15,6 @@ class LarpingService
      */
     public function statsHandler(array $data, array $configuration): array
     {
-
-        var_dump($data['object']);
-        die;
-
-
         // Lets doe some savetie;s
         if(
             isset($data['object'])  // only trigger id we have an object
@@ -29,10 +24,20 @@ class LarpingService
             return $data;
         }
 
-        // It;s oke! so elts continue
-        $character = $data['object'];
-        $effect = [];
+        // It;s oke! so lets calculat continue
+        $data['object'] = $this->calculateCharacter($data['object']);
 
+        return ['response' => 'Hello. Your LarpingBundle works'];
+    }
+
+    private function calculateCharacter(ObjectEntity $character):ObjectEntity{
+
+        // Savety
+        if($character->getEntity()->getReference() != 'https://larping.nl/character.schema.json' ){
+            return $character;
+        }
+
+        $effect = [];
         $stats =[];
 
         // Skills
@@ -45,6 +50,8 @@ class LarpingService
 
         // Events
         foreach($character->getValue('skills') as $skill){
+            // Todo: Continu if enddate is empty or greater then now
+
             foreach($skill->getValue('effects') as $effect){
                 $stats = $this->addEffectToStats($stats, $effect, $effects);
                 $effects[] = $effect;
@@ -60,10 +67,9 @@ class LarpingService
             }
         }
 
+        $character->setValue('stats', $stats);
 
-        // Prepare the return
-        $data['object'] = $character;
-        return ['response' => 'Hello. Your LarpingBundle works'];
+        return $character;
     }
 
 
