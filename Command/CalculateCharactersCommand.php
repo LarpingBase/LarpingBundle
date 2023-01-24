@@ -13,7 +13,7 @@ class CalculateCharactersCommand extends Command
 {
     protected static $defaultName = 'larping:calculate:characters';
     private LarpingService $larpingService;
-    private $entityManager;
+    private EntityManagerInterface $entityManager;
 
     public function __construct(LarpingService $larpingService, EntityManagerInterface $entityManager)
     {
@@ -33,7 +33,14 @@ class CalculateCharactersCommand extends Command
     {
         //$this->cacheService->setStyle(new SymfonyStyle($input, $output));
         $io = new SymfonyStyle($input, $output);
-        $characters = $this->entityManager->getRepository('App:ObjectEntity')->findBy(['entity.reference'=>'https://larping.nl/character.schema.json']);
+
+        $characterEntity = $this->entityManager->getRepository('App:Entity')->findBy(['entity'=>'https://larping.nl/character.schema.json']);
+
+        if(!$characterEntity){
+            $io->error("No entity for characters found");
+           return 1;
+        }
+        $characters = $this->entityManager->getRepository('App:ObjectEntity')->findBy(['entity'=>$characterEntity]);
 
         $io->title('Calculating all characters');
         $io->note('Found '.count($characters).' characters');
@@ -61,6 +68,6 @@ class CalculateCharactersCommand extends Command
         $this->entityManager->flush();
         $io->success('Al done!');
 
-        return $this->cacheService->cleanup();
+        return 0;
     }
 }
