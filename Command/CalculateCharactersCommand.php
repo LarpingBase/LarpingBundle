@@ -2,7 +2,7 @@
 
 namespace LarpingBase\LarpingBundle\Command;
 
-use Doctrine\ORM\EntityManager;
+use Doctrine\ORM\EntityManagerInterface;
 use LarpingBase\LarpingBundle\Service\LarpingService;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
@@ -13,9 +13,9 @@ class CalculateCharactersCommand extends Command
 {
     protected static $defaultName = 'larping:calculate:characters';
     private LarpingService $larpingService;
-    private EntityManager $entityManager;
+    private $entityManager;
 
-    public function __construct(LarpingService $larpingService, EntityManager $entityManager)
+    public function __construct(LarpingService $larpingService, EntityManagerInterface $entityManager)
     {
         $this->larpingService = $larpingService;
         $this->entityManager = $entityManager;
