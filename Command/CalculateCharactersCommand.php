@@ -1,6 +1,6 @@
 <?php
 
-namespace CommonGateway\CoreBundle\Command;
+namespace LarpingBase\LarpingBundle\Command;
 
 use Doctrine\ORM\EntityManager;
 use LarpingBase\LarpingBundle\Service\LarpingService;
