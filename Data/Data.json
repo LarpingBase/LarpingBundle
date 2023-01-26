@@ -37,7 +37,8 @@
       "modifier": 2,
       "modification": "positive",
       "cumulative": "cumulative",
-      "setting":"2c677a3c-8e4d-477d-b75c-1b335be0f220"
+      "setting":"2c677a3c-8e4d-477d-b75c-1b335be0f220",
+      "stat":"4ff94493-a64b-4a67-8aed-dce9335060f6"
 
     },
     {
@@ -73,7 +74,6 @@
       "name":"XP Cost 1",
       "description":"Buying this skill cost 1 XP",
       "modifier": 1,
-      "modification": "negative",
       "cumulative": "cumulative",
       "setting":"2c677a3c-8e4d-477d-b75c-1b335be0f220",
       "stat":"4ff94493-a64b-4a67-8aed-dce9335060f6"
@@ -83,7 +83,6 @@
       "name":"XP Cost 2",
       "description":"Buying this skill cost 1 XP",
       "modifier": 2,
-      "modification": "negative",
       "cumulative": "cumulative",
       "setting":"2c677a3c-8e4d-477d-b75c-1b335be0f220",
       "stat":"4ff94493-a64b-4a67-8aed-dce9335060f6"
@@ -93,7 +92,6 @@
       "name":"XP Cost 3",
       "description":"Buying this skill cost 1 XP",
       "modifier": 3,
-      "modification": "negative",
       "cumulative": "cumulative",
       "setting":"2c677a3c-8e4d-477d-b75c-1b335be0f220",
       "stat":"4ff94493-a64b-4a67-8aed-dce9335060f6"
@@ -103,7 +101,6 @@
       "name":"XP Cost 4",
       "description":"Buying this skill cost 1 XP",
       "modifier": 4,
-      "modification": "negative",
       "cumulative": "cumulative",
       "setting":"2c677a3c-8e4d-477d-b75c-1b335be0f220",
       "stat":"4ff94493-a64b-4a67-8aed-dce9335060f6"
@@ -113,7 +110,6 @@
       "name":"XP Cost 5",
       "description":"Buying this skill cost 1 XP",
       "modifier": 5,
-      "modification": "negative",
       "cumulative": "cumulative",
       "setting":"2c677a3c-8e4d-477d-b75c-1b335be0f220",
       "stat":"4ff94493-a64b-4a67-8aed-dce9335060f6"

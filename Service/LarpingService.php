@@ -125,27 +125,25 @@ class LarpingService
 
         //Savety
         if(!$stat){
-            $this->io->note("Effect ".$effect->getValue('name')." is not asigned to a stat so wont be calculated");
+            $this->io->comment("Effect ".$effect->getValue('name')." is not asigned to a stat so wont be calculated");
             return $stats;
         }
         $this->io->note("Calculating Effect ".$effect->getValue('name'));
-
-        // What if the abbility has not been added yet
-        if(!in_array($stat->getId()->toString(), $stats)){
-            $stats[$stat->getId()->toString()] =
-                [
-                    "name" => $stat->getValue('name'),
-                    "value" => $stat->getValue('base'),
-                    "effects" => []
-                ];
-        }
-        $this->io->note("Effect ".$effect->getValue('name')." targets ".$stat->getValue('name'));
+        $this->io->comment("Effect ".$effect->getValue('name')." targets ".$stat->getValue('name'));
 
         // Get current vallue
-        $value = $stats[$stat->getId()->toString()]["value"];
-        $this->io->note("Stat ".$stat->getValue('name')." has a current value of ".$value);
+        if(isset($stats[$stat->getId()->toString()]["value"])){
+            $this->io->comment("Adding to existing stat");
+            $value = $stats[$stat->getId()->toString()]["value"];
+        }
+        else{
+            $this->io->comment("Adding stat to character ");
+            $value = $stat->getValue("base");
+        }
+        
+        $this->io->comment("Stat ".$stat->getValue('name')." has a current value of ".$value);
 
-        $this->io->note("Effect ".$effect->getValue('name')." has a  ".$effect->getValue('modification'). " modification of ".$effect->getValue('modifier'));
+        $this->io->comment("Effect ".$effect->getValue('name')." has a  ".$effect->getValue('modification'). " modification of ".$effect->getValue('modifier'));
 
         // Positive versus negative modifaction
         if($effect->getValue('modification') == 'positive'){
@@ -159,6 +157,7 @@ class LarpingService
         $this->io->note("Stat ".$stat->getValue('name')." has a end value of ".$value);
 
         // Set the calculated effects
+        $stats[$stat->getId()->toString()]["name"] = $stat->getValue('name');
         $stats[$stat->getId()->toString()]["base"] = $stat->getValue('base');
         $stats[$stat->getId()->toString()]["value"] = $value;
         $stats[$stat->getId()->toString()]["effects"][] = $effectDescription;
