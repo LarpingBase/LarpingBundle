@@ -7,10 +7,12 @@ namespace LarpingBase\LarpingBundle\Service;
 use App\Entity\ObjectEntity;
 use Doctrine\ORM\EntityManagerInterface;
 use \DateTime;
+use Symfony\Component\Console\Style\SymfonyStyle;
 
 class LarpingService
 {
     private EntityManagerInterface $entityManager;
+    private SymfonyStyle $io;
 
     public function __construct(
         EntityManagerInterface $entityManager
@@ -18,6 +20,16 @@ class LarpingService
     {
         $this->entityManager = $entityManager;
     }
+
+    /**
+     * Set symfony style
+     *
+     * @return void
+     */
+    public function setStyle(SymfonyStyle $io){
+        $this->io = $io;
+    }
+
     /*
      * Calculates the atribute when an characters is changed
      *
@@ -91,7 +103,14 @@ class LarpingService
         return $character;
     }
 
-
+    /**
+     * Calculates the adding of an stad to a character
+     *
+     * @param array $abillities
+     * @param ObjectEntity $effect
+     * @param $effects
+     * @return array
+     */
     private function addEffectToStats(array $abillities, ObjectEntity $effect, $effects): array{
 
 
