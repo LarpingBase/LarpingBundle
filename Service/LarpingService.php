@@ -73,7 +73,9 @@ class LarpingService
         $stats = [];
 
         // Skills
-        foreach($character->getValue('skills') as $skill){
+        $skills = $character->getValue('skills');
+        $this->io->comment("Caclutaing ".count($skills)." skills");
+        foreach($skills as $skill){
             foreach($skill->getValue('effects') as $effect){
                 $stats = $this->addEffectToStats($stats, $effect, $effects);
                 $effects[] = $effect;
@@ -82,7 +84,9 @@ class LarpingService
 
         // Events
         $now = New DateTime();
-        foreach($character->getValue('events') as $event){
+        $events = $character->getValue('events');
+        $this->io->comment("Caclutaing ".count($events)." events");
+        foreach($events as $event){
             // Todo: Continu if enddate is empty or greater then now
             if(! $event->getValue('endDate') || $event->getValue('endDate') > $now){
                 continue;
@@ -94,7 +98,9 @@ class LarpingService
         }
 
         // Conditions
-        foreach($character->getValue('conditions') as $condition){
+        $conditions =$character->getValue('conditions');
+        $this->io->comment("Caclutaing ".count($conditions)." conditions");
+        foreach($conditions as $condition){
             foreach($condition->getValue('effects') as $effect){
                 $stats = $this->addEffectToStats($stats, $effect, $effects);
                 $effects[] = $effect;
@@ -119,8 +125,10 @@ class LarpingService
 
         //Savety
         if(!$stat){
+            $this->io->note("Effect ".$effect->getValue('name')." is not asigned to a stat so wont be calculated");
             return $stats;
         }
+        $this->io->note("Calculating Effect ".$effect->getValue('name'));
 
         // What if the abbility has not been added yet
         if(!in_array($stat->getId()->toString(), $stats)){
@@ -131,9 +139,13 @@ class LarpingService
                     "effects" => []
                 ];
         }
+        $this->io->note("Effect ".$effect->getValue('name')." targets ".$stat->getValue('name'));
 
         // Get current vallue
         $value = $stats[$stat->getId()->toString()]["value"];
+        $this->io->note("Stat ".$stat->getValue('name')." has a current value of ".$value);
+
+        $this->io->note("Effect ".$effect->getValue('name')." has a  ".$effect->getValue('modification'). " modification of ".$effect->getValue('modifier'));
 
         // Positive versus negative modifaction
         if($effect->getValue('modification') == 'positive'){
@@ -144,6 +156,7 @@ class LarpingService
             $value = $value - $effect->getValue('modifier');
             $effectDescription = "(- ".$effect->getValue('modifier').") ".$effect->getValue('name');
         }
+        $this->io->note("Stat ".$stat->getValue('name')." has a end value of ".$value);
 
         // Set the calculated effects
         $stats[$stat->getId()->toString()]["base"] = $stat->getValue('base');
