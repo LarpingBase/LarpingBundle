@@ -62,6 +62,7 @@
       "name":"Mage",
       "description":"This character is an practied spell caster and has the power to casts spells equal to its mana points per day",
       "modifier": 5,
+      "modification": "positive",
       "cumulative": "cumulative",
       "setting":"2c677a3c-8e4d-477d-b75c-1b335be0f220",
       "stat":"f356ae9c-ee67-45e9-9cf4-f9bd86cf1150"

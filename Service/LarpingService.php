@@ -12,7 +12,6 @@ use Symfony\Component\Console\Style\SymfonyStyle;
 class LarpingService
 {
     private EntityManagerInterface $entityManager;
-    private SymfonyStyle $io;
 
     public function __construct(
         EntityManagerInterface $entityManager
@@ -21,15 +20,19 @@ class LarpingService
         $this->entityManager = $entityManager;
     }
 
-    /**
-     * Set symfony style
-     *
-     * @return void
-     */
-    public function setStyle(SymfonyStyle $io){
-        $this->io = $io;
-    }
 
+    /**
+     * Set symfony style in order to output to the console
+     *
+     * @param SymfonyStyle $io
+     * @return self
+     */
+    public function setStyle(SymfonyStyle $io):self
+    {
+        $this->io = $io;
+
+        return $this;
+    }
     /*
      * Calculates the atribute when an characters is changed
      *
@@ -66,8 +69,8 @@ class LarpingService
             return $character;
         }
 
-        $effect = [];
-        $stats =[];
+        $effects = [];
+        $stats = [];
 
         // Skills
         foreach($character->getValue('skills') as $skill){
@@ -103,15 +106,8 @@ class LarpingService
         return $character;
     }
 
-    /**
-     * Calculates the adding of an stad to a character
-     *
-     * @param array $abillities
-     * @param ObjectEntity $effect
-     * @param $effects
-     * @return array
-     */
-    private function addEffectToStats(array $abillities, ObjectEntity $effect, $effects): array{
+
+    private function addEffectToStats(array $stats, ObjectEntity $effect, $effects): array{
 
 
         // Stackable
@@ -119,21 +115,28 @@ class LarpingService
 
         }
 
+        $stat = $effect->getValue('stat');
+
+        //Savety
+        if(!$stat){
+            return $stats;
+        }
+
         // What if the abbility has not been added yet
-        if(!in_array($effect->getValue('abillity'), $abillities)){
-            $abillities[$effect->getValue('abillity')->getId()] =
+        if(!in_array($stat->getId()->toString(), $stats)){
+            $stats[$stat->getId()->toString()] =
                 [
-                    "name" => $effect->getValue('abillity')->getValue('name'),
-                    "value" => $effect->getValue('abillity')->getValue('base'),
+                    "name" => $stat->getValue('name'),
+                    "value" => $stat->getValue('base'),
                     "effects" => []
                 ];
         }
 
         // Get current vallue
-        $value = $abillities[$effect->getValue('abillity')->getId()]["value"];
+        $value = $stats[$stat->getId()->toString()]["value"];
 
         // Positive versus negative modifaction
-        if($effect->getValue('positive')){
+        if($effect->getValue('modification') == 'positive'){
             $value = $value + $effect->getValue('modifier');
             $effectDescription = "(+ ".$effect->getValue('modifier').") ".$effect->getValue('name');
         }
@@ -143,8 +146,9 @@ class LarpingService
         }
 
         // Set the calculated effects
-        $abillities[$effect->getValue('abillity')->getId()]["value"] = $value;
-        $abillities[$effect->getValue('abillity')->getId()]["effects"] = $effectDescription;
+        $stats[$stat->getId()->toString()]["base"] = $stat->getValue('base');
+        $stats[$stat->getId()->toString()]["value"] = $value;
+        $stats[$stat->getId()->toString()]["effects"][] = $effectDescription;
 
         return $stats;
     }

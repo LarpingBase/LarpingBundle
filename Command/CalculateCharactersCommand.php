@@ -33,8 +33,9 @@ class CalculateCharactersCommand extends Command
     {
         //$this->cacheService->setStyle(new SymfonyStyle($input, $output));
         $io = new SymfonyStyle($input, $output);
+        $this->larpingService->setStyle($io);
 
-        $characterEntity = $this->entityManager->getRepository('App:Entity')->findBy(['entity'=>'https://larping.nl/character.schema.json']);
+        $characterEntity = $this->entityManager->getRepository('App:Entity')->findBy(['reference'=>'https://larping.nl/character.schema.json']);
 
         if(!$characterEntity){
             $io->error("No entity for characters found");
@@ -45,16 +46,17 @@ class CalculateCharactersCommand extends Command
         $io->title('Calculating all characters');
         $io->note('Found '.count($characters).' characters');
         foreach ($characters as $character){
-            $io->section('Calculating '.$character->getName);
+            $io->section('Calculating '.$character->getName());
             $character = $this->larpingService->calculateCharacter($character);
             $this->entityManager->persist($character);
 
             // Build a nice table
-            $headers = ['stat','value','modifiers'];
+            $headers = ['stat','base','current','modifiers'];
             $rows = [];
             foreach($character->getValue('stats') as $key => $stat){
                 $row = [
                     $stat['name'],
+                    $stat['base'],
                     $stat['value'],
                     implode(',',$stat['effects'])
                 ];
