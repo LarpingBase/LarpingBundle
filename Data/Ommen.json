@@ -114,310 +114,242 @@
   ],
   "https://larping.nl/condition.schema.json": [
     {
-      "id": "",
       "name":"Constitutie A",
       "description":"Je bent taaier dan de meesten.\nJouw max HP gaat met 1 punt omhoog.",
       "setting":"c8af9ffe-c238-4cd4-b59c-6fed50f3b53f",
       "effects":["2d95a175-4b49-4875-b821-065a9a685438"]
     },
     {
-      "id": "",
       "name":"Adrenaline",
       "description":"Je weet hoe je je staande moet houden in de meeste gevechten, ook als je zwaar gewond\nbent.\nWanneer je op 0 HP komt te staan begin je wel met doodbloeden, maar raak je niet direct\nbuiten bewustzijn. Je mag door blijven vechten, maar bent Exhausted dus kunt geen\nverdere vaardigheden gebruiken. Zodra jij nog een keer geraakt wordt of wanneer je stopt\n48\nmet je in het gevecht mengen, als is het maar voor een paar seconden, verlies je alsnog\nhet bewustzijn.\nJe kunt dit zo lang doen wilt, maar de normale regels voor doodbloeden blijven gelden,\ndus als je na 2 minuten alsnog neer gaat heb je nog maar 3 minuten voordat je sterft. Blijf\nje 5 minuten doorvechten, dan sterf je onmiddellijk.\nJe kunt deze vaardigheid niet gebruiken als je op 0 HP komt door een Fatal call.",
       "setting":"c8af9ffe-c238-4cd4-b59c-6fed50f3b53f",
       "effects":[]
     },
     {
-      "id": "",
       "name":"Sterke Conditie",
       "description":"Je hebt een sterk uithoudingsvermogen en raakt niet snel Vermoeid.\nDe eerste keer van de dag dat je op 0 HP terecht komt en bewusteloos raakt, raak je niet\nVermoeid. Deze vaardigheid beschermt je niet tegen de Call Exhaustion.",
       "setting":"c8af9ffe-c238-4cd4-b59c-6fed50f3b53f",
       "effects":[]
     },
     {
-      "id": "",
       "name":"Constitutie B ",
       "description":"Je bent één van de taaiste.\nJe max HP gaat met 1 punt omhoog.\n",
       "setting":"c8af9ffe-c238-4cd4-b59c-6fed50f3b53f",
       "effects":["2d95a175-4b49-4875-b821-065a9a685438"]
     },
     {
-      "id": "",
       "name":"Pantser Expert",
       "description":"Je maximale AP worden verhoogd met 1 punt. Dit moet uitgebeeld worden met\ndaadwerkelijk pantser (Zie de regels over Armor Points). Je kunt deze vaardigheid 3x\nkopen.\n",
       "setting":"c8af9ffe-c238-4cd4-b59c-6fed50f3b53f",
       "effects":["61ce831c-ba31-4107-aecc-4ed435a097b4"]
     },
     {
-      "id": "",
       "name":"Schild Expert",
       "description":"Je maximale SP worden verhoogd met 1 punt. Dit moet uitgebeeld worden met een\ndaadwerkelijk schild (Zie de regels over Shield Points). Je kunt deze vaardigheid 3x kopen.",
       "setting":"c8af9ffe-c238-4cd4-b59c-6fed50f3b53f",
       "effects":["7476bc20-3967-4eec-9234-cbe9a45c5ed6"]
     },
     {
-      "id": "",
       "name":"Verminker ",
       "description":"Je hebt kennis van het menselijk lichaam en kunt hierdoor effectief lichaamsdelen\nuitschakelen.\nJe kunt iemands lichaamsdeel uitschakelen door deze te raken met een aanval van een\nwapen. Het effect ligt aan de plek waar je raakt.\nRaak je een been, dan gebruik je de Call Trip.\nRaak je iemands arm, dan gebruik je de Call Fumble.\nMet een (kruis)boog is het voldoende om het slachtoffer te raken om de Trip of Fumble uit\nte voeren. Je kiest dan dus zelf welke Call je roept.\nJe kunt deze vaardigheid 3x per dag gebruiken.",
       "setting":"c8af9ffe-c238-4cd4-b59c-6fed50f3b53f",
       "effects":[]
     },
     {
-      "id": "",
       "name":"Neerslag",
       "description":"Door iemand ongezien op zijn rug te tikken en de Call Sleep te gebruiken kun je iemand\nbewusteloos slaan.\nDeze persoon zakt geruisloos door de knieën heen en is daarna een minuut bewusteloos.\nDeze persoon kan gedurende de minuut alleen gewekt worden door minstens 1 HP te\nverliezen.\nJe kunt deze vaardigheid 2\nx per dag gebruiken\n",
       "setting":"c8af9ffe-c238-4cd4-b59c-6fed50f3b53f",
       "effects":[]
     },
     {
-      "id": "",
       "name":"Sterke Geest",
       "description":"Je mag er éénmaal voor kiezen om de tijdsduur van een Call te halveren. Je doet dit door\neen mantra van minstens vijf woorden uit te spreken, gevolgd door de woorden ‘Sterke\nGeest’. De tijdsduur van het effect begint direct hierna.\nAls je dit doet, en je hoort binnen vijf minuten opnieuw dezelfde Call, mag je de tijdsduur\nnog steeds halveren.\nJe mag deze vaardigheid pas opnieuw gebruiken na Op Adem Komen of Nachtrust.",
       "setting":"c8af9ffe-c238-4cd4-b59c-6fed50f3b53f",
       "effects":[]
     },
     {
-      "id": "",
       "name":"Zonder Vrees ",
       "description":"Je mag er éénmaal voor kiezen om de Call Fear te negeren. Je doet dit door een mantra\nvan minstens vijf woorden uit te spreken, gevolgd door de woorden ‘Fearless, No Effect’.\nAls je dit doet, blijf je voor vijf minuten lang immuun voor deze Call. Je mag dit opnieuw\ndoen na Op Adem Komen of Nachtrust.",
       "setting":"c8af9ffe-c238-4cd4-b59c-6fed50f3b53f",
       "effects":[]
     },
     {
-      "id": "",
       "name":"IJzeren Wil A ",
       "description":"Je mag er éénmaal voor kiezen om één van de volgende Calls te negeren: Dominate,\nFascinate, Sleep, Paralyze, Taunt. Je doet dit door een mantra van minstens vijf woorden\nuit te spreken, gevolgd door de woorden ‘Iron Will, No Effect’.\nAls je dit doet, blijf je voor vijf minuten lang immuun voor dezelfde Call. Je mag dit\nopnieuw doen na Op Adem Komen of Nachtrust.\n",
       "setting":"c8af9ffe-c238-4cd4-b59c-6fed50f3b53f",
       "effects":[]
     },
     {
-      "id": "",
       "name":"IJzeren Wil B ",
       "description":"Je mag er éénmaal voor kiezen om één van de volgende Calls te negeren: Incite, Mute,\nBlind, Deaf.. Je doet dit door een mantra van minstens vijf woorden uit te spreken,\ngevolgd door de woorden ‘Iron Will, No Effect’.\nAls je dit doet, blijf je voor vijf minuten lang immuun voor dezelfde Call. Je mag dit\nopnieuw doen na Op Adem Komen of Nachtrust.\n",
       "setting":"c8af9ffe-c238-4cd4-b59c-6fed50f3b53f",
       "effects":[]
     },
     {
-      "id": "",
       "name":"Herstel de Geest",
       "description":"Je mag éénmaal iemand die één of meer van de vaardigheden Sterke geest, Zonder\nvrees, Ijzeren will A of Ijzeren geest B gebruikt heeft aanraken; het gebruik van al deze\nvaardigheden wordt gereset, alsof de persoon in kwestie Op Adem Komen heeft gebruikt.\nJe mag dit opnieuw doen na Op Adem Komen of Nachtrust.\n",
       "setting":"c8af9ffe-c238-4cd4-b59c-6fed50f3b53f",
       "effects":[]
     },
     {
-      "id": "",
       "name":"Beschermer van de Geest",
       "description":"Je mag vijf keer per dag iemand aanraken; die persoon krijgt tot zijn volgende Nachtrust\ntoegang tot de vaardigheid Sterke Geest. Als de persoon in kwestie deze vaardigheid al\nhad, zal de tijdsduur van effecten nogmaals gehalveerd worden; er blijft slechts een kwart\nvan de oorspronkelijke tijdsduur over.",
       "setting":"c8af9ffe-c238-4cd4-b59c-6fed50f3b53f",
       "effects":[]
     },
     {
-      "id": "",
       "name":"Vastbesloten Herhaling ",
       "description":"Wanneer jij een Call naar iemand roept, en je ziet dat deze genegeerd/gehalveerd wordt*\ndoor de vaardigheden Sterke Geest, Zonder Vrees of Ijzeren Wil A of Ijzeren Wil B, dan\nmag je de Call direct nogmaals op een ander persoon gebruiken. Je hoeft hiervoor de\nincantatie of handeling die je deed niet te herhalen.\n*Je kunt dit herkennen doordat deze persoon een mantra van enkele woorden moet spreken,\ngevolgd door de naam van de vaardigheid.",
       "setting":"c8af9ffe-c238-4cd4-b59c-6fed50f3b53f",
       "effects":[]
     },
     {
-      "id": "",
       "name":"Breek de Geest",
       "description":"Wanneer jij een persoon die onder invloed is van een Call met een tijdsduur minstens tien\nseconden onafgebroken aanraakt, kun jij er voor zorgen dat het effect van de Call ook na\nde tijdsduur actief blijft. Het effect blijft actief totdat je stopt met de persoon aanraken of\njijzelf schade krijgt, of tot jij kiest om het effect te laten eindigen.\nJe mag deze vaardigheid één keer gebruiken, hierna moet je Op Adem Komen voordat je\nhem opnieuw kunt gebruiken.\n",
       "setting":"c8af9ffe-c238-4cd4-b59c-6fed50f3b53f",
       "effects":[]
     },
     {
-      "id": "",
       "name":"Lezen/Schrijven ",
       "description":"Je kunt lezen en schrijven in alle talen die je kunt spreken. Als je een taal schrijft in een\nandere taal dan Common, moet je er (OC) boven zetten in welke taal het is geschreven.\n",
       "setting":"c8af9ffe-c238-4cd4-b59c-6fed50f3b53f",
       "effects":[]
     },
     {
-      "id": "",
       "name":"Nieuwsgierig",
       "description":"In de tijd tussen evenementen door krijg je hier en daar nieuwtjes mee.\nVoor de start van een evenement krijg jij van de Spelleiding 5 geruchten, welke soms waar\nmaar soms ook niet waar zijn.\n",
       "setting":"c8af9ffe-c238-4cd4-b59c-6fed50f3b53f",
       "effects":[]
     },
     {
-      "id": "",
       "name":"Onderzoeker",
       "description":"Je bent geoefend in het vinden van antwoorden op vragen over de wereld om je heen; je\nhebt goede contacten bij bijvoorbeeld bibliotheken, onderzoekers of tempels.\nTussen evenementen door mag jij de Spelleiding mailen en 3 vragen over de wereld\nstellen, waarbij je ook uitlegt hoe jouw personage naar deze kennis op zoek gaat. De\nSpelleiding geeft je antwoord op deze 3 vragen, op basis van waar jij gaat zoeken.",
       "setting":"c8af9ffe-c238-4cd4-b59c-6fed50f3b53f",
       "effects":[]
     },
     {
-      "id": "",
       "name":"Getrainde geest",
       "description":"Je bent bijzonder goed in het leren van nieuwe dingen.\nSupport skills (groen aangegeven, links in de skill-tree) kun jij kopen voor 1 XP minder\n(met een minimum van 0.5 XP). Dit wordt niet met terugwerkende kracht doorberekend, je\nkrijgt dus geen XP terug van eerder gekochte support skills.\n",
       "setting":"c8af9ffe-c238-4cd4-b59c-6fed50f3b53f",
       "effects":[]
     },
     {
-      "id": "",
       "name":"Bibliothecaris",
       "description":"Tussen evenementen door verschaf jij drie mensen toegang tot een bibliotheek. Deze\nmensen kunnen één vraag stellen volgens de skill Onderzoeker. Als ze zelf de vaardigheid\nOnderzoeker al hebben mogen ze een extra vraag stellen.\nDaarnaast heb je een goed oog voor detail. Als je het vermoeden hebt dat iets\nnep/nagemaakt is, kun je dit onderzoeken.\n",
       "setting":"c8af9ffe-c238-4cd4-b59c-6fed50f3b53f",
       "effects":[]
     },
     {
-      "id": "",
       "name":"Talenknobbel",
       "description":"Je spreekt een extra taal. Als je de skill Lezen/Schrijven hebt, kun je in deze taal ook lezen\nen schrijven. Je kunt deze skill meerdere keren kopen, om nog meer talen te spreken. De\ntweede keer dat je de skill koopt, krijg je er twee talen bij (totaal 3 talen). De derde keer,\ndrie talen (totaal 6 talen), etcetera.\nEr bestaan in de wereld ontelbaar veel talen en dialecten; er is geen definitieve lijst.\n(Iedereen spreekt standaard Common. Elfen spreken daarnaast standaard Elvish.\nDwergen spreken daarnaast standaard Dwarvish. Ze hoeven voor die talen deze\nvaardigheid niet te kopen.)\n",
       "setting":"c8af9ffe-c238-4cd4-b59c-6fed50f3b53f",
       "effects":[]
     },
     {
-      "id": "",
       "name":"Achterklap",
       "description":"Vóór het begin van het evenement mag jij aan de Spelleiding tot 1 (eventueel vals)\ngerucht geven. Deze worden toegevoegd aan de mogelijke geruchten die spelers met de\nvaardigheid Nieuwsgierig te horen krijgen. Doe dit uiterlijk 1 maand voor het begin van\nhet event, zodat spelleiders het op tijd kunnen verwerken.\nJe kunt deze vaardigheid meerdere keren kopen om meerdere geruchten te verspreiden.",
       "setting":"c8af9ffe-c238-4cd4-b59c-6fed50f3b53f",
       "effects":[]
     },
     {
-      "id": "",
       "name":"Studie Spionage ",
       "description":"Tussen de evenementen door kun jij voor maximaal 3 personen met de vaardigheid\n‘Onderzoeker’ een counter-onderzoek opzetten. Hierdoor kom jij er achter welke vragen zij\nhebben onderzocht, en een vage benadering van de uitkomsten van hun onderzoek. Deze\npersonen merken niets van jouw counter-onderzoek.\n",
       "setting":"c8af9ffe-c238-4cd4-b59c-6fed50f3b53f",
       "effects":[]
     },
     {
-      "id": "",
       "name":"Double",
       "description":"Je kunt harder of effectiever treffen en doet dubbele schade met je wapen.\nJe maakt hierbij de Call Double.\nDit kun je 3x voor je Op Adem moet Komen.\n",
       "setting":"c8af9ffe-c238-4cd4-b59c-6fed50f3b53f",
       "effects":[]
     },
     {
-      "id": "",
       "name":"Strike",
       "description":"Je kunt iemand zo’n harde klap toedienen of zo’n gerichte, uit balans brengende uithaal\nmaken, dat degene die je raakt ervan achteruit valt.\nJe maakt hierbij de Call Strike.\nJe kunt deze vaardigheid 2x gebruiken voordat je Op Adem moet Komen.",
       "setting":"c8af9ffe-c238-4cd4-b59c-6fed50f3b53f",
       "effects":[]
     },
     {
-      "id": "",
       "name":"Schildbreker",
       "description":"Je kunt een schild stukslaan, of het schild nu magisch is of niet.\nHiermee verlaag je de SP van het schild naar 0. Je maakt hierbij de Call Shatter.\nJe kunt deze vaardigheid 2x gebruiken voordat je Op Adem moet Komen.\n",
       "setting":"c8af9ffe-c238-4cd4-b59c-6fed50f3b53f",
       "effects":[]
     },
     {
-      "id": "",
       "name":"Crush",
       "description":"Je kunt in één keer al je kracht inzetten om in een geweldige treffer een harnas en\nlichaamsdelen uit elkaar te laten spatten.\nAls je iemand raakt met deze vaardigheid doet dit 4 punten schade. Je maakt hierbij de\nCall Crush.\nJe kunt deze vaardigheid 1x gebruiken voordat je Op Adem moet Komen.",
       "setting":"c8af9ffe-c238-4cd4-b59c-6fed50f3b53f",
       "effects":[]
     },
     {
-      "id": "",
       "name":"Finesse",
       "description":"Je weet iemand precies op de zwakke plek te raken, tussen de beschermende delen van\niemands harnas door.\nJe mag de Call Through maken.\nJe kunt deze vaardigheid 3x voordat je Op Adem moet Komen.",
       "setting":"c8af9ffe-c238-4cd4-b59c-6fed50f3b53f",
       "effects":[]
     },
     {
-      "id": "",
       "name":"Doorzettingsvermogen",
       "description":"Jij weet ware strijders te inspireren.\nAls jij voor het gevecht goed op iemand inpraat (minstens 30 seconden) kan hij/zij de\ngekochte Vechtersvaardigheden 1x vaker gebruiken voor hij/zij Op Adem moet Komen.\nNadat dit persoon Op Adem is Gekomen verdwijnt het effect van deze vaardigheid.\nDit kun jij 3x doen voor je Op Adem moet Komen.",
       "setting":"c8af9ffe-c238-4cd4-b59c-6fed50f3b53f",
       "effects":[]
     },
     {
-      "id": "",
       "name":"Vechten met Giffen",
       "description":"Je kunt gif op wapens aanbrengen, en vechten met deze wapens.\nIn een gevecht weet jij dit wapen te gebruiken zonder jezelf te verwonden met het gif.\nZonder deze vaardigheid kun je dat niet. Lees de regels voor vechten met giffen goed\ndoor.\n",
       "setting":"c8af9ffe-c238-4cd4-b59c-6fed50f3b53f",
       "effects":[]
     },
     {
-      "id": "",
       "name":"Berserk",
       "description":"Je kunt bij jezelf een enorme woede, bijna een sofort trance, opwekken die jou een hele\nsterke vechter maakt.\nJe hebt 4 HP en kan onbeperkt Double slaan (let wel op; maak grote, mooie slagen). Maar\nje kunt niet rationeel nadenken en kunt geen tactische beslissingen maken. Het enige wat\nje wil is door de vijand heen slaan. Als er geen vijanden meer over zijn keer je tegen jouw\nvrienden.\nJe kunt tijdens je Berserk geen dingen doen waarbij je je moet concentreren, zoals magie\ngebruiken. Omdat je instincten het overnemen van je logisch nadenken hebben bepaalde\nCalls geen invloed op je. De volgende Calls werken niet: Fear, Dominatie, Fascinate, Sleep,.\nDe Call Incite werkt ook niet op je, met uitzondering van Incite Calm (Of gelijknamige,\nzoals Rest, Relaxed, Tranquility.) Deze beëindigt het effect van Berserk. Als je op 0 HP\nkomt en je je bewustzijn verliest eindigt deze vaardigheid ook.\nJe kunt niet zelfstandig uit deze Berserk vaardigheid komen. Er is dan ook geen tijdsduur.\nJe gaat door tot je gestopt word.\nJe kunt deze vaardigheid 1x gebruiken, daarna moet je Op Adem Komen voordat je het\nopnieuw kunt doen.",
       "setting":"c8af9ffe-c238-4cd4-b59c-6fed50f3b53f",
       "effects":[]
     },
     {
-      "id": "",
       "name":"Stabiliseren",
       "description":"Je kunt een persoon die op 0 HP staat stabiliseren. Je moet iemand 10 seconden\nbehandelen voor deze persoon gestabiliseerd is. Iemand die gestabiliseerd is bloedt niet\nlanger dood en geneest na nog eens 1 minuut van jouw behandeling 1 HP. Deze persoon is\ndan niet meer Vermoeid.\nJe kunt deze vaardigheid niet gebruiken op iemand die 1 of meer HP heeft.\nJe kunt deze vaardigheid ook gebruiken om iemand die een Fatal (of Fatal Poison) gehad\nheeft stabiel te houden. Hiervoor heb je hulp nodig van minstens één iemand die de\nvaardigheid Medisch Assistent of Stabiliseren gebruikt. Per persoon met de vaardigheid\nStabiliseren verleng je de Grace Period met 1 minuut. Per persoon met de vaardigheid\nMedisch Assistent verleng je de Grace Period met 30 seconden. In totaal kan een groep de\npersoon maximaal 5 minuten in leven houden.\nDe stabilisatie kan gestopt worden wanneer de genezing begonnen is. Iemand die is\nbegonnen met Stabiliseren moet dit dus nog aan het doen zijn wanneer de genezing\nbegonnen is, en kan niet meer bijdragen aan het gebruik van de vaardigheid Verzorging\nom de Fatal te genezen.\n",
       "setting":"c8af9ffe-c238-4cd4-b59c-6fed50f3b53f",
       "effects":[]
     },
     {
-      "id": "",
       "name":"Verzorging",
       "description":"Je kunt een persoon die gewond is genezen, en een persoon die Vermoeid is sneller Op\nAdem laten Komen.\nWanneer je een gewonde 1 minuut verzorgt geneest deze persoon 1 HP; je kunt dit telkens\n1 minuut verlengen om 1 HP extra te genezen. Deze persoon is direct Op Adem Gekomen.\nJe kunt iemand nooit genezen boven zijn of haar max HP\nJe kunt ook een persoon die niet gewond is 2 minuten verzorgen; hierna is deze\nonmiddellijk Op Adem Gekomen.\nJe kunt deze vaardigheid ook gebruiken om iemand die een Fatal gehad heeft te\ngenezen. Hiervoor heb je nog 2 anderen nodig met de vaardigheid Verzorging. Met deze 3\npersonen kun je met een operatie van 10 minuten iemand die een Fatal gehad heeft naar\n1 HP brengen.",
       "setting":"c8af9ffe-c238-4cd4-b59c-6fed50f3b53f",
       "effects":[]
     },
     {
-      "id": "",
       "name":"Medisch Adviseur ",
       "description":"Je kunt een ernstige wond kort stelpen of iemand adviseren waar zijn of haar zwakke\nplekken zitten en zo helpen om schade aan het lichaam te beperken.\nDit kost je 10 seconden. Deze persoon krijgt 1 SP.\nJe kunt deze vaardigheid 3x gebruiken voordat je Op Adem moet Komen.\n",
       "setting":"c8af9ffe-c238-4cd4-b59c-6fed50f3b53f",
       "effects":[]
     },
     {
-      "id": "",
       "name":"Noodhospitaal",
       "description":"Je zet een noodhospitaal op waarbij je de leiding neemt over andere genezers om snel en\neffectief gewonden te verzorgen. Als aanvoerder van het hospitaal kun jij niemand\ngenezen zolang deze vaardigheid actief is. Het noodhospitaal moet een duidelijk\nbegrensd gebied zijn.\nJe wijst maximaal 4 personen aan met de vaardigheid Stabiliseren en/of Verzorging. Deze\npersonen kunnen elk 5 HP genezen. 1 HP genezen kost 10 seconden. Iedereen die op deze\nmanier genezen wordt is onmiddellijk Op Adem Gekomen.\nZodra je deze vaardigheid gebruikt moet je in het noodhospitaal blijven. Als je wegloopt\n61\nuit je hospitaal of wanneer iemand binnen het noodhospitaal wordt aangevallen stopt het\neffect.\nJe kunt deze vaardigheid 2x per Nachtrust gebruiken.",
       "setting":"c8af9ffe-c238-4cd4-b59c-6fed50f3b53f",
       "effects":[]
     },
     {
-      "id": "",
       "name":"Verdoving",
       "description":"Je beschikt over een sterk verdovend middel waardoor iemand niets meer voelt.\nJe maakt iemand voor de komende 5 minuten immuun voor één van de volgende\neffecten:\nTorture, Fear of Itch.\nAan het einde van de 5 minuten krijgt de persoon voor 1 minuut Incite Confusion.\nJe kunt deze vaardigheid 3x gebruiken voordat je moet Op Adem moet Komen.\nJe kunt deze vaardigheid niet gebruiken als je zelf onder invloed bent van één van de\neffecten.\n",
       "setting":"c8af9ffe-c238-4cd4-b59c-6fed50f3b53f",
       "effects":[]
     },
     {
-      "id": "",
       "name":"Medisch Assistent",
       "description":"Wanneer jij assisteert bij een genezing die uitgevoerd wordt door een getrainde genezer,\nis de benodigde tijd voor de genezing gehalveerd.\nJe kunt iemand met de vaardigheid Stabiliseren helpen om een iemand die een Fatal\ngehad heeft langer in leven te houden, volgens de regels beschreven bij de vaardigheid\nStabiliseren.\n",
       "setting":"c8af9ffe-c238-4cd4-b59c-6fed50f3b53f",
       "effects":[]
     },
     {
-      "id": "",
       "name":"Martelen",
       "description":"Je kennis over mensen zo pijnloos mogelijk verzorgen heeft je ook veel geleerd over wat\nde meest pijnlijke ‘fouten’ zijn die je op een patiënt kunt maken. Je weet hoe je deze\nkennis toe moet passen om iemand zover te krijgen zijn of haar geheimen prijs te geven.\nPer 5 minuten dat je een doelwit op deze manier ‘behandelt’ mag je één vraag stellen die\nnaar waarheid beantwoord moet worden. Deze vaardigheid is niet hetzelfde als de Call\nTorture.\nJe mag deze vaardigheid niet meer dan één keer per dag op dezelfde persoon gebruiken.",
       "setting":"c8af9ffe-c238-4cd4-b59c-6fed50f3b53f",
       "effects":[]
     },
     {
-      "id": "",
       "name":"Verwondingsadviseur",
       "description":"Je kent de gevoelige plekken van het lichaam en het soort wonden dat het moeilijkst te\ngenezen is. Wanneer je iemand tijdens een gevecht deze plekken aanwijst kan diegene\ntijdelijk extra effectief aanvallen.\nJe besteedt minstens 30 seconden aan anatomische uitleg aan je ‘leerling’. Voor het\nkomende uur kan jouw ‘leerling’ 3x de Call Double, Trip of Fumble aan een aanval\ntoevoegen. De ‘leerling’ maakt de Call en niet jij als gebruiker van de vaardigheid.\nJe kunt deze vaardigheid 3x per dag gebruiken.",
-      "setting":"c8af9ffe-c238-4cd4-b59c-6fed50f3b53f",
-      "effects":[]
-    },
-    {
-      "id": "",
-      "name":"",
-      "description":"",
-      "setting":"c8af9ffe-c238-4cd4-b59c-6fed50f3b53f",
-      "effects":[]
-    },
-    {
-      "id": "",
-      "name":"",
-      "description":"",
-      "setting":"c8af9ffe-c238-4cd4-b59c-6fed50f3b53f",
-      "effects":[]
-    },
-    {
-      "id": "",
-      "name":"",
-      "description":"",
-      "setting":"c8af9ffe-c238-4cd4-b59c-6fed50f3b53f",
-      "effects":[]
-    },
-    {
-      "id": "",
-      "name":"",
-      "description":"",
       "setting":"c8af9ffe-c238-4cd4-b59c-6fed50f3b53f",
       "effects":[]
     }
