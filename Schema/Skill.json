@@ -5,6 +5,7 @@
   "title":"Skill",
   "type":"object",
   "description":"Skills represent actions a character can learn and perform, like healing. This differs them from conditions that are normally obtained through play. Traditionally skills provide positive effect and enable the character to do stuff he or she otherwise couldn’t (like casting spells). Skills normally also come with an cost (in terms of experience points).",
+  "nameProperties": ["name"],
   "properties":{
     "id":{
       "type":"string",

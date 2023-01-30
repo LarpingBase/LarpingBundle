@@ -5,6 +5,7 @@
   "type":"object",
   "title":"Effect",
   "description":"A calculated effect to an ability e.g increase of experience point or availible mana to a character. This could be from an Item, Skill, Event or Condition.\n\nKeep in mind that not all effects need to be game related, some might simply be of an administrative nature. For example skills are normally bought and will have a negative effect on characters experience points",
+  "nameProperties": ["name"],
   "properties":{
     "id":{
       "type":"string",

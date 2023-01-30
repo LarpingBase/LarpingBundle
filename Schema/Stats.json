@@ -5,6 +5,7 @@
   "title":"Stat",
   "type":"object",
   "description":"Stats represent numeric values on wich a charachters scores, this can be D20 like values such as DEX or CHA but may also be any other aspect of a character that must be calculated based on condition and skills.\n\nCommon examples of these include XP and mana. Keep in mind that if you want to have different types of mana you should create an ability per type (e.g. healing, spiritual, elemental). You can also use abilities to keep track of things like money, material components and bullets. Basically anything that you would like to calculate on a charather level is an ability. ",
+  "nameProperties": ["name"],
   "properties":{
     "id":{
       "type":"string",

@@ -5,6 +5,7 @@
   "title":"Setting",
   "type":"object",
   "description":"The setting is the highest form of abstraction within larping base, it ties together stories, characters and all their quirks into storyarcs usually spanning several events.",
+  "nameProperties": ["name"],
   "properties":{
     "id":{
       "type":"string",

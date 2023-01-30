@@ -5,6 +5,7 @@
   "title":"Event",
   "type":"object",
   "description":"An event or special that is part of a setting. This can be iether a full blown week long event or just an Tuesday afternoon gathering. Events are the place where characters come together to have adventures.",
+  "nameProperties": ["name"],
   "properties":{
     "id":{
       "type":"string",

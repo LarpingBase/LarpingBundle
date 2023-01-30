@@ -4,6 +4,7 @@
   "version": "0.1",
   "title": "Template",
   "type": "object",
+  "nameProperties": ["name"],
   "properties": {
     "id": {
       "type": "string",

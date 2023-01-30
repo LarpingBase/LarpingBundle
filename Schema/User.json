@@ -5,6 +5,7 @@
   "title":"User",
   "type":"object",
   "description":"",
+  "nameProperties": ["email"],
   "examples":[
     {
       "id":142,
