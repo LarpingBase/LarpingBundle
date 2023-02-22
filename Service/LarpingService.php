@@ -83,6 +83,7 @@ class LarpingService
 
         $effects = [];
         $stats = [];
+        $notice = "";
 
         // Skills
         $skills = $character->getValue('skills');
@@ -92,6 +93,15 @@ class LarpingService
                 $stats = $this->addEffectToStats($stats, $effect, $effects);
                 $effects[] = $effect;
             }
+
+            // Check skill requirements.
+            foreach($skill->getValue('requiredSkills') as $requiredSkill){
+
+                if(in_array($requiredSkill, $skills) === false){
+                    $notice = "The skill ".$skill->getValue('name')." has requirement on the skill ".$requiredSkill->getValue('name')." but this character dosn't seem to have that skill \n".$notice;
+                }
+            }
+
         }
 
         // Events
@@ -119,6 +129,25 @@ class LarpingService
             }
         }
 
+        // Lets warn for invallid characters
+        $rows = [
+            "|name|base|value|effects|",
+            "|---|---|---|---|"
+        ];
+
+        foreach($stats as $key => $stat){
+            // Lets throw a worning if skills end up beneath 0
+            if((int) $stat['value'] <= 0){
+                $notice = "The stat ".$stat['name']." has a below 0 value of ".$stat['value']." \n".$notice;
+            }
+
+            $row = "|".$stat['name']."|".$stat['base']."|".$stat['value']."|". implode(',',$stat['effects'])."|";
+
+            $rows[] = $row;
+        }
+
+        $character->setValue('card', implode("\n", $rows));
+        $character->setValue('notice', $notice);
         $character->setValue('stats', $stats);
 
         return $character;

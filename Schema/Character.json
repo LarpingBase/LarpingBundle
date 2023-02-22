@@ -13,15 +13,31 @@
     },
     "description":{
       "type":"string",
+      "format":"text",
       "example":"A proper sea faring pirate",
       "description":"A public description of this character visable for al users with acces to the character. DO NOT USE FOR PRIVET BACKGROUNDS",
       "maxLength":2555
     },
     "background":{
       "type":"string",
+      "format":"text",
       "maxLength":2555,
       "description":"The background of a character, usualy this should only be available to players and game masters",
       "example":"Jack isn’t much of a sea faring pirate, sea fearing would be more appropriate. Ever since getting the black mark jack has gone out of its way not to leave shore.  "
+    },
+    "notice":{
+      "type":"string",
+      "format":"text",
+      "maxLength":2555,
+      "description":"Anything out of the ordenarry that the system noticed automaticly",
+      "example":" "
+    },
+    "card":{
+      "type":"string",
+      "format":"text",
+      "maxLength":2555,
+      "description":"The character card as a nice markdown table",
+      "example":""
     },
     "setting":{
       "type":"object",
