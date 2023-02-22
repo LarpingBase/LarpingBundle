@@ -47,10 +47,24 @@ class LarpingService
             && $data['object']->getId() // make sure the character has an id
         ){
             $data['object'] = $this->calculateCharacter($data['object']);
+            // Let return data
+            return $data;
         }
 
+        // If we do not have a single character then we are going to do all characters :)
+        $characterEntity = $this->entityManager->getRepository('App:Entity')->findOneBy(['reference' => 'https://larping.nl/character.schema.json']);
+
+        $characters = $this->entityManager->getRepository('App:ObjectEntity')->findBy(['entity' => $characterEntity]);
+
+        foreach($characters as $character){
+            $character = $this->calculateCharacter($character);
+            $this->entityManager->persist($character);
+        }
+
+        $this->entityManager->flush();
+
         // Let return data
-        return $data;
+        return [];
     }
 
     /**
