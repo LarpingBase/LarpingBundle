@@ -65,7 +65,6 @@ class CalculateCharactersCommand extends Command
 
             $io->table($headers, $rows);
 
-
             $io->info("The simplyfied character card");
             $io->note($character->getValue('card'));
 
