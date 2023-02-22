@@ -8,6 +8,7 @@ use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
+use CommonGateway\CoreBundle\Service\CacheService;
 
 class CalculateCharactersCommand extends Command
 {
@@ -15,10 +16,11 @@ class CalculateCharactersCommand extends Command
     private LarpingService $larpingService;
     private EntityManagerInterface $entityManager;
 
-    public function __construct(LarpingService $larpingService, EntityManagerInterface $entityManager)
+    public function __construct(LarpingService $larpingService, EntityManagerInterface $entityManager, CacheService $cacheService)
     {
         $this->larpingService = $larpingService;
         $this->entityManager = $entityManager;
+        $this->cacheService = $cacheService;
         parent::__construct();
     }
 
@@ -39,7 +41,7 @@ class CalculateCharactersCommand extends Command
 
         if(!$characterEntity){
             $io->error("No entity for characters found");
-           return 1;
+            return 1;
         }
         $characters = $this->entityManager->getRepository('App:ObjectEntity')->findBy(['entity'=>$characterEntity]);
 
@@ -65,6 +67,7 @@ class CalculateCharactersCommand extends Command
 
             $io->table($headers, $rows);
 
+
             $io->info("The simplyfied character card");
             $io->note($character->getValue('card'));
 
@@ -76,6 +79,8 @@ class CalculateCharactersCommand extends Command
         $this->entityManager->flush();
         $io->success('Al done!');
 
-        return 0;
+        $this->cacheService->setStyle(new SymfonyStyle($input, $output));
+
+        return $this->cacheService->warmup();
     }
 }

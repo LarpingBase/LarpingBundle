@@ -8,16 +8,19 @@ use App\Entity\ObjectEntity;
 use Doctrine\ORM\EntityManagerInterface;
 use \DateTime;
 use Symfony\Component\Console\Style\SymfonyStyle;
+use CommonGateway\CoreBundle\Service\CacheService;
 
 class LarpingService
 {
     private EntityManagerInterface $entityManager;
 
     public function __construct(
-        EntityManagerInterface $entityManager
+        EntityManagerInterface $entityManager,
+        CacheService $cacheService
     )
     {
         $this->entityManager = $entityManager;
+        $this->cacheService = $cacheService;
     }
 
 
@@ -63,6 +66,7 @@ class LarpingService
 
         $this->entityManager->flush();
 
+        $this->cacheService->warmup();
         // Let return data
         return [];
     }
@@ -87,7 +91,7 @@ class LarpingService
 
         // Skills
         $skills = $character->getValue('skills');
-        isset($this->io) ??  $this->io->comment("Caclutaing ".count($skills)." skills");
+            isset($this->io) ??  $this->io->comment("Caclutaing ".count($skills)." skills");
         foreach($skills as $skill){
             foreach($skill->getValue('effects') as $effect){
                 $stats = $this->addEffectToStats($stats, $effect, $effects);
@@ -107,7 +111,7 @@ class LarpingService
         // Events
         $now = New DateTime();
         $events = $character->getValue('events');
-        isset($this->io) ??  $this->io->comment("Caclutaing ".count($events)." events");
+            isset($this->io) ??  $this->io->comment("Caclutaing ".count($events)." events");
         foreach($events as $event){
             // Todo: Continu if enddate is empty or greater then now
             if(! $event->getValue('endDate') || $event->getValue('endDate') > $now){
@@ -121,7 +125,7 @@ class LarpingService
 
         // Conditions
         $conditions =$character->getValue('conditions');
-        isset($this->io) ??  $this->io->comment("Caclutaing ".count($conditions)." conditions");
+            isset($this->io) ??  $this->io->comment("Caclutaing ".count($conditions)." conditions");
         foreach($conditions as $condition){
             foreach($condition->getValue('effects') as $effect){
                 $stats = $this->addEffectToStats($stats, $effect, $effects);
@@ -166,25 +170,25 @@ class LarpingService
 
         //Savety
         if(!$stat){
-            isset($this->io) ??  $this->io->comment("Effect ".$effect->getValue('name')." is not asigned to a stat so wont be calculated");
+                isset($this->io) ??  $this->io->comment("Effect ".$effect->getValue('name')." is not asigned to a stat so wont be calculated");
             return $stats;
         }
-        isset($this->io) ??  $this->io->note("Calculating Effect ".$effect->getValue('name'));
-        isset($this->io) ??  $this->io->comment("Effect ".$effect->getValue('name')." targets ".$stat->getValue('name'));
+            isset($this->io) ??  $this->io->note("Calculating Effect ".$effect->getValue('name'));
+            isset($this->io) ??  $this->io->comment("Effect ".$effect->getValue('name')." targets ".$stat->getValue('name'));
 
         // Get current vallue
         if(isset($stats[$stat->getId()->toString()]["value"])){
-            isset($this->io) ??  $this->io->comment("Adding to existing stat");
+                isset($this->io) ??  $this->io->comment("Adding to existing stat");
             $value = $stats[$stat->getId()->toString()]["value"];
         }
         else{
-            isset($this->io) ??  $this->io->comment("Adding stat to character ");
+                isset($this->io) ??  $this->io->comment("Adding stat to character ");
             $value = $stat->getValue("base");
         }
 
-        isset($this->io) ??  $this->io->comment("Stat ".$stat->getValue('name')." has a current value of ".$value);
+            isset($this->io) ??  $this->io->comment("Stat ".$stat->getValue('name')." has a current value of ".$value);
 
-        isset($this->io) ??  $this->io->comment("Effect ".$effect->getValue('name')." has a  ".$effect->getValue('modification'). " modification of ".$effect->getValue('modifier'));
+            isset($this->io) ??  $this->io->comment("Effect ".$effect->getValue('name')." has a  ".$effect->getValue('modification'). " modification of ".$effect->getValue('modifier'));
 
         // Positive versus negative modifaction
         if($effect->getValue('modification') == 'positive'){
@@ -195,7 +199,7 @@ class LarpingService
             $value = $value - $effect->getValue('modifier');
             $effectDescription = "(- ".$effect->getValue('modifier').") ".$effect->getValue('name');
         }
-        isset($this->io) ??  $this->io->note("Stat ".$stat->getValue('name')." has a end value of ".$value);
+            isset($this->io) ??  $this->io->note("Stat ".$stat->getValue('name')." has a end value of ".$value);
 
         // Set the calculated effects
         $stats[$stat->getId()->toString()]["name"] = $stat->getValue('name');
