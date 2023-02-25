@@ -32,7 +32,6 @@
     }
   },
   "required":[
-    "name",
-    "setting"
+    "name"
   ]
 }

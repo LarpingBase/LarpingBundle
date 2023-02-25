@@ -78,7 +78,6 @@
     }
   },
   "required":[
-    "name",
-    "setting"
+    "name"
   ]
 }

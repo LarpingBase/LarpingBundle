@@ -23,5 +23,8 @@
     "template": {
       "type": "string"
     }
-  }
+  },
+  "required":[
+    "name"
+  ]
 }
