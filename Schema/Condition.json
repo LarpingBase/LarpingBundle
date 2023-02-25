@@ -1,7 +1,7 @@
 {
   "$id": "https://larping.nl/condition.schema.json",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "version": "0.2",
+  "version": "0.3",
   "title":"Condition",
   "type":"object",
   "description":"Conditions can be either positive or negative effects that target a character. They are generaly consequences of characters actions and choices during gameplay and part of play. Conditions differ from abilities in that they are bought \"bought\" by a character trough skill points.\n\nConditions may contain pre configured effects (handy for character calculations) but are not required to. Some ingame effects are simply not automatable, in that case use the effect text property",
@@ -49,11 +49,6 @@
         "$ref": "https://larping.nl/character.schema.json"
       },
       "readOnly":true
-    },
-    "setting":{
-      "type": "object",
-      "description":"The setting that this condition belongs to",
-      "$ref": "https://larping.nl/setting.schema.json"
     }
   },
   "required":[

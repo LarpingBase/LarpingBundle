@@ -1,7 +1,7 @@
 {
   "$id": "https://larping.nl/skill.schema.json",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "version": "0.2",
+  "version": "0.3",
   "title":"Skill",
   "type":"object",
   "description":"Skills represent actions a character can learn and perform, like healing. This differs them from conditions that are normally obtained through play. Traditionally skills provide positive effect and enable the character to do stuff he or she otherwise couldn’t (like casting spells). Skills normally also come with an cost (in terms of experience points).",
@@ -38,11 +38,6 @@
         "type": "object",
         "$ref": "https://larping.nl/effect.schema.json"
       }
-    },
-    "setting":{
-      "type": "object",
-      "description":"The setting that this skill belongs to",
-      "$ref": "https://larping.nl/setting.schema.json"
     },
     "requiredSkills":{
       "type":"array",

@@ -1,7 +1,7 @@
 {
   "$id": "https://larping.nl/stat.schema.json",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "version": "0.2",
+  "version": "0.3",
   "title":"Stat",
   "type":"object",
   "description":"Stats represent numeric values on wich a charachters scores, this can be D20 like values such as DEX or CHA but may also be any other aspect of a character that must be calculated based on condition and skills.\n\nCommon examples of these include XP and mana. Keep in mind that if you want to have different types of mana you should create an ability per type (e.g. healing, spiritual, elemental). You can also use abilities to keep track of things like money, material components and bullets. Basically anything that you would like to calculate on a charather level is an ability. ",
@@ -29,11 +29,6 @@
       "description":"The starting point of this abblility for all charathers",
       "default":0,
       "example":15
-    },
-    "setting":{
-      "type":"object",
-      "description":"The setting that this abillity belongs to",
-      "$ref": "https://larping.nl/setting.schema.json"
     }
   },
   "required":[

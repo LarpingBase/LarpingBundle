@@ -1,7 +1,7 @@
 {
   "$id": "https://larping.nl/character.schema.json",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "version": "0.4",
+  "version": "0.5",
   "title":"Character",
   "type":"object",
   "description":" A player or non player character within an setting. Non Player characters are defined by not being attached to a user",
@@ -39,11 +39,6 @@
       "description":"The character card as a nice markdown table",
       "example":""
     },
-    "setting":{
-      "type":"object",
-      "description":"The setting that this character belongs to",
-      "$ref": "https://larping.nl/setting.schema.json"
-    },
     "stats":{
       "type":"array",
       "description":"The stats of this character",
@@ -72,11 +67,6 @@
       "type":"object",
       "$ref": "https://larping.nl/condition.schema.json"
     }
-  },
-  "user":{
-    "type":"object",
-    "description":"The user that plays this character, normaly a player but might also be a returning extra",
-    "$ref": "https://larping.nl/user.schema.json"
   },
   "type":{
     "type":"string",
