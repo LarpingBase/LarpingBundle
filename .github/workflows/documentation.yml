@@ -4,20 +4,23 @@ name: phpDocumentor
 on: [push, pull_request]
 
 jobs:
-  phpdoc:
+  build:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
-
-      - name: Run phpdoc
-        run: |
-          docker run --rm -v $(pwd):/data phpdoc/phpdoc:3 -d . -t ./docs --template markdown
-
-      - name: git commit
+      - uses: actions/checkout@v3
+      - uses: php-actions/composer@v6
+        with:
+          php_version: "7.4"
+          php_extensions: redis exif
+          version: 2.x
+          command: require clean/phpdoc-md
+      - name: Build the docs
+        run: vendor/bin/phpdoc-md
+      - name: Git commit
         run: |
           git config user.name "GitHub Actions"
           git config user.email ""
-          git add docs/
+          git add docs/classes
           git commit -m "Update phpdoc" || echo "No changes to commit"
           git push
