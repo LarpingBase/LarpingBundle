@@ -5,6 +5,6 @@ return (object)[
     'format' => 'github',
     'classes' => [
         '\CommonGateway\CoreBundle\Service\InstallationService',
-        '\CommonGateway\CoreBundle\Service\PetStoreService'
+        '\CommonGateway\CoreBundle\Service\LarpingService'
     ],
 ];
