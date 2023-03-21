@@ -7,13 +7,17 @@ use LarpingBase\LarpingBundle\Service\LarpingService;
 
 class StatsHandler implements ActionHandlerInterface
 {
+
     private LarpingService $larpingService;
 
     /*
      * Set default conditions
      */
     public const DEFAULT_CONDITIONS = [
-        '==' => ["_self.schema.ref","https://larping.nl/character.schema.json"]
+        '==' => [
+            "_self.schema.ref",
+            "https://larping.nl/character.schema.json",
+        ],
     ];
 
     /*
@@ -21,13 +25,16 @@ class StatsHandler implements ActionHandlerInterface
      */
     public const DEFAULT_LISTENS = [
         'commongateway.object.pre.create',
-        'commongateway.object.pre.update'
+        'commongateway.object.pre.update',
     ];
+
 
     public function __construct(LarpingService $larpingService)
     {
         $this->larpingService = $larpingService;
-    }
+
+    }//end __construct()
+
 
     /**
      *  This function returns the requered configuration as a [json-schema](https://json-schema.org/) array.
@@ -44,7 +51,9 @@ class StatsHandler implements ActionHandlerInterface
             'required'    => [],
             'properties'  => [],
         ];
-    }
+
+    }//end getConfiguration()
+
 
     /**
      * This function runs the service.
@@ -62,5 +71,8 @@ class StatsHandler implements ActionHandlerInterface
     public function run(array $data, array $configuration): array
     {
         return $this->larpingService->statsHandler($data, $configuration);
-    }
-}
+
+    }//end run()
+
+
+}//end class

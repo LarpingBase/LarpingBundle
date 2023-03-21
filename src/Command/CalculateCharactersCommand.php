@@ -12,68 +12,81 @@ use CommonGateway\CoreBundle\Service\CacheService;
 
 class CalculateCharactersCommand extends Command
 {
+
     protected static $defaultName = 'larping:calculate:characters';
+
     private LarpingService $larpingService;
+
     private EntityManagerInterface $entityManager;
+
 
     public function __construct(LarpingService $larpingService, EntityManagerInterface $entityManager, CacheService $cacheService)
     {
         $this->larpingService = $larpingService;
-        $this->entityManager = $entityManager;
-        $this->cacheService = $cacheService;
+        $this->entityManager  = $entityManager;
+        $this->cacheService   = $cacheService;
         parent::__construct();
-    }
+
+    }//end __construct()
+
 
     protected function configure(): void
     {
         $this
             ->setDescription('This command removes outdated objects from the cache')
             ->setHelp('This command allows you to run further installation an configuration actions afther installing a plugin');
-    }
+
+    }//end configure()
+
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
-        //$this->cacheService->setStyle(new SymfonyStyle($input, $output));
+        // $this->cacheService->setStyle(new SymfonyStyle($input, $output));
         $io = new SymfonyStyle($input, $output);
         $this->larpingService->setStyle($io);
 
-        $characterEntity = $this->entityManager->getRepository('App:Entity')->findBy(['reference'=>'https://larping.nl/character.schema.json']);
+        $characterEntity = $this->entityManager->getRepository('App:Entity')->findBy(['reference' => 'https://larping.nl/character.schema.json']);
 
-        if(!$characterEntity) {
+        if (!$characterEntity) {
             $io->error("No entity for characters found");
             return 1;
         }
-        $characters = $this->entityManager->getRepository('App:ObjectEntity')->findBy(['entity'=>$characterEntity]);
+
+        $characters = $this->entityManager->getRepository('App:ObjectEntity')->findBy(['entity' => $characterEntity]);
 
         $io->title('Calculating all characters');
         $io->note('Found '.count($characters).' characters');
-        foreach ($characters as $character){
+        foreach ($characters as $character) {
             $io->section('Calculating '.$character->getName());
             $character = $this->larpingService->calculateCharacter($character);
             $this->entityManager->persist($character);
 
             // Build a nice table
-            $headers = ['stat','base','current','modifiers'];
-            $rows = [];
-            foreach($character->getValue('stats') as $key => $stat){
-                $row = [
+            $headers = [
+                'stat',
+                'base',
+                'current',
+                'modifiers',
+            ];
+            $rows    = [];
+            foreach ($character->getValue('stats') as $key => $stat) {
+                $row    = [
                     $stat['name'],
                     $stat['base'],
                     $stat['value'],
-                    implode(',', $stat['effects'])
+                    implode(',', $stat['effects']),
                 ];
                 $rows[] = $row;
             }
 
             $io->table($headers, $rows);
 
-
             $io->info("The simplyfied character card");
             $io->note($character->getValue('card'));
 
             $io->info("Any notices for this character");
             $io->note($character->getValue('notice'));
-        }
+        }//end foreach
 
         $io->note('Saving result to database');
         $this->entityManager->flush();
@@ -82,5 +95,8 @@ class CalculateCharactersCommand extends Command
         $this->cacheService->setStyle(new SymfonyStyle($input, $output));
 
         return $this->cacheService->warmup();
-    }
-}
+
+    }//end execute()
+
+
+}//end class
