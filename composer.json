@@ -25,10 +25,5 @@
 		"psr-4" : {
 			"LarpingBase\\LarpingBundle\\" : ""
 		}
-	},
-	"scripts": {
-		"post-install-cmd": "bin/console commongateway:install larping-base/larping-bundle",
-		"post-update-cmd": "bin/console commongateway:update larping-base/larping-bundle",
-		"post-package-uninstall": "bin/console commongateway:uninstall larping-base/larping-bundle"
 	}
 }
