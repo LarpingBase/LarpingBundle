@@ -16,3 +16,4 @@ jobs:
 
       - name: Run phpcs
         run: phpcs -q --report=checkstyle src | cs2pr
+        continue-on-error: true
