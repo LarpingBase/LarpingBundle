@@ -9,9 +9,6 @@
     <arg name="basepath" value="."/>
     <arg name="colors"/>
     <arg name="parallel" value="75"/>
-    <arg value="np"/>
-    <arg value="ignore_warnings_on_exit"/>
-
 
     <!-- Don't hide tokenizer exceptions -->
     <rule ref="Internal.Tokenizer.Exception">
