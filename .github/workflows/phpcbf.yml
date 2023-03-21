@@ -1,4 +1,4 @@
-name: phpcbf
+name: php-cbf
 
 on: [push, pull_request]
 
