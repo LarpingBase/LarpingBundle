@@ -14,8 +14,8 @@ jobs:
           php-version: '8.2'
           tools: cs2pr, phpcbf
 
-      - name: Run phpcbf src
-        run: phpcbf
+      - name: Run phpcbf
+        run: phpcbf src
       - name: Git commit
         run: |
           git config user.name "GitHub Actions"
