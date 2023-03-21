@@ -1,7 +1,7 @@
 # .github/workflows/documentation.yml
-name: phpDocumentor
+name: Docs
 
-on: [push, pull_request]
+on: [push]
 
 jobs:
   build:
