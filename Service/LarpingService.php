@@ -36,6 +36,7 @@ class LarpingService
 
         return $this;
     }
+
     /*
      * Calculates the atribute when an characters is changed
      *
