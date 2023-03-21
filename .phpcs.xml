@@ -4,7 +4,7 @@
 
     <file>LarpingBundle.php</file>
     <file>src</file>
-    <file>docs</file>
+    <file>DependencyInjection</file>
 
     <arg name="basepath" value="."/>
     <arg name="colors"/>
