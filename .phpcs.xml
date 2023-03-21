@@ -4,6 +4,7 @@
 
     <file>LarpingBundle.php</file>
     <file>src</file>
+    <file>docs</file>
 
     <arg name="basepath" value="."/>
     <arg name="colors"/>
