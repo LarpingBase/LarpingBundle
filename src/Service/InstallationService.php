@@ -29,8 +29,7 @@ class InstallationService implements InstallerInterface
     public function __construct(
         EntityManagerInterface $entityManager,
         ContainerInterface $container
-    )
-    {
+    ) {
         $this->entityManager = $entityManager;
         $this->container = $container;
     }
@@ -38,7 +37,7 @@ class InstallationService implements InstallerInterface
     /**
      * Set symfony style in order to output to the console
      *
-     * @param SymfonyStyle $io
+     * @param  SymfonyStyle $io
      * @return self
      */
     public function setStyle(SymfonyStyle $io):self
@@ -48,15 +47,18 @@ class InstallationService implements InstallerInterface
         return $this;
     }
 
-    public function install(){
+    public function install()
+    {
         $this->checkDataConsistency();
     }
 
-    public function update(){
+    public function update()
+    {
         $this->checkDataConsistency();
     }
 
-    public function uninstall(){
+    public function uninstall()
+    {
         // Do some cleanup
     }
 
@@ -72,20 +74,21 @@ class InstallationService implements InstallerInterface
         foreach ($actionHandler->getConfiguration()['properties'] as $key => $value) {
 
             switch ($value['type']) {
-                case 'string':
-                case 'array':
-                    $defaultConfig[$key] = $value['example'];
-                    break;
-                case 'object':
-                    break;
-                case 'uuid':
-                    if (in_array('$ref', $value) &&
-                        $entity = $this->entityManager->getRepository('App:Entity')->findOneBy(['reference'=>$value['$ref']])) {
-                        $defaultConfig[$key] = $entity->getId()->toString();
-                    }
-                    break;
-                default:
-                    // throw error
+            case 'string':
+            case 'array':
+                $defaultConfig[$key] = $value['example'];
+                break;
+            case 'object':
+                break;
+            case 'uuid':
+                if (in_array('$ref', $value) 
+                    && $entity = $this->entityManager->getRepository('App:Entity')->findOneBy(['reference'=>$value['$ref']])
+                ) {
+                    $defaultConfig[$key] = $entity->getId()->toString();
+                }
+                break;
+            default:
+                // throw error
             }
         }
         return $defaultConfig;
@@ -147,7 +150,8 @@ class InstallationService implements InstallerInterface
         return $endpoints;
     }
 
-    public function checkDataConsistency(){
+    public function checkDataConsistency()
+    {
 
         // Lets create some genneric dashboard cards
         $objectsThatShouldHaveCards = ['https://larping.nl/character.schema.json','https://larping.nl/skill.schema.json'];
@@ -155,9 +159,8 @@ class InstallationService implements InstallerInterface
         foreach($objectsThatShouldHaveCards as $object){
             (isset($this->io)?$this->io->writeln('Looking for a dashboard card for: '.$object):'');
             $entity = $this->entityManager->getRepository('App:Entity')->findOneBy(['reference'=>$object]);
-            if(
-               !$dashboardCard = $this->entityManager->getRepository('App:DashboardCard')->findOneBy(['entityId'=>$entity->getId()])
-            ){
+            if(!$dashboardCard = $this->entityManager->getRepository('App:DashboardCard')->findOneBy(['entityId'=>$entity->getId()])
+            ) {
                 $dashboardCard = New DashboardCard();
                 $dashboardCard->setType('schema');
                 $dashboardCard->setEntity('App:Entity');

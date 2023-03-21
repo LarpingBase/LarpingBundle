@@ -17,8 +17,7 @@ class LarpingService
     public function __construct(
         EntityManagerInterface $entityManager,
         CacheService $cacheService
-    )
-    {
+    ) {
         $this->entityManager = $entityManager;
         $this->cacheService = $cacheService;
     }
@@ -27,7 +26,7 @@ class LarpingService
     /**
      * Set symfony style in order to output to the console
      *
-     * @param SymfonyStyle $io
+     * @param  SymfonyStyle $io
      * @return self
      */
     public function setStyle(SymfonyStyle $io):self
@@ -45,11 +44,10 @@ class LarpingService
     public function statsHandler(array $data, array $configuration): array
     {
         // Lets doe some savetie;s
-        if(
-            isset($data['object'])  // only trigger id we have an object
+        if(isset($data['object'])  // only trigger id we have an object
             && $data['object']->getEntity()->getReference() != 'https://larping.nl/character.schema.json' // Make sure we have a larping character
             && $data['object']->getId() // make sure the character has an id
-        ){
+        ) {
             $data['object'] = $this->calculateCharacter($data['object']);
             // Let return data
             return $data;
@@ -75,14 +73,15 @@ class LarpingService
     /**
      * Calculate the stats for a given chararacter
      *
-     * @param ObjectEntity $character
+     * @param  ObjectEntity $character
      * @return ObjectEntity
      * @throws \Exception
      */
-    public function calculateCharacter(ObjectEntity $character):ObjectEntity{
+    public function calculateCharacter(ObjectEntity $character):ObjectEntity
+    {
 
         // Savety
-        if($character->getEntity()->getReference() != 'https://larping.nl/character.schema.json' ){
+        if($character->getEntity()->getReference() != 'https://larping.nl/character.schema.json' ) {
             return $character;
         }
 
@@ -102,7 +101,7 @@ class LarpingService
             // Check skill requirements.
             foreach($skill->getValue('requiredSkills') as $requiredSkill){
 
-                if(in_array($requiredSkill, $skills) === false){
+                if(in_array($requiredSkill, $skills) === false) {
                     $notice = "The skill ".$skill->getValue('name')." has requirement on the skill ".$requiredSkill->getValue('name')." but this character dosn't seem to have that skill \n".$notice;
                 }
             }
@@ -115,7 +114,7 @@ class LarpingService
             isset($this->io) ??  $this->io->comment("Caclutaing ".count($events)." events");
         foreach($events as $event){
             // Todo: Continu if enddate is empty or greater then now
-            if(! $event->getValue('endDate') || $event->getValue('endDate') > $now){
+            if(! $event->getValue('endDate') || $event->getValue('endDate') > $now) {
                 continue;
             }
             foreach($event->getValue('effects') as $effect){
@@ -142,11 +141,11 @@ class LarpingService
 
         foreach($stats as $key => $stat){
             // Lets throw a worning if skills end up beneath 0
-            if((int) $stat['value'] <= 0){
+            if((int) $stat['value'] <= 0) {
                 $notice = "The stat ".$stat['name']." has a below 0 value of ".$stat['value']." \n".$notice;
             }
 
-            $row = "|".$stat['name']."|".$stat['base']."|".$stat['value']."|". implode(',',$stat['effects'])."|";
+            $row = "|".$stat['name']."|".$stat['base']."|".$stat['value']."|". implode(',', $stat['effects'])."|";
 
             $rows[] = $row;
         }
@@ -159,18 +158,19 @@ class LarpingService
     }
 
 
-    private function addEffectToStats(array $stats, ObjectEntity $effect, $effects): array{
+    private function addEffectToStats(array $stats, ObjectEntity $effect, $effects): array
+    {
 
 
         // Stackable
-        if($effect->getValue('positive')){
+        if($effect->getValue('positive')) {
 
         }
 
         $stat = $effect->getValue('stat');
 
         //Savety
-        if(!$stat){
+        if(!$stat) {
                 isset($this->io) ??  $this->io->comment("Effect ".$effect->getValue('name')." is not asigned to a stat so wont be calculated");
             return $stats;
         }
@@ -178,7 +178,7 @@ class LarpingService
             isset($this->io) ??  $this->io->comment("Effect ".$effect->getValue('name')." targets ".$stat->getValue('name'));
 
         // Get current vallue
-        if(isset($stats[$stat->getId()->toString()]["value"])){
+        if(isset($stats[$stat->getId()->toString()]["value"])) {
                 isset($this->io) ??  $this->io->comment("Adding to existing stat");
             $value = $stats[$stat->getId()->toString()]["value"];
         }
@@ -192,7 +192,7 @@ class LarpingService
             isset($this->io) ??  $this->io->comment("Effect ".$effect->getValue('name')." has a  ".$effect->getValue('modification'). " modification of ".$effect->getValue('modifier'));
 
         // Positive versus negative modifaction
-        if($effect->getValue('modification') == 'positive'){
+        if($effect->getValue('modification') == 'positive') {
             $value = $value + $effect->getValue('modifier');
             $effectDescription = "(+ ".$effect->getValue('modifier').") ".$effect->getValue('name');
         }

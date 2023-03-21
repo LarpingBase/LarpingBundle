@@ -39,7 +39,7 @@ class CalculateCharactersCommand extends Command
 
         $characterEntity = $this->entityManager->getRepository('App:Entity')->findBy(['reference'=>'https://larping.nl/character.schema.json']);
 
-        if(!$characterEntity){
+        if(!$characterEntity) {
             $io->error("No entity for characters found");
             return 1;
         }
@@ -60,7 +60,7 @@ class CalculateCharactersCommand extends Command
                     $stat['name'],
                     $stat['base'],
                     $stat['value'],
-                    implode(',',$stat['effects'])
+                    implode(',', $stat['effects'])
                 ];
                 $rows[] = $row;
             }
