@@ -15,7 +15,7 @@ jobs:
         run: npm install remark-cli remark-preset-lint-consistent remark-preset-lint-recommended remark-lint-list-item-indent
         shell: bash
       - name: run remark
-        run: npx remark . --output --use remark-preset-lint-consistent --use remark-preset-lint-recommended
+        run: npx remark . --output --use remark-preset-lint-consistent --use remark-preset-lint-recommended --use remark-lint-list-item-indent
       - name: Git commit
         run: |
           git config user.name "GitHub Actions"
