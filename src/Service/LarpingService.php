@@ -45,7 +45,7 @@ class LarpingService
      *
      * @return array
      */
-    public function statsHandler(array $data, array $configuration): array
+    public function statsHandler(array $data): array
     {
         // Lets doe some savetie;s
         if (isset($data['object'])  // only trigger id we have an object
@@ -197,10 +197,10 @@ class LarpingService
 
         // Positive versus negative modifaction
         if ($effect->getValue('modification') == 'positive') {
-            $value = ($value + $effect->getValue('modifier'));
+            $value             = ($value + $effect->getValue('modifier'));
             $effectDescription = "(+ ".$effect->getValue('modifier').") ".$effect->getValue('name');
         } else {
-            $value = ($value - $effect->getValue('modifier'));
+            $value             = ($value - $effect->getValue('modifier'));
             $effectDescription = "(- ".$effect->getValue('modifier').") ".$effect->getValue('name');
         }
 

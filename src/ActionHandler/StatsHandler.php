@@ -58,6 +58,8 @@ class StatsHandler implements ActionHandlerInterface
     /**
      * This function runs the service.
      *
+     * @SuppressWarnings("unused") Handlers ara strict implementations and therefore don't require code cleanup
+     *
      * @param array $data          The data from the call
      * @param array $configuration The configuration of the action
      *
@@ -70,7 +72,7 @@ class StatsHandler implements ActionHandlerInterface
      */
     public function run(array $data, array $configuration): array
     {
-        return $this->larpingService->statsHandler($data, $configuration);
+        return $this->larpingService->statsHandler($data);
 
     }//end run()
 
