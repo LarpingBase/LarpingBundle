@@ -20,6 +20,6 @@ jobs:
         run: |
           git config user.name "GitHub Actions"
           git config user.email ""
-          git add src
+          git add .
           git commit -m "Update src from remark-lint" || echo "No changes to commit"
           git push
