@@ -1,4 +1,4 @@
-name: php-cs
+name: php-md
 
 on: [push, pull_request]
 
@@ -12,6 +12,6 @@ jobs:
         uses: shivammathur/setup-php@v2
         with:
           php-version: '8.2'
-          tools: cs2pr, phpcs
-      - name: Run phpcs
-        run: phpcs -q --report=checkstyle . | cs2pr
+          tools: cs2pr, phpmd
+      - name: Run phpmd
+        run: phpmd src github phpmd.xml --not-strict

@@ -45,7 +45,7 @@ class LarpingService
      *
      * @return array
      */
-    public function statsHandler(array $data, array $configuration): array
+    public function statsHandler(array $data): array
     {
         // Lets doe some savetie;s
         if (isset($data['object'])  // only trigger id we have an object
