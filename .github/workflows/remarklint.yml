@@ -1,6 +1,6 @@
 name: remark-lint
 
-on: [pull_request]
+on: [pull_request,push]
 
 env: # environment variables (available in any part of the action)
   NODE_VERSION: 16
