@@ -15,7 +15,7 @@ jobs:
         run: npm install remark-cli remark-preset-lint-consistent remark-preset-lint-recommended remark-lint-list-item-indent
         shell: bash
       - name: run remark
-        run: remark . --quiet --frail --output
+        run: npx remark . --quiet --frail --output
       - name: Git commit
         run: |
           git config user.name "GitHub Actions"
