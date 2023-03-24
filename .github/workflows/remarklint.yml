@@ -1,5 +1,10 @@
 name: remark-lint
+
 on: [pull_request]
+
+env: # environment variables (available in any part of the action)
+  NODE_VERSION: 16
+
 jobs:
   remark-lint:
     name: runner / remark-lint
@@ -7,10 +12,14 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: install remark presets
-        run: npm install remark-preset-lint-recommended
+        run: npm install remark-cli remark-preset-lint-consistent remark-preset-lint-recommended remark-lint-list-item-indent
         shell: bash
-      - name: remark-lint
-        uses: reviewdog/action-remark-lint@v5
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          reporter: github-pr-check
+      - name: run remark
+        run: remark . --quiet --frail --output
+      - name: Git commit
+        run: |
+          git config user.name "GitHub Actions"
+          git config user.email ""
+          git add src
+          git commit -m "Update src from remark-lint" || echo "No changes to commit"
+          git push
