@@ -8,15 +8,12 @@ services:
     # makes classes in src/ available to be used as services
     # this creates a service per class whose id is the fully-qualified class name
     LarpingBase\LarpingBundle\:
-        resource: '../../'
+        resource: '../../src'
         exclude:
-            - '../../DependencyInjection/'
-            - '../../Entity/'
-            - '../../Resources/'
-            - '../../Data/'
-            - '../../Schema/'
-            - '../../Installation/'
-            - '../../LarpingBundle.php'
+            - '../../src/DependencyInjection/'
+            - '../../src/Entity/'
+            - '../../src/Resources/'
+            - '../../src/LarpingExtension.php'
     
     # this config only applies to the services created by this file
     _instanceof:
