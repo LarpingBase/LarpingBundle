@@ -1,4 +1,10 @@
 <?php
+/**
+ * The larping bundle is a test project for fulle exploring the open gateway options
+ *
+ * @author  Conduction.nl <info@conduction.nl>, Ruben van der Linde <ruben@conduction.nl>
+ * @license EUPL-1.2 https://joinup.ec.europa.eu/collection/eupl/eupl-text-eupl-12
+ */
 
 namespace LarpingBase\LarpingBundle;
 

@@ -1,6 +1,11 @@
 <?php
+/**
+ * The larping installation service
+ *
+ * @author  Conduction.nl <info@conduction.nl>, Ruben van der Linde <ruben@conduction.nl>
+ * @license EUPL-1.2 https://joinup.ec.europa.eu/collection/eupl/eupl-text-eupl-12
+ */
 
-// src/Service/LarpingService.php
 namespace LarpingBase\LarpingBundle\Service;
 
 use App\Entity\Action;

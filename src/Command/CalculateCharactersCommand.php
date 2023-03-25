@@ -1,4 +1,10 @@
 <?php
+/**
+ * A command to calculate the stats of al characters
+ *
+ * @author  Conduction.nl <info@conduction.nl>, Ruben van der Linde <ruben@conduction.nl>
+ * @license EUPL-1.2 https://joinup.ec.europa.eu/collection/eupl/eupl-text-eupl-12
+ */
 
 namespace LarpingBase\LarpingBundle\Command;
 
