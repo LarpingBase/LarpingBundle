@@ -1,10 +1,10 @@
 <?php
 return (object)[
-    'rootNamespace' => 'CommonGateway\LarpingBundle',
+    'rootNamespace' => 'LarpingBase\LarpingBundle',
     'destDirectory' => 'docs/classes',
     'format' => 'github',
     'classes' => [
-        '\CommonGateway\LarpingBundle\Service\InstallationService',
-        '\CommonGateway\LarpingBundle\Service\LarpingService'
+        '\LarpingBase\LarpingBundle\Service\InstallationService',
+        '\LarpingBase\LarpingBundle\Service\LarpingService'
     ],
 ];
