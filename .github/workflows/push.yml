@@ -44,6 +44,7 @@ jobs:
         run: |
           git config user.name "GitHub Actions"
           git config user.email ""
+          git pull
           git add docs/classes
           git commit -m "Update phpdoc" || echo "No changes to commit"
           git push
@@ -64,6 +65,7 @@ jobs:
         run: |
           git config user.name "GitHub Actions"
           git config user.email ""
+          git pull
           git add src
           git commit -m "Update src from PHP Codesniffer" || echo "No changes to commit"
           git push
@@ -82,6 +84,7 @@ jobs:
         run: |
           git config user.name "GitHub Actions"
           git config user.email ""
+          git pull
           git add .
           git reset package.json
           git reset package-lock.json
