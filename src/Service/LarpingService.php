@@ -17,9 +17,18 @@ use CommonGateway\CoreBundle\Service\CacheService;
 class LarpingService
 {
 
+    /**
+     * @var EntityManagerInterface The entity manager interface
+     */
     private EntityManagerInterface $entityManager;
 
 
+    /**
+     * The default construt for this clas
+     *
+     * @param EntityManagerInterface $entityManager The entity manager
+     * @param CacheService $cacheService The cache service
+     */
     public function __construct(
         EntityManagerInterface $entityManager,
         CacheService $cacheService
@@ -33,7 +42,8 @@ class LarpingService
     /**
      * Set symfony style in order to output to the console
      *
-     * @param  SymfonyStyle $io
+     * @param  SymfonyStyle $io Symfony style\
+     *
      * @return self
      */
     public function setStyle(SymfonyStyle $io):self
@@ -45,7 +55,7 @@ class LarpingService
     }//end setStyle()
 
 
-    /*
+    /**
      * Calculates the atribute when an characters is changed
      *
      * @return array
