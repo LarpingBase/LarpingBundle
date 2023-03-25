@@ -20,8 +20,8 @@ class LarpingExtension extends Extension
     /**
      * The default symfony load class
      *
-     * @param  array            $configs   The configuration
-     * @param  ContainerBuilder $container The container
+     * @param array            $configs   The configuration
+     * @param ContainerBuilder $container The container
      *
      * @return void
      *

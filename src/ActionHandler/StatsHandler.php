@@ -37,8 +37,10 @@ class StatsHandler implements ActionHandlerInterface
         'commongateway.object.pre.update',
     ];
 
+
     /**
      * The constructor for this class
+     *
      * @param LarpingService $larpingService The larping service
      */
     public function __construct(LarpingService $larpingService)
@@ -70,7 +72,6 @@ class StatsHandler implements ActionHandlerInterface
     /**
      * This function runs the service.
      *
-     *
      * @param array $data          The data from the call
      * @param array $configuration The configuration of the action
      *
@@ -81,7 +82,7 @@ class StatsHandler implements ActionHandlerInterface
      *
      * @return array
      *
-     * @SuppressWarnings("unused") Handlers ara strict implementations 
+     * @SuppressWarnings("unused") Handlers ara strict implementations
      */
     public function run(array $data, array $configuration): array
     {

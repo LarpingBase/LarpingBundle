@@ -18,6 +18,7 @@ use CommonGateway\CoreBundle\Service\CacheService;
 
 class CalculateCharactersCommand extends Command
 {
+
     /**
      * @var string
      */
@@ -35,9 +36,9 @@ class CalculateCharactersCommand extends Command
 
 
     /**
-     * @param LarpingService $larpingService The larping service
-     * @param EntityManagerInterface $entityManager The entity manager
-     * @param CacheService $cacheService The cache service
+     * @param LarpingService         $larpingService The larping service
+     * @param EntityManagerInterface $entityManager  The entity manager
+     * @param CacheService           $cacheService   The cache service
      */
     public function __construct(LarpingService $larpingService, EntityManagerInterface $entityManager, CacheService $cacheService)
     {
@@ -47,6 +48,7 @@ class CalculateCharactersCommand extends Command
         parent::__construct();
 
     }//end __construct()
+
 
     /**
      * @return void
@@ -59,8 +61,9 @@ class CalculateCharactersCommand extends Command
 
     }//end configure()
 
+
     /**
-     * @param InputInterface $input The input
+     * @param InputInterface  $input  The input
      * @param OutputInterface $output The output
      *
      * @return int
