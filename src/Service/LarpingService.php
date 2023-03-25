@@ -2,7 +2,7 @@
 /**
  * The core larping service
  *
- * @author  Conduction.nl <info@conduction.nl>, Ruben van der Linde <ruben@conduction.nl>
+ * @author  Conduction.nl <info@conduction.nl>
  * @license EUPL-1.2 https://joinup.ec.europa.eu/collection/eupl/eupl-text-eupl-12
  */
 

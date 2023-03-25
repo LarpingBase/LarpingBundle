@@ -2,7 +2,7 @@
 /**
  * A command to calculate the stats of al characters
  *
- * @author  Conduction.nl <info@conduction.nl>, Ruben van der Linde <ruben@conduction.nl>
+ * @author  Conduction.nl <info@conduction.nl>
  * @license EUPL-1.2 https://joinup.ec.europa.eu/collection/eupl/eupl-text-eupl-12
  */
 
@@ -18,14 +18,27 @@ use CommonGateway\CoreBundle\Service\CacheService;
 
 class CalculateCharactersCommand extends Command
 {
-
+    /**
+     * @var string
+     */
     protected static $defaultName = 'larping:calculate:characters';
 
+    /**
+     * @var LarpingService
+     */
     private LarpingService $larpingService;
 
+    /**
+     * @var EntityManagerInterface
+     */
     private EntityManagerInterface $entityManager;
 
 
+    /**
+     * @param LarpingService $larpingService The larping service
+     * @param EntityManagerInterface $entityManager The entity manager
+     * @param CacheService $cacheService The cache service
+     */
     public function __construct(LarpingService $larpingService, EntityManagerInterface $entityManager, CacheService $cacheService)
     {
         $this->larpingService = $larpingService;
@@ -35,7 +48,9 @@ class CalculateCharactersCommand extends Command
 
     }//end __construct()
 
-
+    /**
+     * @return void
+     */
     protected function configure(): void
     {
         $this
@@ -44,7 +59,16 @@ class CalculateCharactersCommand extends Command
 
     }//end configure()
 
-
+    /**
+     * @param InputInterface $input The input
+     * @param OutputInterface $output The output
+     *
+     * @return int
+     *
+     * @throws \Exception
+     *
+     * @SuppressWarnings("unused") Required by symfony
+     */
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
         // $this->cacheService->setStyle(new SymfonyStyle($input, $output));

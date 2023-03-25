@@ -2,7 +2,7 @@
 /**
  * An action handler for checking stats
  *
- * @author  Conduction.nl <info@conduction.nl>, Ruben van der Linde <ruben@conduction.nl>
+ * @author  Conduction.nl <info@conduction.nl>
  * @license EUPL-1.2 https://joinup.ec.europa.eu/collection/eupl/eupl-text-eupl-12
  */
 
@@ -14,9 +14,12 @@ use LarpingBase\LarpingBundle\Service\LarpingService;
 class StatsHandler implements ActionHandlerInterface
 {
 
+    /**
+     * @var LarpingService
+     */
     private LarpingService $larpingService;
 
-    /*
+    /**
      * Set default conditions
      */
     public const DEFAULT_CONDITIONS = [
@@ -26,7 +29,7 @@ class StatsHandler implements ActionHandlerInterface
         ],
     ];
 
-    /*
+    /**
      * Set default listens
      */
     public const DEFAULT_LISTENS = [
@@ -34,7 +37,10 @@ class StatsHandler implements ActionHandlerInterface
         'commongateway.object.pre.update',
     ];
 
-
+    /**
+     * The constructor for this class
+     * @param LarpingService $larpingService The larping service
+     */
     public function __construct(LarpingService $larpingService)
     {
         $this->larpingService = $larpingService;
@@ -43,9 +49,9 @@ class StatsHandler implements ActionHandlerInterface
 
 
     /**
-     *  This function returns the requered configuration as a [json-schema](https://json-schema.org/) array.
+     *  This function returns the  configuration as a [json-schema](https://json-schema.org/) array.
      *
-     * @throws array a [json-schema](https://json-schema.org/) that this  action should comply to
+     * @return array a [json-schema](https://json-schema.org/) that this  action should comply to
      */
     public function getConfiguration(): array
     {
@@ -64,7 +70,6 @@ class StatsHandler implements ActionHandlerInterface
     /**
      * This function runs the service.
      *
-     * @SuppressWarnings("unused") Handlers ara strict implementations and therefore don't require code cleanup
      *
      * @param array $data          The data from the call
      * @param array $configuration The configuration of the action
@@ -75,6 +80,8 @@ class StatsHandler implements ActionHandlerInterface
      * @throws ComponentException
      *
      * @return array
+     *
+     * @SuppressWarnings("unused") Handlers ara strict implementations 
      */
     public function run(array $data, array $configuration): array
     {

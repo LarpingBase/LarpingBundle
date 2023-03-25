@@ -2,7 +2,7 @@
 /**
  * The larping installation service
  *
- * @author  Conduction.nl <info@conduction.nl>, Ruben van der Linde <ruben@conduction.nl>
+ * @author  Conduction.nl <info@conduction.nl>
  * @license EUPL-1.2 https://joinup.ec.europa.eu/collection/eupl/eupl-text-eupl-12
  */
 
@@ -19,8 +19,19 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 
 class InstallationService implements InstallerInterface
 {
+    /**
+     * @var EntityManagerInterface
+     */
     private EntityManagerInterface $entityManager;
+
+    /**
+     * @var SymfonyStyle
+     */
     private SymfonyStyle $io;
+
+    /**
+     * @var ContainerInterface
+     */
     private ContainerInterface $container;
 
     public const ACTION_HANDLERS = [
