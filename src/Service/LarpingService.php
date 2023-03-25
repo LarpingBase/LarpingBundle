@@ -27,7 +27,7 @@ class LarpingService
      * The default construt for this clas
      *
      * @param EntityManagerInterface $entityManager The entity manager
-     * @param CacheService $cacheService The cache service
+     * @param CacheService           $cacheService  The cache service
      */
     public function __construct(
         EntityManagerInterface $entityManager,
@@ -42,7 +42,7 @@ class LarpingService
     /**
      * Set symfony style in order to output to the console
      *
-     * @param  SymfonyStyle $io Symfony style\
+     * @param SymfonyStyle $io Symfony style\
      *
      * @return self
      */
