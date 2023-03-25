@@ -27,7 +27,7 @@ jobs:
           version: 2.x
           command: require symfony/test-pack
       - name: Run tests
-        run: php bin/phpunit --coverage-text
+        run: php vendor/phpunit/phpunit/phpunit --coverage-text
   documentation:
     runs-on: ubuntu-latest
     steps:
