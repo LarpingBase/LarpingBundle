@@ -1,15 +1,24 @@
-# LarpingBase\LarpingBundle\Service\LarpingService
+# LarpingBase\LarpingBundle\Service\LarpingService  
+
+
+
+
+
+
 
 ## Methods
 
 | Name | Description |
 |------|-------------|
-|[\_\_construct](#larpingservice__construct)||
+|[__construct](#larpingservice__construct)||
 |[calculateCharacter](#larpingservicecalculatecharacter)|Calculate the stats for a given chararacter|
 |[setStyle](#larpingservicesetstyle)|Set symfony style in order to output to the console|
 |[statsHandler](#larpingservicestatshandler)||
 
-### LarpingService::\_\_construct
+
+
+
+### LarpingService::__construct  
 
 **Description**
 
@@ -17,6 +26,10 @@
  __construct (void)
 ```
 
+ 
+
+ 
+
 **Parameters**
 
 `This function has no parameters.`
@@ -25,9 +38,11 @@
 
 `void`
 
+
 <hr />
 
-### LarpingService::calculateCharacter
+
+### LarpingService::calculateCharacter  
 
 **Description**
 
@@ -35,23 +50,31 @@
 public calculateCharacter (\ObjectEntity $character)
 ```
 
-Calculate the stats for a given chararacter
+Calculate the stats for a given chararacter 
+
+ 
 
 **Parameters**
 
-*   `(\ObjectEntity) $character`
+* `(\ObjectEntity) $character`
 
 **Return Values**
 
 `\ObjectEntity`
 
+
+
+
 **Throws Exceptions**
+
 
 `\Exception`
 
+
 <hr />
 
-### LarpingService::setStyle
+
+### LarpingService::setStyle  
 
 **Description**
 
@@ -59,25 +82,35 @@ Calculate the stats for a given chararacter
 public setStyle (\SymfonyStyle $io)
 ```
 
-Set symfony style in order to output to the console
+Set symfony style in order to output to the console 
+
+ 
 
 **Parameters**
 
-*   `(\SymfonyStyle) $io`
+* `(\SymfonyStyle) $io`
 
 **Return Values**
 
 `self`
 
+
+
+
 <hr />
 
-### LarpingService::statsHandler
+
+### LarpingService::statsHandler  
 
 **Description**
 
 ```php
  statsHandler (void)
 ```
+
+ 
+
+ 
 
 **Parameters**
 
@@ -87,4 +120,6 @@ Set symfony style in order to output to the console
 
 `void`
 
+
 <hr />
+
