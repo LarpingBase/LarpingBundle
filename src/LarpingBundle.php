@@ -6,6 +6,8 @@ use Symfony\Component\HttpKernel\Bundle\Bundle;
 
 class LarpingBundle extends Bundle
 {
+
+
     /**
      * Returns the path the bundle is in
      *
@@ -16,4 +18,6 @@ class LarpingBundle extends Bundle
         return \dirname(__DIR__);
 
     }//end getPath()
+
+
 }//end class
