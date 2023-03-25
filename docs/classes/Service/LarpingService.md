@@ -1,24 +1,15 @@
-# LarpingBase\LarpingBundle\Service\LarpingService  
-
-
-
-
-
-
+# LarpingBase\LarpingBundle\Service\LarpingService
 
 ## Methods
 
 | Name | Description |
 |------|-------------|
-|[__construct](#larpingservice__construct)|The default construt for this clas|
+|[\_\_construct](#larpingservice__construct)|The default construt for this clas|
 |[calculateCharacter](#larpingservicecalculatecharacter)|Calculate the stats for a given chararacter|
 |[setStyle](#larpingservicesetstyle)|Set symfony style in order to output to the console|
 |[statsHandler](#larpingservicestatshandler)|Calculates the atribute when an characters is changed|
 
-
-
-
-### LarpingService::__construct  
+### LarpingService::\_\_construct
 
 **Description**
 
@@ -26,26 +17,22 @@
 public __construct (\EntityManagerInterface $entityManager, \CacheService $cacheService)
 ```
 
-The default construt for this clas 
-
- 
+The default construt for this clas
 
 **Parameters**
 
-* `(\EntityManagerInterface) $entityManager`
-: The entity manager  
-* `(\CacheService) $cacheService`
-: The cache service  
+*   `(\EntityManagerInterface) $entityManager`
+    : The entity manager
+*   `(\CacheService) $cacheService`
+    : The cache service
 
 **Return Values**
 
 `void`
 
-
 <hr />
 
-
-### LarpingService::calculateCharacter  
+### LarpingService::calculateCharacter
 
 **Description**
 
@@ -53,31 +40,23 @@ The default construt for this clas
 public calculateCharacter (\ObjectEntity $character)
 ```
 
-Calculate the stats for a given chararacter 
-
- 
+Calculate the stats for a given chararacter
 
 **Parameters**
 
-* `(\ObjectEntity) $character`
+*   `(\ObjectEntity) $character`
 
 **Return Values**
 
 `\ObjectEntity`
 
-
-
-
 **Throws Exceptions**
-
 
 `\Exception`
 
-
 <hr />
 
-
-### LarpingService::setStyle  
+### LarpingService::setStyle
 
 **Description**
 
@@ -85,26 +64,20 @@ Calculate the stats for a given chararacter
 public setStyle (\SymfonyStyle $io)
 ```
 
-Set symfony style in order to output to the console 
-
- 
+Set symfony style in order to output to the console
 
 **Parameters**
 
-* `(\SymfonyStyle) $io`
-: Symfony style\  
+*   `(\SymfonyStyle) $io`
+    : Symfony style\\
 
 **Return Values**
 
 `self`
 
-
-
-
 <hr />
 
-
-### LarpingService::statsHandler  
+### LarpingService::statsHandler
 
 **Description**
 
@@ -112,9 +85,7 @@ Set symfony style in order to output to the console
 public statsHandler (void)
 ```
 
-Calculates the atribute when an characters is changed 
-
- 
+Calculates the atribute when an characters is changed
 
 **Parameters**
 
@@ -124,8 +95,4 @@ Calculates the atribute when an characters is changed
 
 `array`
 
-
-
-
 <hr />
-
