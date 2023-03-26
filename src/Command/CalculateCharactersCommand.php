@@ -27,11 +27,15 @@ class CalculateCharactersCommand extends Command
     protected static $defaultName = 'larping:calculate:characters';
 
     /**
+     * The larpings service
+     *
      * @var LarpingService
      */
     private LarpingService $larpingService;
 
     /**
+     * The entity manager
+     *
      * @var EntityManagerInterface
      */
     private EntityManagerInterface $entityManager;
@@ -80,15 +84,14 @@ class CalculateCharactersCommand extends Command
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
         // $this->cacheService->setStyle(new SymfonyStyle($input, $output));
-        $io = new SymfonyStyle($input, $output);
-        $this->larpingService->setStyle($io);
+        $style = new SymfonyStyle($input, $output);
 
         $characterEntity = $this->entityManager
             ->getRepository('App:Entity')
             ->findBy(['reference' => 'https://larping.nl/character.schema.json']);
 
-        if (!$characterEntity) {
-            $io->error("No entity for characters found");
+        if ($characterEntity === null) {
+            $style->error("No entity for characters found");
             return 1;
         }
 
@@ -96,10 +99,10 @@ class CalculateCharactersCommand extends Command
             ->getRepository('App:ObjectEntity')
             ->findBy(['entity' => $characterEntity]);
 
-        $io->title('Calculating all characters');
-        $io->note('Found '.count($characters).' characters');
+        $style->title('Calculating all characters');
+        $style->note('Found '.count($characters).' characters');
         foreach ($characters as $character) {
-            $io->section('Calculating '.$character->getName());
+            $style->section('Calculating '.$character->getName());
             $character = $this->larpingService->calculateCharacter($character);
             $this->entityManager->persist($character);
 
@@ -121,20 +124,18 @@ class CalculateCharactersCommand extends Command
                 $rows[] = $row;
             }
 
-            $io->table($headers, $rows);
+            $style->table($headers, $rows);
 
-            $io->info("The simplyfied character card");
-            $io->note($character->getValue('card'));
+            $style->info("The simplyfied character card");
+            $style->note($character->getValue('card'));
 
-            $io->info("Any notices for this character");
-            $io->note($character->getValue('notice'));
+            $style->info("Any notices for this character");
+            $style->note($character->getValue('notice'));
         }//end foreach
 
-        $io->note('Saving result to database');
+        $style->note('Saving result to database');
         $this->entityManager->flush();
-        $io->success('Al done!');
-
-        $this->cacheService->setStyle(new SymfonyStyle($input, $output));
+        $style->success('Al done!');
 
         return $this->cacheService->warmup();
 
