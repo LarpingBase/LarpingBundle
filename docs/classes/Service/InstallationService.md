@@ -1,14 +1,17 @@
-# LarpingBase\LarpingBundle\Service\InstallationService
+# LarpingBase\LarpingBundle\Service\InstallationService  
+
+
 
 ## Implements:
-
 CommonGateway\CoreBundle\Installer\InstallerInterface
+
+
 
 ## Methods
 
 | Name | Description |
 |------|-------------|
-|[\_\_construct](#installationservice__construct)||
+|[__construct](#installationservice__construct)||
 |[addActionConfiguration](#installationserviceaddactionconfiguration)||
 |[addActions](#installationserviceaddactions)|This function creates actions for all the actionHandlers in OpenCatalogi|
 |[checkDataConsistency](#installationservicecheckdataconsistency)||
@@ -17,7 +20,10 @@ CommonGateway\CoreBundle\Installer\InstallerInterface
 |[uninstall](#installationserviceuninstall)||
 |[update](#installationserviceupdate)||
 
-### InstallationService::\_\_construct
+
+
+
+### InstallationService::__construct  
 
 **Description**
 
@@ -25,6 +31,10 @@ CommonGateway\CoreBundle\Installer\InstallerInterface
  __construct (void)
 ```
 
+ 
+
+ 
+
 **Parameters**
 
 `This function has no parameters.`
@@ -33,9 +43,11 @@ CommonGateway\CoreBundle\Installer\InstallerInterface
 
 `void`
 
+
 <hr />
 
-### InstallationService::addActionConfiguration
+
+### InstallationService::addActionConfiguration  
 
 **Description**
 
@@ -43,6 +55,10 @@ CommonGateway\CoreBundle\Installer\InstallerInterface
  addActionConfiguration (void)
 ```
 
+ 
+
+ 
+
 **Parameters**
 
 `This function has no parameters.`
@@ -51,9 +67,11 @@ CommonGateway\CoreBundle\Installer\InstallerInterface
 
 `void`
 
+
 <hr />
 
-### InstallationService::addActions
+
+### InstallationService::addActions  
 
 **Description**
 
@@ -61,7 +79,9 @@ CommonGateway\CoreBundle\Installer\InstallerInterface
 public addActions (void)
 ```
 
-This function creates actions for all the actionHandlers in OpenCatalogi
+This function creates actions for all the actionHandlers in OpenCatalogi 
+
+ 
 
 **Parameters**
 
@@ -71,9 +91,13 @@ This function creates actions for all the actionHandlers in OpenCatalogi
 
 `void`
 
+
+
+
 <hr />
 
-### InstallationService::checkDataConsistency
+
+### InstallationService::checkDataConsistency  
 
 **Description**
 
@@ -81,6 +105,10 @@ This function creates actions for all the actionHandlers in OpenCatalogi
  checkDataConsistency (void)
 ```
 
+ 
+
+ 
+
 **Parameters**
 
 `This function has no parameters.`
@@ -89,9 +117,11 @@ This function creates actions for all the actionHandlers in OpenCatalogi
 
 `void`
 
+
 <hr />
 
-### InstallationService::install
+
+### InstallationService::install  
 
 **Description**
 
@@ -99,6 +129,10 @@ This function creates actions for all the actionHandlers in OpenCatalogi
  install (void)
 ```
 
+ 
+
+ 
+
 **Parameters**
 
 `This function has no parameters.`
@@ -107,9 +141,11 @@ This function creates actions for all the actionHandlers in OpenCatalogi
 
 `void`
 
+
 <hr />
 
-### InstallationService::setStyle
+
+### InstallationService::setStyle  
 
 **Description**
 
@@ -117,19 +153,25 @@ This function creates actions for all the actionHandlers in OpenCatalogi
 public setStyle (\SymfonyStyle $io)
 ```
 
-Set symfony style in order to output to the console
+Set symfony style in order to output to the console 
+
+ 
 
 **Parameters**
 
-*   `(\SymfonyStyle) $io`
+* `(\SymfonyStyle) $io`
 
 **Return Values**
 
 `self`
 
+
+
+
 <hr />
 
-### InstallationService::uninstall
+
+### InstallationService::uninstall  
 
 **Description**
 
@@ -137,6 +179,10 @@ Set symfony style in order to output to the console
  uninstall (void)
 ```
 
+ 
+
+ 
+
 **Parameters**
 
 `This function has no parameters.`
@@ -145,9 +191,11 @@ Set symfony style in order to output to the console
 
 `void`
 
+
 <hr />
 
-### InstallationService::update
+
+### InstallationService::update  
 
 **Description**
 
@@ -155,6 +203,10 @@ Set symfony style in order to output to the console
  update (void)
 ```
 
+ 
+
+ 
+
 **Parameters**
 
 `This function has no parameters.`
@@ -163,4 +215,6 @@ Set symfony style in order to output to the console
 
 `void`
 
+
 <hr />
+
