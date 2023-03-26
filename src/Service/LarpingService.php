@@ -98,7 +98,7 @@ class LarpingService
     /**
      * Calculate the stats for a given chararacter
      *
-     * @param  ObjectEntity $character The charater to calculate for
+     * @param ObjectEntity $character The charater to calculate for
      *
      * @return ObjectEntity
      *
@@ -134,7 +134,6 @@ class LarpingService
         }
 
         // Events.
-
         $now    = new DateTime();
         $events = $character->getValue('events');
             (isset($this->io) ?? $this->io->comment("Caclutaing ".count($events)." events"));
