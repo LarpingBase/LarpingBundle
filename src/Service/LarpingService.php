@@ -18,6 +18,8 @@ class LarpingService
 {
 
     /**
+     * Declaring the entity manager interface
+     *
      * @var EntityManagerInterface The entity manager interface
      */
     private EntityManagerInterface $entityManager;
@@ -58,21 +60,23 @@ class LarpingService
     /**
      * Calculates the atribute when an characters is changed
      *
+     * @param array $data The data at the time of activaation of the action
+     *
      * @return array
      */
     public function statsHandler(array $data): array
     {
-        // Lets doe some savetie;s
-        if (isset($data['object'])  // only trigger id we have an object
-            && $data['object']->getEntity()->getReference() != 'https://larping.nl/character.schema.json' // Make sure we have a larping character
-            && $data['object']->getId() // make sure the character has an id
+        // Lets doe some savety checks.
+        if (isset($data['object']) === true  // Only trigger id we have an object.
+            && $data['object']->getEntity()->getReference() !== 'https://larping.nl/character.schema.json' // Make sure we have a larping character.
+            && $data['object']->getId() // Make sure the character has an id.
         ) {
             $data['object'] = $this->calculateCharacter($data['object']);
-            // Let return data
+            // Let return data.
             return $data;
         }
 
-        // If we do not have a single character then we are going to do all characters :)
+        // If we do not have a single character then we are going to do all characters.
         $characterEntity = $this->entityManager->getRepository('App:Entity')->findOneBy(['reference' => 'https://larping.nl/character.schema.json']);
 
         $characters = $this->entityManager->getRepository('App:ObjectEntity')->findBy(['entity' => $characterEntity]);
@@ -85,7 +89,7 @@ class LarpingService
         $this->entityManager->flush();
 
         $this->cacheService->warmup();
-        // Let return data
+        // Let return data.
         return [];
 
     }//end statsHandler()
@@ -94,15 +98,17 @@ class LarpingService
     /**
      * Calculate the stats for a given chararacter
      *
-     * @param  ObjectEntity $character
+     * @param  ObjectEntity $character The charater to calculate for
+     *
      * @return ObjectEntity
+     *
      * @throws \Exception
      */
     public function calculateCharacter(ObjectEntity $character):ObjectEntity
     {
 
-        // Savety
-        if ($character->getEntity()->getReference() != 'https://larping.nl/character.schema.json') {
+        // Savety.
+        if ($character->getEntity()->getReference() !== 'https://larping.nl/character.schema.json') {
             return $character;
         }
 
@@ -127,7 +133,8 @@ class LarpingService
             }
         }
 
-        // Events
+        // Events.
+
         $now    = new DateTime();
         $events = $character->getValue('events');
             (isset($this->io) ?? $this->io->comment("Caclutaing ".count($events)." events"));
@@ -143,7 +150,7 @@ class LarpingService
             }
         }
 
-        // Conditions
+        // Conditions.
         $conditions = $character->getValue('conditions');
             (isset($this->io) ?? $this->io->comment("Caclutaing ".count($conditions)." conditions"));
         foreach ($conditions as $condition) {
@@ -153,7 +160,7 @@ class LarpingService
             }
         }
 
-        // Lets warn for invallid characters
+        // Lets warn for invallid characters.
         $rows = [
             "|name|base|value|effects|",
             "|---|---|---|---|",
@@ -182,13 +189,13 @@ class LarpingService
     private function addEffectToStats(array $stats, ObjectEntity $effect, $effects): array
     {
 
-        // Stackable
+        // Stackable.
         if ($effect->getValue('positive')) {
         }
 
         $stat = $effect->getValue('stat');
 
-        // Savety
+        // Savety.
         if (!$stat) {
                 (isset($this->io) ?? $this->io->comment("Effect ".$effect->getValue('name')." is not asigned to a stat so wont be calculated"));
             return $stats;
@@ -197,7 +204,7 @@ class LarpingService
             (isset($this->io) ?? $this->io->note("Calculating Effect ".$effect->getValue('name')));
             (isset($this->io) ?? $this->io->comment("Effect ".$effect->getValue('name')." targets ".$stat->getValue('name')));
 
-        // Get current vallue
+        // Get current value.
         if (isset($stats[$stat->getId()->toString()]["value"])) {
                 (isset($this->io) ?? $this->io->comment("Adding to existing stat"));
             $value = $stats[$stat->getId()->toString()]["value"];
@@ -210,7 +217,7 @@ class LarpingService
 
             (isset($this->io) ?? $this->io->comment("Effect ".$effect->getValue('name')." has a  ".$effect->getValue('modification')." modification of ".$effect->getValue('modifier')));
 
-        // Positive versus negative modifaction
+        // Positive versus negative modifaction.
         if ($effect->getValue('modification') == 'positive') {
             $value             = ($value + $effect->getValue('modifier'));
             $effectDescription = "(+ ".$effect->getValue('modifier').") ".$effect->getValue('name');
@@ -221,7 +228,7 @@ class LarpingService
 
             (isset($this->io) ?? $this->io->note("Stat ".$stat->getValue('name')." has a end value of ".$value));
 
-        // Set the calculated effects
+        // Set the calculated effects.
         $stats[$stat->getId()->toString()]["name"]      = $stat->getValue('name');
         $stats[$stat->getId()->toString()]["base"]      = $stat->getValue('base');
         $stats[$stat->getId()->toString()]["value"]     = $value;

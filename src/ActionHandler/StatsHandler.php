@@ -15,6 +15,8 @@ class StatsHandler implements ActionHandlerInterface
 {
 
     /**
+     * Get the coure larping service
+     *
      * @var LarpingService
      */
     private LarpingService $larpingService;
