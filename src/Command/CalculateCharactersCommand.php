@@ -20,6 +20,8 @@ class CalculateCharactersCommand extends Command
 {
 
     /**
+     * The symfony required default name
+     *
      * @var string
      */
     protected static $defaultName = 'larping:calculate:characters';
@@ -40,7 +42,11 @@ class CalculateCharactersCommand extends Command
      * @param EntityManagerInterface $entityManager  The entity manager
      * @param CacheService           $cacheService   The cache service
      */
-    public function __construct(LarpingService $larpingService, EntityManagerInterface $entityManager, CacheService $cacheService)
+    public function __construct(
+        LarpingService $larpingService,
+        EntityManagerInterface $entityManager,
+        CacheService $cacheService
+    )
     {
         $this->larpingService = $larpingService;
         $this->entityManager  = $entityManager;
@@ -56,8 +62,8 @@ class CalculateCharactersCommand extends Command
     protected function configure(): void
     {
         $this
-            ->setDescription('This command removes outdated objects from the cache')
-            ->setHelp('This command allows you to run further installation an configuration actions afther installing a plugin');
+            ->setDescription('This command calculated character stats')
+            ->setHelp('Trun this command to update all or a single character stats');
 
     }//end configure()
 
@@ -78,14 +84,18 @@ class CalculateCharactersCommand extends Command
         $io = new SymfonyStyle($input, $output);
         $this->larpingService->setStyle($io);
 
-        $characterEntity = $this->entityManager->getRepository('App:Entity')->findBy(['reference' => 'https://larping.nl/character.schema.json']);
+        $characterEntity = $this->entityManager
+            ->getRepository('App:Entity')
+            ->findBy(['reference' => 'https://larping.nl/character.schema.json'])        ;
 
         if (!$characterEntity) {
             $io->error("No entity for characters found");
             return 1;
         }
 
-        $characters = $this->entityManager->getRepository('App:ObjectEntity')->findBy(['entity' => $characterEntity]);
+        $characters = $this->entityManager
+            ->getRepository('App:ObjectEntity')
+            ->findBy(['entity' => $characterEntity]);
 
         $io->title('Calculating all characters');
         $io->note('Found '.count($characters).' characters');
@@ -94,7 +104,7 @@ class CalculateCharactersCommand extends Command
             $character = $this->larpingService->calculateCharacter($character);
             $this->entityManager->persist($character);
 
-            // Build a nice table
+            // Build a nice table.
             $headers = [
                 'stat',
                 'base',
