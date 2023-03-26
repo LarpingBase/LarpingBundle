@@ -131,7 +131,7 @@ class LarpingService
         // Events.
         $now    = new DateTime();
         $events = $character->getValue('events');
-        $this->logger->debug("calculating ".count($events)." events"))
+        $this->logger->debug("calculating ".count($events)." events");
         foreach ($events as $event) {
             // Todo: Continu if enddate is empty or greater then now
             if (! $event->getValue('endDate') || $event->getValue('endDate') > $now) {
