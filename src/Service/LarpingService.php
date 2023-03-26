@@ -110,13 +110,13 @@ class LarpingService
         $stats   = [];
         $notice  = "";
 
-        // Skills
+        // Skills.
         $skills = $character->getValue('skills');
         $this->logger->debug("Calculating ".count($skills)." skills");
-        // ad characters
+        // Add characters.
         foreach ($skills as $skill) {
             foreach ($skill->getValue('effects') as $effect) {
-                $stats     = $this->addEffectToStats($stats, $effect, $effects);
+                $stats     = $this->addEffectToStats($stats, $effect);
                 $effects[] = $effect;
             }
 
@@ -133,13 +133,13 @@ class LarpingService
         $events = $character->getValue('events');
         $this->logger->debug("calculating ".count($events)." events");
         foreach ($events as $event) {
-            // Todo: Continu if enddate is empty or greater then now
+            // Todo: Continu if enddate is empty or greater then now.
             if (! $event->getValue('endDate') || $event->getValue('endDate') > $now) {
                 continue;
             }
 
             foreach ($event->getValue('effects') as $effect) {
-                $stats     = $this->addEffectToStats($stats, $effect, $effects);
+                $stats     = $this->addEffectToStats($stats, $effect);
                 $effects[] = $effect;
             }
         }
@@ -149,7 +149,7 @@ class LarpingService
         $this->logger->debug("calculating ".count($conditions)." conditions");
         foreach ($conditions as $condition) {
             foreach ($condition->getValue('effects') as $effect) {
-                $stats     = $this->addEffectToStats($stats, $effect, $effects);
+                $stats     = $this->addEffectToStats($stats, $effect);
                 $effects[] = $effect;
             }
         }
@@ -160,7 +160,7 @@ class LarpingService
             "|---|---|---|---|",
         ];
 
-        foreach ($stats as $key => $stat) {
+        foreach ($stats as $stat) {
             // Lets throw a worning if skills end up beneath 0
             if ((int) $stat['value'] <= 0) {
                 $notice = "The stat ".$stat['name']." has a below 0 value of ".$stat['value']." \n".$notice;
@@ -180,7 +180,15 @@ class LarpingService
     }//end calculateCharacter()
 
 
-    private function addEffectToStats(array $stats, ObjectEntity $effect, $effects): array
+    /**
+     * Actually add the efeect to the stats
+     *
+     * @param array $stats the stats
+     * @param ObjectEntity $effect the effects
+     *
+     * @return array
+     */
+    private function addEffectToStats(array $stats, ObjectEntity $effect): array
     {
 
         // Stackable.
@@ -190,7 +198,7 @@ class LarpingService
         $stat = $effect->getValue('stat');
 
         // Savety.
-        if (!$stat) {
+        if ($stat === false) {
             $this->logger->error("Effect ".$effect->getValue('name')." is not asigned to a stat so wont be calculated");
             return $stats;
         }
