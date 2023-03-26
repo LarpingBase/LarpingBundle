@@ -46,8 +46,7 @@ class CalculateCharactersCommand extends Command
         LarpingService $larpingService,
         EntityManagerInterface $entityManager,
         CacheService $cacheService
-    )
-    {
+    ) {
         $this->larpingService = $larpingService;
         $this->entityManager  = $entityManager;
         $this->cacheService   = $cacheService;
@@ -86,7 +85,7 @@ class CalculateCharactersCommand extends Command
 
         $characterEntity = $this->entityManager
             ->getRepository('App:Entity')
-            ->findBy(['reference' => 'https://larping.nl/character.schema.json'])        ;
+            ->findBy(['reference' => 'https://larping.nl/character.schema.json']);
 
         if (!$characterEntity) {
             $io->error("No entity for characters found");

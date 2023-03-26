@@ -32,7 +32,6 @@ class LarpingService
     private LoggerInterface $logger;
 
 
-
     /**
      * The default construt for this clas
      *
@@ -50,6 +49,7 @@ class LarpingService
         $this->logger        = $pluginLogger;
 
     }//end __construct()
+
 
     /**
      * Calculates the atribute when an characters is changed
@@ -112,8 +112,8 @@ class LarpingService
 
         // Skills
         $skills = $character->getValue('skills');
-        $this->logger->debug("Calculating ".count($skills)." skills"); //ad characters
-
+        $this->logger->debug("Calculating ".count($skills)." skills");
+        // ad characters
         foreach ($skills as $skill) {
             foreach ($skill->getValue('effects') as $effect) {
                 $stats     = $this->addEffectToStats($stats, $effect, $effects);
