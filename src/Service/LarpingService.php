@@ -183,7 +183,7 @@ class LarpingService
     /**
      * Actually add the efeect to the stats
      *
-     * @param array $stats the stats
+     * @param array        $stats  the stats
      * @param ObjectEntity $effect the effects
      *
      * @return array
