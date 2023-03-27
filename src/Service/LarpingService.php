@@ -319,10 +319,10 @@ class LarpingService
         }
 
         $this->logger->debug("Stat ".$stat->getValue('name')." has a current value of ".$value);
+        $name         = $effect->getValue('name');
+        $modification = $effect->getValue('modification');
+        $modifier     = $effect->getValue('modifier');
         $this->logger->debug(
-            $name         = $effect->getValue('name');
-            $modification = $effect->getValue('modification');
-            $modifier     = $effect->getValue('modifier');
             $name." has a  ".$modification." modification of ".$modifier
         );
 
