@@ -42,6 +42,8 @@ class CalculateCharactersCommand extends Command
 
 
     /**
+     * The constructor for this class
+     *
      * @param LarpingService         $larpingService The larping service
      * @param EntityManagerInterface $entityManager  The entity manager
      * @param CacheService           $cacheService   The cache service
