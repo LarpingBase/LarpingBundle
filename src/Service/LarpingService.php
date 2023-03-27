@@ -111,7 +111,6 @@ class LarpingService
             return $character;
         }
 
-
         // Reset the Character.
         $character->setValue('effects', []);
         $character->setValue('notice', "");
@@ -127,10 +126,11 @@ class LarpingService
 
     }//end calculateCharacter()
 
+
     /**
      * Calculates the skills for a given character
      *
-     * @param ObjectEntity $character The character to calculate for
+     * @param  ObjectEntity $character The character to calculate for
      * @return ObjectEntity The calculated character
      */
     private function calculateSkills(ObjectEntity $character): ObjectEntity
@@ -138,9 +138,9 @@ class LarpingService
 
         // Pull from the character
         $effects = $character->getValue('effects');
-        $notice = $character->getValue('notice');
-        $stats = $character->getValue('stats');
-        $skills = $character->getValue('skills');
+        $notice  = $character->getValue('notice');
+        $stats   = $character->getValue('stats');
+        $skills  = $character->getValue('skills');
 
         $this->logger->debug("Calculating ".count($skills)." skills");
 
@@ -164,12 +164,14 @@ class LarpingService
         $character->setValue('stats', $stats);
 
         return $character;
-    }
+
+    }//end calculateSkills()
+
 
     /**
      * Calculates the events for a given character
      *
-     * @param ObjectEntity $character The character to calculate for
+     * @param  ObjectEntity $character The character to calculate for
      * @return ObjectEntity The calculated character
      */
     private function calculateEvents(ObjectEntity $character): ObjectEntity
@@ -177,11 +179,11 @@ class LarpingService
 
         // Pull from the character
         $effects = $character->getValue('effects');
-        $notice = $character->getValue('notice');
-        $stats = $character->getValue('stats');
-        $events = $character->getValue('events');
+        $notice  = $character->getValue('notice');
+        $stats   = $character->getValue('stats');
+        $events  = $character->getValue('events');
         $this->logger->debug("calculating ".count($events)." events");
-        $now    = new DateTime();
+        $now = new DateTime();
 
         foreach ($events as $event) {
             // Todo: Continu if enddate is empty or greater then now.
@@ -201,21 +203,23 @@ class LarpingService
         $character->setValue('stats', $stats);
 
         return $character;
-    }
+
+    }//end calculateEvents()
+
 
     /**
      * Calculates the condictions for a given character
      *
-     * @param ObjectEntity $character The character to calculate for
+     * @param  ObjectEntity $character The character to calculate for
      * @return ObjectEntity The calculated character
      */
     private function calculateConditions(ObjectEntity $character): ObjectEntity
     {
 
         // Pull from the character
-        $effects = $character->getValue('effects');
-        $notice = $character->getValue('notice');
-        $stats = $character->getValue('stats');
+        $effects    = $character->getValue('effects');
+        $notice     = $character->getValue('notice');
+        $stats      = $character->getValue('stats');
         $conditions = $character->getValue('conditions');
         $this->logger->debug("calculating ".count($conditions)." conditions");
 
@@ -224,7 +228,8 @@ class LarpingService
                 $stats     = $this->addEffectToStats($stats, $effect);
                 $effects[] = $effect;
             }
-        }       // Conditions.
+        }       //end foreach
+
         $conditions = $character->getValue('conditions');
         $this->logger->debug("calculating ".count($conditions)." conditions");
         foreach ($conditions as $condition) {
@@ -233,21 +238,25 @@ class LarpingService
                 $effects[] = $effect;
             }
         }
+
         // Write to the character
         $character->setValue('effects', $effects);
         $character->setValue('notice', $notice);
         $character->setValue('stats', $stats);
 
         return $character;
-    }
+
+    }//end calculateConditions()
+
 
     /**
      * Generates a markdown character table
      *
-     * @param ObjectEntity $character the character to create the card for
+     * @param  ObjectEntity $character the character to create the card for
      * @return string the card as markdown
      */
-    public function getMarkdowCard(ObjectEntity $character): string {
+    public function getMarkdowCard(ObjectEntity $character): string
+    {
 
         $stats = $character->getValue('stats');
 
@@ -258,7 +267,6 @@ class LarpingService
         ];
 
         foreach ($stats as $stat) {
-
             // Let's throw a worning if skills end up beneath 0.
             if ((int) $stat['value'] <= 0) {
                 $notice = "The stat ".$stat['name']." has a below 0 value of ".$stat['value']." \n".$notice;
@@ -270,7 +278,9 @@ class LarpingService
         }
 
         return  implode("\n", $rows);
-    }
+
+    }//end getMarkdowCard()
+
 
     /**
      * Actually add the efeect to the stats
