@@ -62,6 +62,8 @@ class CalculateCharactersCommand extends Command
 
 
     /**
+     * The default symfony command configuration
+     *
      * @return void
      */
     protected function configure(): void
@@ -74,6 +76,8 @@ class CalculateCharactersCommand extends Command
 
 
     /**
+     * The funtion run when te command is executed
+     *
      * @param InputInterface  $input  The input
      * @param OutputInterface $output The output
      *
