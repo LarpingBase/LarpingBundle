@@ -321,7 +321,7 @@ class LarpingService
         if ($effect->getValue('modification') === 'positive') {
             $value             = ($value + $effect->getValue('modifier'));
             $effectDescription = "(+ ".$effect->getValue('modifier').") ".$effect->getValue('name');
-        } else {
+        } elseif($effect->getValue('modification') !== 'positive') {
             $value             = ($value - $effect->getValue('modifier'));
             $effectDescription = "(- ".$effect->getValue('modifier').") ".$effect->getValue('name');
         }
