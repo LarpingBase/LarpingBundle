@@ -10,9 +10,10 @@ namespace LarpingBase\LarpingBundle\Service;
 
 use App\Entity\ObjectEntity;
 use Doctrine\ORM\EntityManagerInterface;
-use \DateTime;
+use DateTime;
 use Symfony\Component\Console\Style\SymfonyStyle;
 use CommonGateway\CoreBundle\Service\CacheService;
+use Psr\Log\LoggerInterface;
 
 class LarpingService
 {
