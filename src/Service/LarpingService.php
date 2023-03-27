@@ -156,7 +156,9 @@ class LarpingService
             // Check skill requirements.
             foreach ($skill->getValue('requiredSkills') as $requiredSkill) {
                 if (in_array($requiredSkill, $skills) === false) {
-                    $notice = "The skill ".$skill->getValue('name')." has requirement on the skill ".$requiredSkill->getValue('name')." but this character dosn't seem to have that skill \n".$notice;
+                    $name1 = $skill->getValue('name');
+                    $name2 = $requiredSkill->getValue('name');
+                    $notice = $name1." requires " .$name2." but this character dosn't have that skill \n".$notice;
                 }
             }
         }
@@ -217,6 +219,7 @@ class LarpingService
      * Calculates the condictions for a given character
      *
      * @param  ObjectEntity $character The character to calculate for
+     *
      * @return ObjectEntity The calculated character
      */
     private function calculateConditions(ObjectEntity $character): ObjectEntity
@@ -317,7 +320,10 @@ class LarpingService
 
         $this->logger->debug("Stat ".$stat->getValue('name')." has a current value of ".$value);
         $this->logger->debug(
-            "Effect ".$effect->getValue('name')." has a  ".$effect->getValue('modification')." modification of ".$effect->getValue('modifier')
+            $name = $effect->getValue('name');
+            $modification = $effect->getValue('modification');
+            $modifier = $effect->getValue('modifier');
+            $name." has a  ".$modification." modification of ".$modifier
         );
 
         // Positive versus negative modifaction.
