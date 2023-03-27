@@ -116,8 +116,8 @@ class LarpingService
         $character->setValue('notice', "");
         $character->setValue('stats', []);
 
-        $character = $this->calculaeSkills($character);
-        $character = $this->calculateConditions($character);
+        $character = $this->calculateSkills($character);
+        $character = $this->calculateEvents($character);
         $character = $this->calculateConditions($character);
 
         $character->setValue('card', $this->getMarkdowCard($character));
@@ -305,21 +305,17 @@ class LarpingService
             return $stats;
         }
 
-            $this->logger->debug("Calculating Effect ".$effect->getValue('name'));
-            $this->logger->debug("Effect ".$effect->getValue('name')." targets ".$stat->getValue('name'));
+        $this->logger->debug("Calculating Effect ".$effect->getValue('name'));
+        $this->logger->debug("Effect ".$effect->getValue('name')." targets ".$stat->getValue('name'));
 
         // Get current value.
+        $value = $stat->getValue("base");
         if (isset($stats[$stat->getId()->toString()]["value"]) === true) {
-                $this->logger->debug("Adding to existing stat");
             $value = $stats[$stat->getId()->toString()]["value"];
-        } else {
-                $this->logger->debug("Adding stat to character ");
-            $value = $stat->getValue("base");
         }
 
-            $this->logger->debug("Stat ".$stat->getValue('name')." has a current value of ".$value);
-
-            $this->logger->debug("Effect ".$effect->getValue('name')." has a  ".$effect->getValue('modification')." modification of ".$effect->getValue('modifier'));
+        $this->logger->debug("Stat ".$stat->getValue('name')." has a current value of ".$value);
+        $this->logger->debug("Effect ".$effect->getValue('name')." has a  ".$effect->getValue('modification')." modification of ".$effect->getValue('modifier'));
 
         // Positive versus negative modifaction.
         if ($effect->getValue('modification') === 'positive') {
