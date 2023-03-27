@@ -130,7 +130,7 @@ class LarpingService
     /**
      * Calculates the skills for a given character
      *
-     * @param  ObjectEntity $character The character to calculate for
+     * @param ObjectEntity $character The character to calculate for
      *
      * @return ObjectEntity The calculated character
      *
@@ -174,7 +174,7 @@ class LarpingService
     /**
      * Calculates the events for a given character
      *
-     * @param  ObjectEntity $character The character to calculate for
+     * @param ObjectEntity $character The character to calculate for
      *
      * @return ObjectEntity The calculated character
      *
@@ -250,7 +250,7 @@ class LarpingService
     /**
      * Generates a markdown character table
      *
-     * @param  ObjectEntity $character the character to create the card for
+     * @param ObjectEntity $character the character to create the card for
      *
      * @return string the card as markdown
      */
@@ -271,11 +271,7 @@ class LarpingService
                 $notice = "The stat ".$stat['name']." has a below 0 value of ".$stat['value']." \n".$notice;
             }
 
-            $row = "|"
-                .$stat['name']."|"
-                .$stat['base']."|"
-                .$stat['value']."|"
-                .implode(',', $stat['effects'])."|";
+            $row = "|".$stat['name']."|".$stat['base']."|".$stat['value']."|".implode(',', $stat['effects'])."|";
 
             $rows[] = $row;
         }
@@ -321,8 +317,7 @@ class LarpingService
 
         $this->logger->debug("Stat ".$stat->getValue('name')." has a current value of ".$value);
         $this->logger->debug(
-            "Effect ".$effect->getValue('name')." has a  ".
-            $effect->getValue('modification')." modification of ".$effect->getValue('modifier')
+            "Effect ".$effect->getValue('name')." has a  ".$effect->getValue('modification')." modification of ".$effect->getValue('modifier')
         );
 
         // Positive versus negative modifaction.
