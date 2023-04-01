@@ -1,3 +1,17 @@
 {
-  "installationService": "LarpingBase\\LarpingBundle\\Service\\InstallationService"
+  "installationService": "LarpingBase\\LarpingBundle\\Service\\InstallationService",
+  "collections": [
+    {
+      "reference": "https://opencatalogi.nl/collection/larping.default.collection.json",
+      "schemaPrefix": "https://larping.eu"
+    }
+  ],
+  "cards": {
+    "schemas": [
+      "https://larping.nl/character.schema.json",
+      "https://larping.nl/skill.schema.json",
+      "https://larping.nl/effect.schema.json",
+      "https://larping.nl/event.schema.json"
+    ]
+  }
 }
