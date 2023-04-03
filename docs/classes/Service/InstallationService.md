@@ -11,14 +11,11 @@ CommonGateway\CoreBundle\Installer\InstallerInterface
 
 | Name | Description |
 |------|-------------|
-|[__construct](#installationservice__construct)||
-|[addActionConfiguration](#installationserviceaddactionconfiguration)||
-|[addActions](#installationserviceaddactions)|This function creates actions for all the actionHandlers in OpenCatalogi|
-|[checkDataConsistency](#installationservicecheckdataconsistency)||
-|[install](#installationserviceinstall)||
-|[setStyle](#installationservicesetstyle)|Set symfony style in order to output to the console|
-|[uninstall](#installationserviceuninstall)||
-|[update](#installationserviceupdate)||
+|[__construct](#installationservice__construct)|The constructor|
+|[checkDataConsistency](#installationservicecheckdataconsistency)|The actual code run on update and installation of this bundle|
+|[install](#installationserviceinstall)|Every installation service should implement an install function|
+|[uninstall](#installationserviceuninstall)|Every installation service should implement an uninstall function|
+|[update](#installationserviceupdate)|Every installation service should implement an update function|
 
 
 
@@ -28,70 +25,21 @@ CommonGateway\CoreBundle\Installer\InstallerInterface
 **Description**
 
 ```php
- __construct (void)
+public __construct (\EntityManagerInterface $entityManager)
 ```
 
- 
+The constructor 
 
  
 
 **Parameters**
 
-`This function has no parameters.`
+* `(\EntityManagerInterface) $entityManager`
+: The entity manager  
 
 **Return Values**
 
 `void`
-
-
-<hr />
-
-
-### InstallationService::addActionConfiguration  
-
-**Description**
-
-```php
- addActionConfiguration (void)
-```
-
- 
-
- 
-
-**Parameters**
-
-`This function has no parameters.`
-
-**Return Values**
-
-`void`
-
-
-<hr />
-
-
-### InstallationService::addActions  
-
-**Description**
-
-```php
-public addActions (void)
-```
-
-This function creates actions for all the actionHandlers in OpenCatalogi 
-
- 
-
-**Parameters**
-
-`This function has no parameters.`
-
-**Return Values**
-
-`void`
-
-
 
 
 <hr />
@@ -102,10 +50,10 @@ This function creates actions for all the actionHandlers in OpenCatalogi
 **Description**
 
 ```php
- checkDataConsistency (void)
+public checkDataConsistency (void)
 ```
 
- 
+The actual code run on update and installation of this bundle 
 
  
 
@@ -116,6 +64,8 @@ This function creates actions for all the actionHandlers in OpenCatalogi
 **Return Values**
 
 `void`
+
+
 
 
 <hr />
@@ -126,10 +76,10 @@ This function creates actions for all the actionHandlers in OpenCatalogi
 **Description**
 
 ```php
- install (void)
+public install (void)
 ```
 
- 
+Every installation service should implement an install function 
 
  
 
@@ -140,30 +90,6 @@ This function creates actions for all the actionHandlers in OpenCatalogi
 **Return Values**
 
 `void`
-
-
-<hr />
-
-
-### InstallationService::setStyle  
-
-**Description**
-
-```php
-public setStyle (\SymfonyStyle $io)
-```
-
-Set symfony style in order to output to the console 
-
- 
-
-**Parameters**
-
-* `(\SymfonyStyle) $io`
-
-**Return Values**
-
-`self`
 
 
 
@@ -176,10 +102,10 @@ Set symfony style in order to output to the console
 **Description**
 
 ```php
- uninstall (void)
+public uninstall (void)
 ```
 
- 
+Every installation service should implement an uninstall function 
 
  
 
@@ -190,6 +116,8 @@ Set symfony style in order to output to the console
 **Return Values**
 
 `void`
+
+
 
 
 <hr />
@@ -200,10 +128,10 @@ Set symfony style in order to output to the console
 **Description**
 
 ```php
- update (void)
+public update (void)
 ```
 
- 
+Every installation service should implement an update function 
 
  
 
@@ -214,6 +142,8 @@ Set symfony style in order to output to the console
 **Return Values**
 
 `void`
+
+
 
 
 <hr />
