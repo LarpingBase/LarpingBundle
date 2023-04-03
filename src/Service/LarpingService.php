@@ -113,7 +113,7 @@ class LarpingService
 
         // Reset the Character.
         $character->setValue('effects', []);
-        //$character->setValue('notice', "");
+        // $character->setValue('notice', "");
         $character->setValue('stats', []);
 
         $character = $this->calculateSkills($character);
@@ -260,22 +260,17 @@ class LarpingService
     public function getMarkdowCard(ObjectEntity $character): string
     {
 
-        $stats = $character->getValue('stats');
-        $notice= $character->getValue('notice');
+        $stats  = $character->getValue('stats');
+        $notice = $character->getValue('notice');
 
         // Lets warn for invallid characters.
-
-
         $skilltable = [
             "* Calculation table*",
             "|name|base|value|effects|",
-            "|---|---|---|---|"
+            "|---|---|---|---|",
         ];
 
-        $skillList = [
-            "*Skill List*"
-        ];
-
+        $skillList = ["*Skill List*"];
 
         foreach ($stats as $stat) {
             // Let's throw a worning if skills end up beneath 0.
@@ -284,7 +279,7 @@ class LarpingService
             }
 
             $skillList[] = $stat['name'].":".$stat['value'];
-            $tableRow = "|".$stat['name']."|".$stat['base']."|".$stat['value']."|".implode(',', $stat['effects'])."|";
+            $tableRow    = "|".$stat['name']."|".$stat['base']."|".$stat['value']."|".implode(',', $stat['effects'])."|";
 
             $skilltable[] = $tableRow;
         }
