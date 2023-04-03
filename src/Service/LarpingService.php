@@ -149,7 +149,7 @@ class LarpingService
 
         foreach ($skills as $skill) {
             foreach ($skill->getValue('effects') as $effect) {
-                $stats     = $this->addEffectToStats($stats, $effect);
+                $stats     = $this->addEffectToStats($stats, $effect, 'Skill '.$skill->getValue('name'));
                 $effects[] = $effect;
             }
 
@@ -200,7 +200,7 @@ class LarpingService
             }
 
             foreach ($event->getValue('effects') as $effect) {
-                $stats     = $this->addEffectToStats($stats, $effect);
+                $stats     = $this->addEffectToStats($stats, $effect, 'Event '.$event->getValue('name'));
                 $effects[] = $effect;
             }
         }
@@ -235,7 +235,7 @@ class LarpingService
 
         foreach ($conditions as $condition) {
             foreach ($condition->getValue('effects') as $effect) {
-                $stats     = $this->addEffectToStats($stats, $effect);
+                $stats     = $this->addEffectToStats($stats, $effect, 'Condition '.$condition->getValue('name'));
                 $effects[] = $effect;
             }
         }
@@ -305,7 +305,7 @@ class LarpingService
      *
      * @return array
      */
-    private function addEffectToStats(array $stats, ObjectEntity $effect): array
+    private function addEffectToStats(array $stats, ObjectEntity $effect, string $title = ""): array
     {
 
         // Stackable.
@@ -340,10 +340,10 @@ class LarpingService
         // Positive versus negative modifaction.
         if ($effect->getValue('modification') === 'positive') {
             $value             = ($value + $effect->getValue('modifier'));
-            $effectDescription = "(+ ".$effect->getValue('modifier').") ".$effect->getValue('name');
+            $effectDescription = $title." (+ ".$effect->getValue('modifier').") ".$effect->getValue('name');
         } else if ($effect->getValue('modification') !== 'positive') {
             $value             = ($value - $effect->getValue('modifier'));
-            $effectDescription = "(- ".$effect->getValue('modifier').") ".$effect->getValue('name');
+            $effectDescription = $title." (- ".$effect->getValue('modifier').") ".$effect->getValue('name');
         }
 
         $this->logger->debug("Stat ".$stat->getValue('name')." has a end value of ".$value);
