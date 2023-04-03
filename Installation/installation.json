@@ -13,5 +13,14 @@
       "https://larping.nl/effect.schema.json",
       "https://larping.nl/event.schema.json"
     ]
+  },
+  "actions": {
+    "handlers": [
+      {
+        "reference": "https://hp.nl/action/hp.CreateAvailabilityAction.action.json",
+        "actionHandler": "LarpingBase\\LarpingBundle\\ActionHandler\\StatsHandler",
+        "listens": ["commongateway.object.pre.update"]
+      }
+    ]
   }
 }
