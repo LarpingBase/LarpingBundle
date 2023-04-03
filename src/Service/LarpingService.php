@@ -113,7 +113,7 @@ class LarpingService
 
         // Reset the Character.
         $character->setValue('effects', []);
-        $character->setValue('notice', "");
+        //$character->setValue('notice', "");
         $character->setValue('stats', []);
 
         $character = $this->calculateSkills($character);
@@ -261,6 +261,7 @@ class LarpingService
     {
 
         $stats = $character->getValue('stats');
+        $notice= $character->getValue('notice');
 
         // Lets warn for invallid characters.
         $rows = [
@@ -279,13 +280,15 @@ class LarpingService
             $rows[] = $row;
         }
 
+        $character->setValue('notice', $notice);
+
         return  implode("\n", $rows);
 
     }//end getMarkdowCard()
 
 
     /**
-     * Actually add the efeect to the stats
+     * Actually add the effect to the stats
      *
      * @param array        $stats  the stats
      * @param ObjectEntity $effect the effects
@@ -322,9 +325,7 @@ class LarpingService
         $name         = $effect->getValue('name');
         $modification = $effect->getValue('modification');
         $modifier     = $effect->getValue('modifier');
-        $this->logger->debug(
-            $name." has a  ".$modification." modification of ".$modifier
-        );
+        $this->logger->debug($name." has a  ".$modification." modification of ".$modifier);
 
         // Positive versus negative modifaction.
         if ($effect->getValue('modification') === 'positive') {
@@ -335,7 +336,7 @@ class LarpingService
             $effectDescription = "(- ".$effect->getValue('modifier').") ".$effect->getValue('name');
         }
 
-            $this->logger->debug("Stat ".$stat->getValue('name')." has a end value of ".$value);
+        $this->logger->debug("Stat ".$stat->getValue('name')." has a end value of ".$value);
 
         // Set the calculated effects.
         $stats[$stat->getId()->toString()]["name"]      = $stat->getValue('name');

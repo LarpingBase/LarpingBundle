@@ -1,7 +1,7 @@
 {
   "$id": "https://larping.nl/character.schema.json",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "version": "0.5",
+  "version": "0.6",
   "title":"Character",
   "type":"object",
   "description":" A player or non player character within an setting. Non Player characters are defined by not being attached to a user",
@@ -30,6 +30,28 @@
       "format":"text",
       "maxLength":2555,
       "description":"Anything out of the ordenarry that the system noticed automaticly",
+      "example":" ",
+      "readOnly": true
+    },
+    "fait":{
+      "type":"string",
+      "format":"text",
+      "maxLength":2555,
+      "description":"The faith of a character",
+      "example":"Godless"
+    },
+    "slNotesPublic":{
+      "type":"string",
+      "format":"text",
+      "maxLength":2555,
+      "description":"SL notes that are vissable to players",
+      "example":" "
+    },
+    "slNotesPublic":{
+      "type":"string",
+      "format":"text",
+      "maxLength":2555,
+      "description":"SL notes that are NOT-vissable to players",
       "example":" "
     },
     "card":{
@@ -43,6 +65,18 @@
       "type":"array",
       "description":"The stats of this character",
       "readOnly": true
+    },
+    "gold":{
+      "type":"integer",
+      "description":"The amount of gold peaces that this character has"
+    },
+    "silver":{
+      "type":"integer",
+      "description":"The amount of silver peaces that this character has"
+    },
+    "copper":{
+      "type":"integer",
+      "description":"The amount of copper peaces that this character has"
     },
   "events":{
     "type":"array",
