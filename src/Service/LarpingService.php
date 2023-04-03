@@ -264,10 +264,18 @@ class LarpingService
         $notice= $character->getValue('notice');
 
         // Lets warn for invallid characters.
-        $rows = [
+
+
+        $skilltable = [
+            "* Calculation table*",
             "|name|base|value|effects|",
-            "|---|---|---|---|",
+            "|---|---|---|---|"
         ];
+
+        $skillList = [
+            "*Skill List*"
+        ];
+
 
         foreach ($stats as $stat) {
             // Let's throw a worning if skills end up beneath 0.
@@ -275,11 +283,13 @@ class LarpingService
                 $notice = "The stat ".$stat['name']." has a below 0 value of ".$stat['value']." \n".$notice;
             }
 
-            $row = "|".$stat['name']."|".$stat['base']."|".$stat['value']."|".implode(',', $stat['effects'])."|";
+            $skillList[] = $stat['name'].":".$stat['value'];
+            $tableRow = "|".$stat['name']."|".$stat['base']."|".$stat['value']."|".implode(',', $stat['effects'])."|";
 
-            $rows[] = $row;
+            $skilltable[] = $tableRow;
         }
 
+        $rows = array_merge($skillList, $skilltable);
         $character->setValue('notice', $notice);
 
         return  implode("\n", $rows);
