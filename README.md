@@ -1,4 +1,4 @@
-# LarpingBundle [![Codacy Badge](https://app.codacy.com/project/badge/Grade/cad45ffbc444440f8b61ac58a739bba3)](https://app.codacy.com/gh/LarpingBase/LarpingBundle/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade)
+# LarpingBundle [![Codacy Badge](https://app.codacy.com/project/badge/Grade/cad45ffbc444440f8b61ac58a739bba3)](https://app.codacy.com/gh/LarpingBase/LarpingBundle/dashboard?utm_source=gh\&utm_medium=referral\&utm_content=\&utm_campaign=Badge_grade)
 
 The larping bundle provides an full-length database solutions catered to persons and organisations running live action role playing event. It provides character management trough characters, skills, abilities, effect and conditions but also provides machanismes for setting up story arcs.
 
