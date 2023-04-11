@@ -12,7 +12,7 @@
 |------|-------------|
 |[__construct](#larpingservice__construct)|The default construt for this clas|
 |[calculateCharacter](#larpingservicecalculatecharacter)|Calculate the stats for a given chararacter|
-|[setStyle](#larpingservicesetstyle)|Set symfony style in order to output to the console|
+|[getMarkdowCard](#larpingservicegetmarkdowcard)|Generates a markdown character table|
 |[statsHandler](#larpingservicestatshandler)|Calculates the atribute when an characters is changed|
 
 
@@ -23,7 +23,7 @@
 **Description**
 
 ```php
-public __construct (\EntityManagerInterface $entityManager, \CacheService $cacheService)
+public __construct (\EntityManagerInterface $entityManager, \CacheService $cacheService, \LoggerInterface $pluginLogger)
 ```
 
 The default construt for this clas 
@@ -36,6 +36,8 @@ The default construt for this clas
 : The entity manager  
 * `(\CacheService) $cacheService`
 : The cache service  
+* `(\LoggerInterface) $pluginLogger`
+: The Logger Interface  
 
 **Return Values**
 
@@ -78,28 +80,28 @@ Calculate the stats for a given chararacter
 <hr />
 
 
-### LarpingService::setStyle  
+### LarpingService::getMarkdowCard  
 
 **Description**
 
 ```php
-public setStyle (\SymfonyStyle $io)
+public getMarkdowCard (\ObjectEntity $character)
 ```
 
-Set symfony style in order to output to the console 
+Generates a markdown character table 
 
  
 
 **Parameters**
 
-* `(\SymfonyStyle) $io`
-: Symfony style\  
+* `(\ObjectEntity) $character`
+: the character to create the card for  
 
 **Return Values**
 
-`self`
+`string`
 
-
+> the card as markdown
 
 
 <hr />
