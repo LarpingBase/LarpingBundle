@@ -300,7 +300,7 @@ class LarpingService
      *
      * @return array
      */
-    private function addEffectToStats(array $stats, ObjectEntity $effect, string $title = ""): array
+    private function addEffectToStats(array $stats, ObjectEntity $effect, string $title=""): array
     {
 
         // Stackable.
