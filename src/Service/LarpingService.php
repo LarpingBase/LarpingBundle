@@ -163,7 +163,9 @@ class LarpingService
         $character->setValue('stats', $stats);
 
         return $character;
-    }
+
+    }//end setBaseStats()
+
 
     /**
      * Calculates the skills for a given character
