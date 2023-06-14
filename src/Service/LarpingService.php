@@ -116,6 +116,7 @@ class LarpingService
         // $character->setValue('notice', "");
         $character->setValue('stats', []);
 
+        $character = $this->setBaseStats($character);
         $character = $this->calculateSkills($character);
         $character = $this->calculateEvents($character);
         $character = $this->calculateConditions($character);
@@ -126,6 +127,35 @@ class LarpingService
 
     }//end calculateCharacter()
 
+
+    /**
+     * Calculates the base stats for a given character
+     *
+     * @param ObjectEntity $character The character to calculate for
+     *
+     * @return ObjectEntity The calculated character
+     *
+     * @throws \Exception
+     */
+    private function setBaseStats(ObjectEntity $character): ObjectEntity
+    {
+        $setting = $character->getValue("setting");
+        $effects = $character->getValue('effects');
+        $notice  = $character->getValue('notice');
+        $stats   = $character->getValue('stats');
+        $skills  = $character->getValue('skills');
+
+        foreach($setting->getValue("atributes") as $attribute){
+            $base = $attribute->getValue("base");
+            if($base !=== null && $base !== 0){
+                $stats[] = $base;
+            }
+        }
+
+        $character->setValue('stats', $stats);
+
+        return $character;
+    }
 
     /**
      * Calculates the skills for a given character
