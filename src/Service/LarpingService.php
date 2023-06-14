@@ -145,9 +145,9 @@ class LarpingService
         $stats   = $character->getValue('stats');
         $skills  = $character->getValue('skills');
 
-        foreach($setting->getValue("atributes") as $attribute){
+        foreach ($setting->getValue("atributes") as $attribute) {
             $base = $attribute->getValue("base");
-            if($base !=== null && $base !== 0){
+            if ($base !== = null && $base !== 0) {
                 $stats[] = $base;
             }
         }
@@ -155,7 +155,9 @@ class LarpingService
         $character->setValue('stats', $stats);
 
         return $character;
-    }
+
+    }//end setBaseStats()
+
 
     /**
      * Calculates the skills for a given character
