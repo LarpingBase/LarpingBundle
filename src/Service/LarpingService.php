@@ -139,16 +139,24 @@ class LarpingService
      */
     private function setBaseStats(ObjectEntity $character): ObjectEntity
     {
-        $setting = $character->getValue("setting");
-        $effects = $character->getValue('effects');
-        $notice  = $character->getValue('notice');
-        $stats   = $character->getValue('stats');
-        $skills  = $character->getValue('skills');
+        // If we do not have a single character then we are going to do all characters.
+        $statsEntity = $this->entityManager
+            ->getRepository('App:Entity')
+            ->findOneBy(['reference' => 'https://larping.nl/stat.schema.json']);
 
-        foreach($setting->getValue("atributes") as $attribute){
-            $base = $attribute->getValue("base");
-            if($base !=== null && $base !== 0){
-                $stats[] = $base;
+        $stats = $this->entityManager
+            ->getRepository('App:ObjectEntity')
+            ->findBy(['entity' => $statsEntity]);
+
+        $characterStats   = $character->getValue('stats');
+
+        foreach($stats as $stat){
+            $base = $stat->getValue("base");
+            if($base !== null && $base != 0 && !array_key_exists($stat->getId()->toString(),$characterStats)){
+                // Set the calculated effects.
+                $characterStats[$stat->getId()->toString()]["name"]      = $stat->getValue('name');
+                $characterStats[$stat->getId()->toString()]["base"]      = $stat->getValue('base');
+                $characterStats[$stat->getId()->toString()]["value"]     = $stat->getValue('base');
             }
         }
 
