@@ -148,15 +148,15 @@ class LarpingService
             ->getRepository('App:ObjectEntity')
             ->findBy(['entity' => $statsEntity]);
 
-        $characterStats   = $character->getValue('stats');
+        $characterStats = $character->getValue('stats');
 
-        foreach($stats as $stat){
+        foreach ($stats as $stat) {
             $base = $stat->getValue("base");
-            if($base !== null && $base != 0 && !array_key_exists($stat->getId()->toString(),$characterStats)){
+            if ($base !== null && $base != 0 && !array_key_exists($stat->getId()->toString(), $characterStats)) {
                 // Set the calculated effects.
-                $characterStats[$stat->getId()->toString()]["name"]      = $stat->getValue('name');
-                $characterStats[$stat->getId()->toString()]["base"]      = $stat->getValue('base');
-                $characterStats[$stat->getId()->toString()]["value"]     = $stat->getValue('base');
+                $characterStats[$stat->getId()->toString()]["name"]  = $stat->getValue('name');
+                $characterStats[$stat->getId()->toString()]["base"]  = $stat->getValue('base');
+                $characterStats[$stat->getId()->toString()]["value"] = $stat->getValue('base');
             }
         }
 
