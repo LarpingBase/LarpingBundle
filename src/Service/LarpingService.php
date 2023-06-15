@@ -155,9 +155,9 @@ class LarpingService
             $base = $stat->getValue("base");
             if ($base !== null && $base != 0 && !array_key_exists($stat->getId()->toString(), $characterStats)) {
                 // Set the calculated effects.
-                $characterStats[$stat->getId()->toString()]["name"]  = $stat->getValue('name');
-                $characterStats[$stat->getId()->toString()]["base"]  = $stat->getValue('base');
-                $characterStats[$stat->getId()->toString()]["value"] = $stat->getValue('base');
+                $characterStats[$stat->getId()->toString()]["name"]    = $stat->getValue('name');
+                $characterStats[$stat->getId()->toString()]["base"]    = $stat->getValue('base');
+                $characterStats[$stat->getId()->toString()]["value"]   = $stat->getValue('base');
                 $characterStats[$stat->getId()->toString()]["effects"] = [];
             }
         }
@@ -331,7 +331,7 @@ class LarpingService
 
         return  implode("\n", $rows);
 
-    }//end getMarkdowCard()
+    }//end getMarkdownCard()
 
 
     /**
