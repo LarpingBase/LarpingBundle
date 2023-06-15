@@ -19,7 +19,7 @@
       {
         "reference": "https://hp.nl/action/hp.CreateAvailabilityAction.action.json",
         "actionHandler": "LarpingBase\\LarpingBundle\\ActionHandler\\StatsHandler",
-        "listens": ["commongateway.object.pre.update"]
+        "listens": ["larping.default"]
       }
     ]
   }
