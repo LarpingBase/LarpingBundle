@@ -11,6 +11,7 @@ namespace LarpingBase\LarpingBundle\Service;
 use App\Entity\ObjectEntity;
 use Doctrine\ORM\EntityManagerInterface;
 use DateTime;
+use Exception;
 use Symfony\Component\Console\Style\SymfonyStyle;
 use CommonGateway\CoreBundle\Service\CacheService;
 use Psr\Log\LoggerInterface;
@@ -101,7 +102,7 @@ class LarpingService
      *
      * @return ObjectEntity
      *
-     * @throws \Exception
+     * @throws Exception
      */
     public function calculateCharacter(ObjectEntity $character):ObjectEntity
     {
@@ -135,7 +136,7 @@ class LarpingService
      *
      * @return ObjectEntity The calculated character
      *
-     * @throws \Exception
+     * @throws Exception
      */
     private function setBaseStats(ObjectEntity $character): ObjectEntity
     {
@@ -174,7 +175,7 @@ class LarpingService
      *
      * @return ObjectEntity The calculated character
      *
-     * @throws \Exception
+     * @throws Exception
      */
     private function calculateSkills(ObjectEntity $character): ObjectEntity
     {
@@ -220,7 +221,7 @@ class LarpingService
      *
      * @return ObjectEntity The calculated character
      *
-     * @throws \Exception
+     * @throws Exception
      */
     private function calculateEvents(ObjectEntity $character): ObjectEntity
     {

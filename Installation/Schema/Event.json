@@ -1,6 +1,6 @@
 {
   "$id": "https://larping.nl/event.schema.json",
-  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$schema": "https://docs.commongateway.nl/schemas/Entity.schema.json",
   "version": "0.4",
   "title":"Event",
   "type":"object",

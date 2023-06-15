@@ -1,7 +1,7 @@
 {
   "$id": "https://larping.nl/character.schema.json",
-  "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "version": "0.7",
+  "$schema": "https://docs.commongateway.nl/schemas/Entity.schema.json",
+  "version": "0.8",
   "title":"Character",
   "type":"object",
   "description":" A player or non player character within an setting. Non Player characters are defined by not being attached to a user",
@@ -47,7 +47,7 @@
       "description":"SL notes that are vissable to players",
       "example":" "
     },
-    "slNotesPublic":{
+    "slNotesPrivate":{
       "type":"string",
       "format":"text",
       "maxLength":2555,

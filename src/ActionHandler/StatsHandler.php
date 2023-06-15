@@ -60,8 +60,8 @@ class StatsHandler implements ActionHandlerInterface
     public function getConfiguration(): array
     {
         return [
-            '$id'         => 'https://example.com/person.schema.json',
-            '$schema'     => 'https://json-schema.org/draft/2020-12/schema',
+            '$id'         => 'https://larping.nl/actionHandler/StatsHandler.actionHandler.json',
+            '$schema'     => 'https://docs.commongateway.nl/schemas/ActionHandler.schema.json',
             'title'       => 'Stats Action',
             'description' => 'This handler calculates the stats for characters',
             'required'    => [],
