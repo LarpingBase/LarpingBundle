@@ -6,7 +6,7 @@
       "description":"Vampiric pirates that heal people by replacing their blood with rum"
     }
   ],
-  "https://larping.nl/abillity.schema.json": [
+  "https://larping.nl/ability.schema.json": [
     {
       "id": "0511a61f-e2da-40ae-9448-7898c7ed89c6",
       "name":"Experience points",

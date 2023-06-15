@@ -122,7 +122,7 @@ class LarpingService
         $character = $this->calculateEvents($character);
         $character = $this->calculateConditions($character);
 
-        $character->setValue('card', $this->getMarkdowCard($character));
+        $character->setValue('card', $this->getMarkdownCard($character));
 
         return $character;
 
@@ -158,10 +158,11 @@ class LarpingService
                 $characterStats[$stat->getId()->toString()]["name"]  = $stat->getValue('name');
                 $characterStats[$stat->getId()->toString()]["base"]  = $stat->getValue('base');
                 $characterStats[$stat->getId()->toString()]["value"] = $stat->getValue('base');
+                $characterStats[$stat->getId()->toString()]["effects"] = [];
             }
         }
 
-        $character->setValue('stats', $stats);
+        $character->setValue('stats', $characterStats);
 
         return $character;
 
@@ -298,7 +299,7 @@ class LarpingService
      *
      * @return string the card as markdown
      */
-    public function getMarkdowCard(ObjectEntity $character): string
+    public function getMarkdownCard(ObjectEntity $character): string
     {
 
         $stats  = $character->getValue('stats');
