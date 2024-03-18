@@ -1,6 +1,6 @@
 {
     "name": "larping-base/larping-bundle",
-    "description": "An Commong Gateay bundle for the larping application",
+    "description": "A Common Gateway bundle for the larping application",
     "type" : "symfony-bundle",
 	"keywords" : [
 		"commongateway",
