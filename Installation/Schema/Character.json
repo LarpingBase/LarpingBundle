@@ -68,7 +68,7 @@
     "card":{
       "type":"string",
       "format":"text",
-      "maxLength":2555,
+      "maxLength":5000,
       "description":"The character card as a nice markdown table",
       "example":""
     },
