@@ -78,43 +78,43 @@
       "type":"integer",
       "description":"The amount of copper peaces that this character has"
     },
-  "events":{
-    "type":"array",
-    "description":"All the events that this characters has subscribed to\n",
-    "items":{
-      "type":"object",
-      "$ref": "https://larping.nl/event.schema.json"
-    }
-  },
-  "skills":{
-    "type":"array",
-    "description":"All the skills that this characters posses\n",
-    "items":{
-      "type":"object",
-      "$ref": "https://larping.nl/skill.schema.json"
-    }
-  },
-  "conditions":{
-    "type":"array",
-    "description":"All the conditions that apply to this character",
-    "items":{
-      "type":"object",
-      "$ref": "https://larping.nl/condition.schema.json"
-    }
-  },
-  "type":{
-    "type":"string",
-    "default":"player",
-    "enum": ["player","npc","other"],
-    "description":"Whether this character is a player character, setting this to false wil turn the character to a non player character (NPC)"
-  },
+    "events":{
+      "type":"array",
+      "description":"All the events that this characters has subscribed to\n",
+      "items":{
+        "type":"object",
+        "$ref": "https://larping.nl/event.schema.json"
+      }
+    },
+    "skills":{
+      "type":"array",
+      "description":"All the skills that this characters posses\n",
+      "items":{
+        "type":"object",
+        "$ref": "https://larping.nl/skill.schema.json"
+      }
+    },
+    "conditions":{
+      "type":"array",
+      "description":"All the conditions that apply to this character",
+      "items":{
+        "type":"object",
+        "$ref": "https://larping.nl/condition.schema.json"
+      }
+    },
+    "type":{
+      "type":"string",
+      "default":"player",
+      "enum": ["player","npc","other"],
+      "description":"Whether this character is a player character, setting this to false wil turn the character to a non player character (NPC)"
+    },
     "approved":{
       "type":"string",
       "default":"player",
       "enum": ["no","approved"],
       "description":"Whether this character is a approved by a game master,setting this to approved wil make the character playable on events"
     }
-},
+  },
   "required":[
     "name"
   ]
