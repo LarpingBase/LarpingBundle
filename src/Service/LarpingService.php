@@ -197,7 +197,7 @@ class LarpingService
 
             // Check skill requirements.
             foreach ($skill->getValue('requiredSkills') as $requiredSkill) {
-                if (in_array($requiredSkill, $skills) === false) {
+                if ($skills->contains($requiredSkill) === false) {
                     $name1  = $skill->getValue('name');
                     $name2  = $requiredSkill->getValue('name');
                     $notice = $name1." requires ".$name2." but this character dosn't have that skill \n".$notice;
